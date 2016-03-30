@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="dSX-UH-bnm">
+            <objects>
+                <viewController storyboardIdentifier="Mine" id="hJA-ss-Tek" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sas-aP-1H3"/>
+                        <viewControllerLayoutGuide type="bottom" id="kPo-EU-ESl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cyr-BU-3vZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine" translatesAutoresizingMaskIntoConstraints="NO" id="rU8-iQ-4JJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rU8-iQ-4JJ" firstAttribute="top" secondItem="cyr-BU-3vZ" secondAttribute="top" id="EHA-ZT-og4"/>
+                            <constraint firstItem="kPo-EU-ESl" firstAttribute="top" secondItem="rU8-iQ-4JJ" secondAttribute="bottom" id="QID-2N-cta"/>
+                            <constraint firstAttribute="trailing" secondItem="rU8-iQ-4JJ" secondAttribute="trailing" id="e4d-k1-gH8"/>
+                            <constraint firstItem="rU8-iQ-4JJ" firstAttribute="leading" secondItem="cyr-BU-3vZ" secondAttribute="leading" id="ofz-Zo-kmW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DYH-DD-sTf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="428" y="475"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mine" width="444" height="718"/>
+    </resources>
+</document>
