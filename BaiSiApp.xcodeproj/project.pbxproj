@@ -23,9 +23,9 @@
 		8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356E01CAA52390070BE40 /* ASCustomNav.swift */; };
 		8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3574D1CAA85130070BE40 /* ASHotCell.swift */; };
 		8CB357501CAA918E0070BE40 /* top_defauth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */; };
-		8CD6044A1CABBD2700A350C6 /* MenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD604491CABBD2700A350C6 /* MenusModel.swift */; };
 		8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */; };
 		8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */; };
+		8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,9 +48,9 @@
 		8CB356E01CAA52390070BE40 /* ASCustomNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomNav.swift; sourceTree = "<group>"; };
 		8CB3574D1CAA85130070BE40 /* ASHotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHotCell.swift; sourceTree = "<group>"; };
 		8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = top_defauth.jpg; path = Hot/top_defauth.jpg; sourceTree = "<group>"; };
-		8CD604491CABBD2700A350C6 /* MenusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenusModel.swift; sourceTree = "<group>"; };
 		8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNetWorkHepler.swift; sourceTree = "<group>"; };
 		8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDataHelper.swift; sourceTree = "<group>"; };
+		8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMenusModel.swift; sourceTree = "<group>"; };
 		B8FBB09ED213DE8A3DCFA442 /* Pods-BaiSiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiApp/Pods-BaiSiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -192,7 +192,7 @@
 		8CD604481CABBD0500A350C6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8CD604491CABBD2700A350C6 /* MenusModel.swift */,
+				8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -354,11 +354,11 @@
 				8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */,
 				8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */,
 				8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */,
-				8CD6044A1CABBD2700A350C6 /* MenusModel.swift in Sources */,
 				8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */,
 				8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */,
 				8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */,
 				8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */,
+				8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */,
 				8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,12 @@ class ASCustomNav: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeUI()
+        ASDataHelper.getMenusType("精华") { (AnyObject) in
+            let array = AnyObject as! NSMutableArray
+            for model in array {
+                print((model as! ASMenusModel).name)
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

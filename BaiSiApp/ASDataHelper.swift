@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import SwiftyJSON
 class ASDataHelper: NSObject {
     
-    func getMenusType(successs:(AnyObject)->Void){
+    class func getMenusType(type:String, successs:(AnyObject)->Void){
         ASNetWorkHepler.getResponseData("http://s.budejie.com/public/list-appbar/baisi_xiaohao-iphone-4.1", parameters: nil, success: { (result) in
-            successs(result as! AnyObject)
+            successs(ASMenusModel.getMenus(type, jsonArr: result["menus"].array!) as AnyObject)
             }) { (error) in
               NSLog("请求失败")
         }
