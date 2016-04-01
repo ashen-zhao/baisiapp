@@ -11,6 +11,8 @@ import Kingfisher
 
 class ASHotTBController: UITableViewController {
 
+    var dataSource = NSMutableArray()
+    
     // MARK: - life Cycle
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -21,6 +23,13 @@ class ASHotTBController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ASDataHelper.getAllLists { (AnyObject) in
+            let dataArr = AnyObject as! NSMutableArray
+            for listModel in dataArr {
+                self.dataSource.addObject(listModel)
+            }
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,20 +41,26 @@ class ASHotTBController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return dataSource.count
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("hotCell", forIndexPath: indexPath) as! ASHotCell
-        
+        cell.setupData(dataSource[indexPath.row] as! ASListsModel)
         return cell
     }
     
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
-        topImg.kf_setImageWithURL(NSURL(string: "http://img.spriteapp.cn/ugc/2016/03/24/145600_1879.jpg")!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+        
+        ASDataHelper.getTopImages { (AnyObject) in
+//            "http://img.spriteapp.cn/ugc/2016/03/24/145600_1879.jpg")!
+            let model = (AnyObject as! NSMutableArray)[0] as! ASTopImagesModel
+            topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+        }
+        
         return topImg
     }
     

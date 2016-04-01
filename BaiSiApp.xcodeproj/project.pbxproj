@@ -26,6 +26,12 @@
 		8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */; };
 		8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */; };
 		8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */; };
+		8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70931CAE192400A3155B /* ASListsModel.swift */; };
+		8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70951CAE1E0B00A3155B /* ASTagsModel.swift */; };
+		8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70971CAE1E4600A3155B /* ASUserModel.swift */; };
+		8CED709A1CAE1EA700A3155B /* ASVideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70991CAE1EA700A3155B /* ASVideoModel.swift */; };
+		8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED709B1CAE3AA200A3155B /* ASCommentModel.swift */; };
+		8CED709E1CAE48AB00A3155B /* ASTopImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED709D1CAE48AB00A3155B /* ASTopImagesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +57,12 @@
 		8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNetWorkHepler.swift; sourceTree = "<group>"; };
 		8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDataHelper.swift; sourceTree = "<group>"; };
 		8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMenusModel.swift; sourceTree = "<group>"; };
+		8CED70931CAE192400A3155B /* ASListsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASListsModel.swift; sourceTree = "<group>"; };
+		8CED70951CAE1E0B00A3155B /* ASTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTagsModel.swift; sourceTree = "<group>"; };
+		8CED70971CAE1E4600A3155B /* ASUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUserModel.swift; sourceTree = "<group>"; };
+		8CED70991CAE1EA700A3155B /* ASVideoModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoModel.swift; sourceTree = "<group>"; };
+		8CED709B1CAE3AA200A3155B /* ASCommentModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCommentModel.swift; sourceTree = "<group>"; };
+		8CED709D1CAE48AB00A3155B /* ASTopImagesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTopImagesModel.swift; sourceTree = "<group>"; };
 		B8FBB09ED213DE8A3DCFA442 /* Pods-BaiSiApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiApp/Pods-BaiSiApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -193,6 +205,12 @@
 			isa = PBXGroup;
 			children = (
 				8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */,
+				8CED70931CAE192400A3155B /* ASListsModel.swift */,
+				8CED70951CAE1E0B00A3155B /* ASTagsModel.swift */,
+				8CED70971CAE1E4600A3155B /* ASUserModel.swift */,
+				8CED70991CAE1EA700A3155B /* ASVideoModel.swift */,
+				8CED709B1CAE3AA200A3155B /* ASCommentModel.swift */,
+				8CED709D1CAE48AB00A3155B /* ASTopImagesModel.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -350,16 +368,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */,
 				8CB356D71CAA4ACF0070BE40 /* ASHotTBController.swift in Sources */,
 				8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */,
 				8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */,
+				8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */,
+				8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */,
 				8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */,
+				8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */,
 				8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */,
+				8CED709E1CAE48AB00A3155B /* ASTopImagesModel.swift in Sources */,
 				8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */,
 				8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */,
 				8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */,
 				8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */,
 				8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */,
+				8CED709A1CAE1EA700A3155B /* ASVideoModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,8 +502,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BaiSiApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ashen.BaiSiApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashen.baisiapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -491,8 +516,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = BaiSiApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Ashen.BaiSiApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ashen.baisiapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

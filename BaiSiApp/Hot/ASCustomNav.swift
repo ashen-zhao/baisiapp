@@ -47,6 +47,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         
         leftImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: 10, height: scrollView.frame.size.height))
         leftImg.image = UIImage(named: "left_bg")
+        leftImg.hidden = true
         self.addSubview(leftImg)
         
         rightImg = UIImageView(frame: CGRect.init(x: CGRectGetMaxX(scrollView.frame) - 10, y: 0, width: 10, height: scrollView.frame.size.height))
@@ -67,7 +68,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
             if i == 0 {
                 lastBtn = title
                 title.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-                title.titleLabel?.font = UIFont.systemFontOfSize(17)
+                title.titleLabel?.font = UIFont.systemFontOfSize(16)
             } else {
                 title.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal)
                 title.titleLabel?.font = UIFont.systemFontOfSize(15)
@@ -85,7 +86,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     // MARK: - delegate
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        print("\(scrollView.contentSize.width) \n \(scrollView.contentOffset.x)")
+        leftImg.hidden = scrollView.contentOffset.x <= 0 ? true : false
     }
     
     // MARK: - actons
@@ -100,21 +101,20 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         lastBtn?.titleLabel?.font = UIFont.systemFontOfSize(15)
         
         btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(17)
+        btn.titleLabel?.font = UIFont.systemFontOfSize(16)
         
         lastBtn = btn
         
         var frame = lineView.frame
         frame.origin.x = CGFloat(btn.tag * 50) + 9
-    
-        var dict = [Int:CGFloat]()
        
-        dict = [0:0.0, 1:0.0, 2:0.0, 3:50.0, 4:100.0, 5:150.0, 6:160.0, 7:180.0, 8:180.0]
+        var dict:[Int:CGFloat] = [0:0.0, 1:0.0, 2:0.0, 3:50.0, 4:100.0, 5:150.0, 6:160.0, 7:180.0, 8:180.0]
         
-        UIView.animateWithDuration(0.6) {
+        UIView.animateWithDuration(0.3) {
             self.scrollView.contentOffset.x = dict[btn.tag]!
             self.lineView.frame = frame
         }
+        leftImg.hidden = scrollView.contentOffset.x <= 0 ? true : false
     }
     
     
