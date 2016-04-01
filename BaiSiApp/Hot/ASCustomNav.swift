@@ -68,7 +68,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
             if i == 0 {
                 lastBtn = title
                 title.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-                title.titleLabel?.font = UIFont.systemFontOfSize(16)
+                title.titleLabel?.font = UIFont.systemFontOfSize(15.5)
             } else {
                 title.setTitleColor(UIColor.lightGrayColor(), forState: UIControlState.Normal)
                 title.titleLabel?.font = UIFont.systemFontOfSize(15)
@@ -101,7 +101,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         lastBtn?.titleLabel?.font = UIFont.systemFontOfSize(15)
         
         btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
-        btn.titleLabel?.font = UIFont.systemFontOfSize(16)
+        btn.titleLabel?.font = UIFont.systemFontOfSize(15.5)
         
         lastBtn = btn
         

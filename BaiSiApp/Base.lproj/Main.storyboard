@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="hotCell" rowHeight="367" id="MO8-5L-6p1" customClass="ASHotCell" customModule="BaiSiApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="hotCell" rowHeight="367" id="MO8-5L-6p1" customClass="ASHotCell" customModule="BaiSiApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="367"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MO8-5L-6p1" id="HJh-SE-DNs">
@@ -96,7 +96,7 @@
                                                 <constraint firstAttribute="height" constant="10" id="VGy-bY-Ktk"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-Q2-wfL">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2k-Q2-wfL" userLabel="操作框">
                                             <rect key="frame" x="0.0" y="331" width="600" height="35"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cell-content-line" translatesAutoresizingMaskIntoConstraints="NO" id="dUH-50-W7I">
@@ -206,30 +206,30 @@
                                                 <constraint firstItem="IKy-f3-nZi" firstAttribute="width" secondItem="F2k-Q2-wfL" secondAttribute="width" multiplier="1/4" id="yhE-0x-guo"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tku-MS-ObZ">
-                                            <rect key="frame" x="0.0" y="301" width="600" height="30"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tku-MS-ObZ" userLabel="标签">
+                                            <rect key="frame" x="0.0" y="296" width="600" height="30"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag_icon" translatesAutoresizingMaskIntoConstraints="NO" id="uLC-fE-aFU">
-                                                    <rect key="frame" x="10" y="7" width="15" height="15"/>
+                                                    <rect key="frame" x="15" y="9" width="15" height="14"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="8wa-0q-VMy"/>
+                                                        <constraint firstAttribute="height" constant="14" id="8wa-0q-VMy"/>
                                                         <constraint firstAttribute="width" constant="15" id="Lz7-38-jgH"/>
                                                     </constraints>
                                                 </imageView>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wQg-mb-yTa">
-                                                    <rect key="frame" x="35" y="0.0" width="555" height="30"/>
+                                                    <rect key="frame" x="37" y="0.0" width="553" height="30"/>
                                                 </scrollView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="uLC-fE-aFU" firstAttribute="leading" secondItem="tku-MS-ObZ" secondAttribute="leading" constant="10" id="NQk-j6-DUp"/>
+                                                <constraint firstItem="uLC-fE-aFU" firstAttribute="leading" secondItem="tku-MS-ObZ" secondAttribute="leading" constant="15" id="NQk-j6-DUp"/>
                                                 <constraint firstAttribute="trailing" secondItem="wQg-mb-yTa" secondAttribute="trailing" constant="10" id="NhK-BJ-I6L"/>
                                                 <constraint firstItem="wQg-mb-yTa" firstAttribute="top" secondItem="tku-MS-ObZ" secondAttribute="top" id="X6X-9L-Y39"/>
-                                                <constraint firstAttribute="bottom" secondItem="uLC-fE-aFU" secondAttribute="bottom" constant="8" id="Y2t-SE-TIG"/>
+                                                <constraint firstAttribute="bottom" secondItem="uLC-fE-aFU" secondAttribute="bottom" constant="7" id="Y2t-SE-TIG"/>
                                                 <constraint firstItem="uLC-fE-aFU" firstAttribute="top" secondItem="tku-MS-ObZ" secondAttribute="top" constant="8" id="b2e-5f-LV5"/>
                                                 <constraint firstAttribute="height" constant="30" id="jB0-1g-iX0"/>
                                                 <constraint firstAttribute="bottom" secondItem="wQg-mb-yTa" secondAttribute="bottom" id="lJD-va-DSf"/>
-                                                <constraint firstItem="wQg-mb-yTa" firstAttribute="leading" secondItem="uLC-fE-aFU" secondAttribute="trailing" constant="10" id="ojc-14-Jrb"/>
+                                                <constraint firstItem="wQg-mb-yTa" firstAttribute="leading" secondItem="uLC-fE-aFU" secondAttribute="trailing" constant="7" id="ojc-14-Jrb"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -237,11 +237,11 @@
                                                 </mask>
                                             </variation>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="guh-TS-M5D">
-                                            <rect key="frame" x="0.0" y="221" width="600" height="80"/>
+                                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="guh-TS-M5D">
+                                            <rect key="frame" x="0.0" y="256" width="600" height="40"/>
                                             <subviews>
-                                                <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-C6-zxi">
-                                                    <rect key="frame" x="10" y="63" width="580" height="17"/>
+                                                <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-C6-zxi" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="23" width="580" height="17"/>
                                                     <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
                                                     <constraints>
@@ -251,11 +251,11 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa">
-                                                    <rect key="frame" x="10" y="45" width="60" height="18"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="5" width="80" height="18"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="Xvg-9V-9MY"/>
+                                                        <constraint firstAttribute="width" constant="80" id="Xvg-9V-9MY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -268,13 +268,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="NiM-C6-zxi" secondAttribute="trailing" constant="10" id="TF4-CU-OC5"/>
                                                 <constraint firstItem="yN9-BK-yEa" firstAttribute="leading" secondItem="guh-TS-M5D" secondAttribute="leading" constant="10" id="Uer-fr-hpQ"/>
                                                 <constraint firstItem="NiM-C6-zxi" firstAttribute="top" secondItem="yN9-BK-yEa" secondAttribute="bottom" id="h6y-2u-QE4"/>
-                                                <constraint firstAttribute="height" constant="80" id="vUb-Nf-T9E"/>
+                                                <constraint firstAttribute="height" constant="40" id="vUb-Nf-T9E"/>
                                                 <constraint firstItem="NiM-C6-zxi" firstAttribute="leading" secondItem="guh-TS-M5D" secondAttribute="leading" constant="10" id="yyD-qq-eg4"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="F2k-Q2-wfL" firstAttribute="top" secondItem="tku-MS-ObZ" secondAttribute="bottom" id="0z8-rO-O87"/>
+                                        <constraint firstItem="F2k-Q2-wfL" firstAttribute="top" secondItem="tku-MS-ObZ" secondAttribute="bottom" constant="5" id="0z8-rO-O87"/>
                                         <constraint firstItem="tku-MS-ObZ" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="1Em-eq-ZPb"/>
                                         <constraint firstItem="9DE-E3-rgc" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="top" constant="22" id="1bM-kK-Xqt"/>
                                         <constraint firstAttribute="trailing" secondItem="9DE-E3-rgc" secondAttribute="trailing" constant="70" id="1v6-ax-oVL"/>
@@ -306,6 +306,9 @@
                                     <outlet property="btnComment" destination="aUl-Id-xuB" id="gMs-IX-R5g"/>
                                     <outlet property="btnDing" destination="IKy-f3-nZi" id="4hf-sq-myQ"/>
                                     <outlet property="btnShare" destination="na5-g9-Jmd" id="Gck-WW-EqM"/>
+                                    <outlet property="commentHeight" destination="5SY-kE-k7J" id="4lF-hM-sBr"/>
+                                    <outlet property="commentHot" destination="yN9-BK-yEa" id="grG-rW-BV5"/>
+                                    <outlet property="commentView" destination="guh-TS-M5D" id="Cdo-nF-bSd"/>
                                     <outlet property="imgVHeader" destination="B3F-he-W3l" id="xck-ZF-eHy"/>
                                     <outlet property="lblComment" destination="NiM-C6-zxi" id="xL9-YL-TY9"/>
                                     <outlet property="lblName" destination="9DE-E3-rgc" id="Esq-mb-jkN"/>

@@ -54,9 +54,7 @@ class ASHotTBController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
-        
         ASDataHelper.getTopImages { (AnyObject) in
-//            "http://img.spriteapp.cn/ugc/2016/03/24/145600_1879.jpg")!
             let model = (AnyObject as! NSMutableArray)[0] as! ASTopImagesModel
             topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
         }
@@ -68,7 +66,11 @@ class ASHotTBController: UITableViewController {
         return 60
     }
     
-        /*
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 300;
+    }
+    
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

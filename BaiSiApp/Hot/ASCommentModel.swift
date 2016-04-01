@@ -28,8 +28,10 @@ class ASCommentModel: NSObject {
 //    },
     
     var content = ""
-    
+    var user = ASUserModel()
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
-        
+        if key == "u" {
+            user.setValuesForKeysWithDictionary(value as! Dictionary)
+        }
     }
 }

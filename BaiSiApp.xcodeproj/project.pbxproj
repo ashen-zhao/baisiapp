@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7FD73CFA8D837BA245457903 /* Pods_BaiSiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17963E05FF71DBF1B530016D /* Pods_BaiSiApp.framework */; };
+		8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */; };
+		8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */; };
 		8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356A61CA905BA0070BE40 /* AppDelegate.swift */; };
 		8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356AA1CA905BA0070BE40 /* Main.storyboard */; };
 		8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356AD1CA905BA0070BE40 /* Images.xcassets */; };
@@ -37,6 +39,8 @@
 /* Begin PBXFileReference section */
 		021689F21EBB6C393EB45DA5 /* Pods-BaiSiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiApp/Pods-BaiSiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		17963E05FF71DBF1B530016D /* Pods_BaiSiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiSiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToolHelper.swift; sourceTree = "<group>"; };
+		8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomLabel.swift; sourceTree = "<group>"; };
 		8CB356A31CA905BA0070BE40 /* BaiSiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB356A61CA905BA0070BE40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		8CB356AB1CA905BA0070BE40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				8CB356E01CAA52390070BE40 /* ASCustomNav.swift */,
+				8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */,
 				8CB3574D1CAA85130070BE40 /* ASHotCell.swift */,
 			);
 			name = Views;
@@ -220,6 +225,7 @@
 			children = (
 				8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */,
 				8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */,
+				8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -369,8 +375,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */,
+				8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */,
 				8CB356D71CAA4ACF0070BE40 /* ASHotTBController.swift in Sources */,
 				8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */,
+				8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */,
 				8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */,
 				8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */,
 				8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */,
