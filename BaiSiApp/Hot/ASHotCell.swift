@@ -35,7 +35,10 @@ class ASHotCell: UITableViewCell {
     
     @IBOutlet weak var btnComment: UIButton!
 
+    @IBOutlet weak var mainCenterView: UIView!
 
+    
+    @IBOutlet weak var mainBottom: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -53,7 +56,7 @@ class ASHotCell: UITableViewCell {
         lblText.text = listModel.text
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
-        
+   
         var frame = commentView.frame
         if listModel.top_comment.content.isEmpty {
             frame.size.height = 0
@@ -68,6 +71,7 @@ class ASHotCell: UITableViewCell {
         lblComment.text = listModel.top_comment.user.name + ": " + listModel.top_comment.content
         btnDing.setTitle(" " + listModel.up, forState: .Normal)
         btnBad.setTitle(" \(listModel.down!)", forState: .Normal)
+        
         btnShare.setTitle(" " + listModel.forward, forState: .Normal)
         btnComment.setTitle(" \(listModel.comment!)", forState: .Normal)
         
@@ -76,20 +80,26 @@ class ASHotCell: UITableViewCell {
             item.removeFromSuperview()
         }
         var lastTagBtn:UIButton!
+        var tagContentWidth:CGFloat = 0.0
         for i in 0..<listModel.tags.count {
             
             let tagBtn = UIButton(type: .Custom)
           
             let width = ASToolHelper.getSizeForText(listModel.tags[i].name, size: CGSizeMake(self.frame.width - 20, 30),font: 15).width
             
-            tagBtn.frame = CGRect.init(x: i == 0 ? 0 :CGRectGetMaxX(lastTagBtn.frame), y: 0, width: width + 20, height: 30)
+            tagBtn.frame = CGRect.init(x: i == 0 ? 0 :CGRectGetMaxX(lastTagBtn.frame), y: 0, width: width + 10, height: 30)
             tagBtn.setTitle(listModel.tags[i].name, forState: .Normal)
             tagBtn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
             tagBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
             scrollTag.addSubview(tagBtn)
             lastTagBtn = tagBtn
+            tagContentWidth += (width + 10)
         }
-        
+        scrollTag.contentSize = CGSizeMake(tagContentWidth, 30)
+    }
+    
+    class func getCellHeight(listModel:ASListsModel) -> CGFloat {
+        return CGFloat(listModel.video.height)
     }
   
 }

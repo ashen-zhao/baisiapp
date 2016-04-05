@@ -26,7 +26,7 @@ class ASHotTBController: UITableViewController {
         ASDataHelper.getAllLists { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
-                self.dataSource.addObject(listModel)
+                self.dataSource.addObject(listModel as! ASListsModel)
             }
             self.tableView.reloadData()
         }
@@ -67,7 +67,7 @@ class ASHotTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 300;
+        return ASHotCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
     }
     
     /*
