@@ -19,7 +19,7 @@ class ASDataHelper: NSObject {
         }
     }
     
-    //获取推荐
+    //获取推荐列表数据
     class func getAllLists(success:(AnyObject)->Void) {
         ASNetWorkHepler.getResponseData("http://s.budejie.com/topic/list/jingxuan/1/baisi_xiaohao-iphone-4.1/0-20.json", parameters: nil, success: { (result) in
             success(ASListsModel.getLists(result["list"].array!))

@@ -41,12 +41,12 @@ class ASHotTBController: UITableViewController {
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataSource.count
+        return dataSource.count ?? 0
     }
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("hotCell", forIndexPath: indexPath) as! ASHotCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("hotCell") as! ASHotCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
         return cell
     }

@@ -15,6 +15,8 @@ class ASHotCell: UITableViewCell {
     
     @IBOutlet weak var lblName: UILabel!
     
+    
+    
     @IBOutlet weak var lblTime: UILabel!
     
     @IBOutlet weak var lblText: UILabel!
@@ -35,10 +37,9 @@ class ASHotCell: UITableViewCell {
     
     @IBOutlet weak var btnComment: UIButton!
 
-    @IBOutlet weak var mainCenterView: UIView!
-
+    @IBOutlet weak var centerView: UIView!
     
-    @IBOutlet weak var mainBottom: NSLayoutConstraint!
+    let videoView = ASVideoView.videoView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -56,17 +57,15 @@ class ASHotCell: UITableViewCell {
         lblText.text = listModel.text
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
-   
-        var frame = commentView.frame
-        if listModel.top_comment.content.isEmpty {
-            frame.size.height = 0
-            commentView.frame = frame
-            commentView.hidden = true
-        } else {
-            commentView.hidden = false
-            frame.size.height = lblComment.frame.size.height + 30
-            commentView.frame = frame
+        
+        switch listModel.type {
+        case .Video:
+            self.centerView.addSubview(videoView)
+            videoView.frame = CGRectMake(10, 0, 300, 200)
+        default:
+            break
         }
+        
         
         lblComment.text = listModel.top_comment.user.name + ": " + listModel.top_comment.content
         btnDing.setTitle(" " + listModel.up, forState: .Normal)
@@ -84,7 +83,7 @@ class ASHotCell: UITableViewCell {
         for i in 0..<listModel.tags.count {
             
             let tagBtn = UIButton(type: .Custom)
-          
+            
             let width = ASToolHelper.getSizeForText(listModel.tags[i].name, size: CGSizeMake(self.frame.width - 20, 30),font: 15).width
             
             tagBtn.frame = CGRect.init(x: i == 0 ? 0 :CGRectGetMaxX(lastTagBtn.frame), y: 0, width: width + 10, height: 30)
@@ -99,7 +98,19 @@ class ASHotCell: UITableViewCell {
     }
     
     class func getCellHeight(listModel:ASListsModel) -> CGFloat {
-        return CGFloat(listModel.video.height)
+        switch listModel.type {
+        case .Gif:
+            return CGFloat(listModel.gif.height)
+        case .Html:
+            return 300
+        case .Image:
+              return CGFloat(listModel.image.height)
+        case .Text:
+              return ASToolHelper.getSizeForText(listModel.text, size: CGSizeMake(ASMainWidth - 20, CGFloat.max) , font: 17).height + 250
+        case .Video:
+             return CGFloat(listModel.video.height)
+        }
+       
     }
   
 }

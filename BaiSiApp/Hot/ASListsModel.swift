@@ -11,9 +11,8 @@ import SwiftyJSON
 
 class ASListsModel: NSObject {
     
-    
     var id = ""
-    var type = ""
+    var type:ContentType = ContentType.Video
     var comment:AnyObject?
     var bookmark = ""
     var text = ""
@@ -26,12 +25,13 @@ class ASListsModel: NSObject {
     var tags = [ASTagsModel]()
     var u = ASUserModel()
     var video = ASVideoModel()
+    var image = ASImageModel()
+    var gif = ASGifModel()
     var top_comment = ASCommentModel()
     
     init(dict:JSON) {
         super.init()
         id = dict["id"].string!
-        type = dict["type"].string!
         comment = dict["comment"].object
         bookmark = dict["bookmark"].string!
         text = dict["text"].string!
@@ -40,7 +40,24 @@ class ASListsModel: NSObject {
         forward = dict["forward"].string!
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
-    
+        
+        switch dict["type"].stringValue {
+        case "video":
+            type = ContentType.Video
+        case "gif":
+            type = ContentType.Gif
+        case "image":
+            type = ContentType.Image
+        case "html":
+            type = ContentType.Html
+        case "text":
+            type = ContentType.Text
+        default:
+            type = ContentType.Text
+        }
+        
+        
+        
         if dict["tags"] != nil {
             for item in dict["tags"].array! {
                 let tag = ASTagsModel()
@@ -60,6 +77,16 @@ class ASListsModel: NSObject {
             let tempVideo = ASVideoModel()
             tempVideo.setValuesForKeysWithDictionary(dict["video"].dictionaryObject!)
             video = tempVideo
+        }
+        
+        if dict["image"] != nil {
+            let tempImage = ASImageModel()
+            tempImage.setValuesForKeysWithDictionary(dict["image"].dictionaryObject!)
+        }
+        
+        if dict["gif"] != nil {
+            let tempImage = ASGifModel()
+            tempImage.setValuesForKeysWithDictionary(dict["gif"].dictionaryObject!)
         }
         
         if dict["top_comment"] != nil {

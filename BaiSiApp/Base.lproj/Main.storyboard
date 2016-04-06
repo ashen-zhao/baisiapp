@@ -80,14 +80,19 @@
                                             <state key="normal" image="cellmorebtnnormal"/>
                                             <state key="highlighted" image="cellmorebtnclick"/>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="IG对战VG, 巅峰时刻，谁来见证，我们，还是我们" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3H-ZV-Cjg">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IG对战VG, 巅峰时刻，谁来见证，我们，还是我们" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3H-ZV-Cjg">
                                             <rect key="frame" x="10" y="67" width="564" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" priority="500" constant="20" id="Vf8-93-clG"/>
+                                                <constraint firstAttribute="height" constant="20" id="Vf8-93-clG"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Vf8-93-clG"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b84-Zw-VNY">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="10"/>
@@ -250,6 +255,11 @@
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="5SY-kE-k7J"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="5" width="80" height="18"/>
@@ -272,9 +282,9 @@
                                                 <constraint firstItem="NiM-C6-zxi" firstAttribute="leading" secondItem="guh-TS-M5D" secondAttribute="leading" constant="10" id="yyD-qq-eg4"/>
                                             </constraints>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zHL-ki-0QU">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-Lu-VHx">
                                             <rect key="frame" x="0.0" y="88" width="600" height="214"/>
-                                            <color key="backgroundColor" red="0.37597872840000002" green="0.73725490199999999" blue="0.53263458900000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                     <constraints>
@@ -284,25 +294,25 @@
                                         <constraint firstAttribute="trailing" secondItem="9DE-E3-rgc" secondAttribute="trailing" constant="70" id="1v6-ax-oVL"/>
                                         <constraint firstItem="vlq-3U-olr" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="topMargin" constant="10" id="41Z-XR-B4j"/>
                                         <constraint firstItem="6rk-ke-1Ha" firstAttribute="leading" secondItem="B3F-he-W3l" secondAttribute="trailing" constant="8" id="55m-bV-p87"/>
+                                        <constraint firstItem="OU2-Lu-VHx" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="56x-e8-SWy"/>
+                                        <constraint firstItem="guh-TS-M5D" firstAttribute="top" secondItem="OU2-Lu-VHx" secondAttribute="bottom" id="5B9-lY-YeF"/>
                                         <constraint firstItem="guh-TS-M5D" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="7Q5-Nc-dNT"/>
                                         <constraint firstItem="9DE-E3-rgc" firstAttribute="leading" secondItem="B3F-he-W3l" secondAttribute="trailing" constant="8" id="7vB-5C-il6"/>
-                                        <constraint firstItem="zHL-ki-0QU" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="DTH-dR-eMi"/>
-                                        <constraint firstItem="guh-TS-M5D" firstAttribute="top" secondItem="zHL-ki-0QU" secondAttribute="bottom" id="EkW-J6-7ce"/>
                                         <constraint firstItem="C3H-ZV-Cjg" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="KJS-NX-EWL"/>
                                         <constraint firstAttribute="trailing" secondItem="F2k-Q2-wfL" secondAttribute="trailing" id="KKM-ad-ips"/>
                                         <constraint firstItem="tku-MS-ObZ" firstAttribute="top" secondItem="guh-TS-M5D" secondAttribute="bottom" id="L1z-ct-6Bx"/>
                                         <constraint firstItem="B3F-he-W3l" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="top" constant="20" id="Pup-8A-dyi"/>
                                         <constraint firstItem="C3H-ZV-Cjg" firstAttribute="top" secondItem="6rk-ke-1Ha" secondAttribute="bottom" constant="7" id="Q0G-go-kxs"/>
+                                        <constraint firstItem="OU2-Lu-VHx" firstAttribute="top" secondItem="C3H-ZV-Cjg" secondAttribute="bottom" id="Sim-qC-bVD"/>
                                         <constraint firstAttribute="trailing" secondItem="guh-TS-M5D" secondAttribute="trailing" id="TMp-eC-8pf"/>
                                         <constraint firstAttribute="trailing" secondItem="b84-Zw-VNY" secondAttribute="trailing" id="YHK-ei-BM3"/>
                                         <constraint firstItem="F2k-Q2-wfL" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="ZD3-qD-iVd"/>
                                         <constraint firstAttribute="trailing" secondItem="C3H-ZV-Cjg" secondAttribute="trailing" constant="26" id="clK-BH-xTa"/>
                                         <constraint firstAttribute="trailing" secondItem="tku-MS-ObZ" secondAttribute="trailing" id="giF-iH-k1m"/>
                                         <constraint firstItem="B3F-he-W3l" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="hYA-ax-JFI"/>
-                                        <constraint firstAttribute="trailing" secondItem="zHL-ki-0QU" secondAttribute="trailing" id="jfB-oG-mfL"/>
                                         <constraint firstAttribute="bottom" secondItem="F2k-Q2-wfL" secondAttribute="bottom" id="jpA-Ds-cIR"/>
-                                        <constraint firstItem="zHL-ki-0QU" firstAttribute="top" secondItem="C3H-ZV-Cjg" secondAttribute="bottom" id="ldg-cH-Nrk"/>
                                         <constraint firstItem="b84-Zw-VNY" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="mUF-co-nVL"/>
+                                        <constraint firstAttribute="trailing" secondItem="OU2-Lu-VHx" secondAttribute="trailing" id="nmd-vQ-dsu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="vlq-3U-olr" secondAttribute="trailing" id="pSI-eV-AAO"/>
                                         <constraint firstItem="6rk-ke-1Ha" firstAttribute="top" secondItem="9DE-E3-rgc" secondAttribute="bottom" constant="3" id="poR-hV-sCq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6rk-ke-1Ha" secondAttribute="trailing" id="r1h-DJ-qsP"/>
@@ -314,6 +324,7 @@
                                     <outlet property="btnComment" destination="aUl-Id-xuB" id="gMs-IX-R5g"/>
                                     <outlet property="btnDing" destination="IKy-f3-nZi" id="4hf-sq-myQ"/>
                                     <outlet property="btnShare" destination="na5-g9-Jmd" id="Gck-WW-EqM"/>
+                                    <outlet property="centerView" destination="OU2-Lu-VHx" id="UZc-QZ-W3i"/>
                                     <outlet property="commentHeight" destination="5SY-kE-k7J" id="4lF-hM-sBr"/>
                                     <outlet property="commentHot" destination="yN9-BK-yEa" id="grG-rW-BV5"/>
                                     <outlet property="commentView" destination="guh-TS-M5D" id="Cdo-nF-bSd"/>
@@ -322,8 +333,6 @@
                                     <outlet property="lblName" destination="9DE-E3-rgc" id="Esq-mb-jkN"/>
                                     <outlet property="lblText" destination="C3H-ZV-Cjg" id="gle-bS-cZW"/>
                                     <outlet property="lblTime" destination="6rk-ke-1Ha" id="YGe-n9-NdK"/>
-                                    <outlet property="mainBottom" destination="EkW-J6-7ce" id="H60-dk-vaZ"/>
-                                    <outlet property="mainCenterView" destination="zHL-ki-0QU" id="zMC-93-h8e"/>
                                     <outlet property="scrollTag" destination="wQg-mb-yTa" id="U5b-Jn-kE7"/>
                                 </connections>
                             </tableViewCell>
