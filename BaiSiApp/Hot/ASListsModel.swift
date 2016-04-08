@@ -29,6 +29,8 @@ class ASListsModel: NSObject {
     var gif = ASGifModel()
     var top_comment = ASCommentModel()
     
+    var cellHeight:CGFloat!
+    
     init(dict:JSON) {
         super.init()
         id = dict["id"].string!
@@ -41,9 +43,13 @@ class ASListsModel: NSObject {
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
         
+        let txtSize = ASToolHelper.getSizeForText(text, size: CGSizeMake(ASMainWidth - 36, CGFloat.max), font: 17)
+        
         switch dict["type"].stringValue {
         case "video":
+            cellHeight = CGFloat(video.width) + txtSize.height +  62
             type = ContentType.Video
+            
         case "gif":
             type = ContentType.Gif
         case "image":
@@ -55,8 +61,6 @@ class ASListsModel: NSObject {
         default:
             type = ContentType.Text
         }
-        
-        
         
         if dict["tags"] != nil {
             for item in dict["tags"].array! {

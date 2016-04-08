@@ -15,6 +15,11 @@ class ASVideoView: UIView {
     @IBOutlet weak var lblPlayTime: UILabel!
     
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        autoresizingMask = .None
+    }
+    
     class func videoView() -> ASVideoView {
         return NSBundle.mainBundle().loadNibNamed("ASVideoView", owner: nil, options: nil)[0] as! ASVideoView
     }

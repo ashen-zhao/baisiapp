@@ -60,8 +60,8 @@ class ASHotCell: UITableViewCell {
         
         switch listModel.type {
         case .Video:
-            self.centerView.addSubview(videoView)
             videoView.frame = CGRectMake(10, 0, 300, 200)
+            self.centerView.addSubview(videoView)
         default:
             break
         }
