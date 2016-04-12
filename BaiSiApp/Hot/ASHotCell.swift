@@ -60,7 +60,8 @@ class ASHotCell: UITableViewCell {
         
         switch listModel.type {
         case .Video:
-            videoView.frame = CGRectMake(10, 0, 300, 200)
+            videoView.frame = listModel.frame
+            videoView.videoModel = listModel.video
             self.centerView.addSubview(videoView)
         default:
             break
@@ -98,19 +99,7 @@ class ASHotCell: UITableViewCell {
     }
     
     class func getCellHeight(listModel:ASListsModel) -> CGFloat {
-        switch listModel.type {
-        case .Gif:
-            return CGFloat(listModel.gif.height)
-        case .Html:
-            return 300
-        case .Image:
-              return CGFloat(listModel.image.height)
-        case .Text:
-              return ASToolHelper.getSizeForText(listModel.text, size: CGSizeMake(ASMainWidth - 20, CGFloat.max) , font: 17).height + 250
-        case .Video:
-             return CGFloat(listModel.video.height)
-        }
-       
+      return listModel.cellHeight
     }
   
 }

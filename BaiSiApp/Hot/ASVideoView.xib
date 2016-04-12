@@ -29,16 +29,16 @@
                     <state key="normal" image="video-play"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-KG-8AA" userLabel="次数">
-                    <rect key="frame" x="0.0" y="265" width="42" height="21"/>
+                    <rect key="frame" x="0.0" y="268" width="38" height="18"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp2-YE-ome" userLabel="时间">
-                    <rect key="frame" x="369" y="265" width="42" height="21"/>
+                    <rect key="frame" x="373" y="268" width="38" height="18"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -70,6 +70,7 @@
                 </mask>
             </variation>
             <connections>
+                <outlet property="bgkImageView" destination="sCd-uz-itu" id="mC6-vP-ZcT"/>
                 <outlet property="lblPlayCount" destination="pXX-KG-8AA" id="j0a-Ox-fiR"/>
                 <outlet property="lblPlayTime" destination="Qp2-YE-ome" id="rRB-bH-amd"/>
             </connections>

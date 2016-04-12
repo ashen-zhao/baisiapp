@@ -14,6 +14,7 @@ class ASVideoView: UIView {
     
     @IBOutlet weak var lblPlayTime: UILabel!
     
+    @IBOutlet weak var bgkImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,4 +25,15 @@ class ASVideoView: UIView {
         return NSBundle.mainBundle().loadNibNamed("ASVideoView", owner: nil, options: nil)[0] as! ASVideoView
     }
    
+    var videoModel:ASVideoModel! {
+        didSet {
+            bgkImageView.kf_setImageWithURL(NSURL(string: videoModel.thumbnail[0])!)
+            lblPlayCount.text = "\(videoModel.playcount) 播放"
+            lblPlayTime.text = getNormalTime(videoModel.duration)
+        }
+    }
+    
+    func getNormalTime(second:Int)->String {
+        return "\(second / 60):\(String(format: "%02d", second % 60))"
+    }
 }

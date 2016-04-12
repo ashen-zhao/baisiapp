@@ -11,6 +11,8 @@ import UIKit
 
 var ASMainWidth = UIScreen.mainScreen().bounds.width
 var ASMainHeight = UIScreen.mainScreen().bounds.height
+var ASTopAndBottomHeight = CGFloat(71 + 40)
+
 
 enum ContentType:String {
     case Video = "video"
