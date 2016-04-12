@@ -45,7 +45,7 @@ class ASListsModel: NSObject {
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
       
-        if dict["tags"] != nil {
+        if !dict["tags"].isEmpty{
             for item in dict["tags"].array! {
                 let tag = ASTagsModel()
                 tag.setValuesForKeysWithDictionary(item.dictionaryObject!)
@@ -53,30 +53,30 @@ class ASListsModel: NSObject {
             }
         }
         
-        if dict["u"] != nil {
+        if !dict["u"].isEmpty {
             let tempu = ASUserModel()
             tempu.setValuesForKeysWithDictionary(dict["u"].dictionaryObject!)
             u = tempu;
         }
      
         
-        if dict["video"] != nil {
+        if !dict["video"].isEmpty {
             let tempVideo = ASVideoModel()
             tempVideo.setValuesForKeysWithDictionary(dict["video"].dictionaryObject!)
             video = tempVideo
         }
         
-        if dict["image"] != nil {
+        if !dict["image"].isEmpty {
             let tempImage = ASImageModel()
             tempImage.setValuesForKeysWithDictionary(dict["image"].dictionaryObject!)
         }
         
-        if dict["gif"] != nil {
+        if !dict["gif"].isEmpty {
             let tempImage = ASGifModel()
             tempImage.setValuesForKeysWithDictionary(dict["gif"].dictionaryObject!)
         }
         
-        if dict["top_comment"] != nil {
+        if !dict["top_comment"].isEmpty {
             let tempComment = ASCommentModel()
             tempComment.setValuesForKeysWithDictionary(dict["top_comment"].dictionaryObject!)
             top_comment = tempComment
@@ -86,29 +86,27 @@ class ASListsModel: NSObject {
         
         switch dict["type"].stringValue {
         case "video":
-         
-            if CGFloat(video.width) > ASMainWidth - 20 {
-                video.height = (Int)(ASMainWidth - 20) * video.height / video.width
-                video.width = Int(ASMainWidth) - 20
-            }
-
-            if CGFloat(video.height) > ASMainHeight - 64 {
-                video.width = (Int)(ASMainHeight - 64) * video.width / video.height
-                video.height = Int(ASMainHeight) - 64
-            }
-            
-            frame = CGRectMake(10, 8, CGFloat(video.width), CGFloat(video.height))
-            //71上部分高度，40操作按钮高度，30标签高度，40评论框
-            cellHeight = CGFloat(video.height) + txtSize.height + ASTopAndBottomHeight + 30
-            if dict["top_comment"] != nil {
-                cellHeight += 40
-            }
+            cellHeight(CGFloat(video.width), h: CGFloat(video.height), txtHeight:txtSize.height, topComment: dict["top_comment"])
             type = ContentType.Video
             
         case "gif":
-            cellHeight = CGFloat(gif.height) + txtSize.height +  62 + 65 + 40
-            frame = CGRectMake(0, 0, CGFloat(gif.width), CGFloat(gif.height))
-            type = ContentType.Gif
+            if CGFloat(gif.width) > ASMainWidth - 20 {
+                gif.height = (Int)(ASMainWidth - 20) * gif.height / gif.width
+                gif.width = Int(ASMainWidth) - 20
+            }
+            
+            if CGFloat(gif.height) > ASMainHeight - 64 {
+                gif.width = (Int)(ASMainHeight - 64) * gif.width / gif.height
+                gif.height = Int(ASMainHeight) - 64
+            }
+            
+            frame = CGRectMake(10, 8, CGFloat(gif.width), CGFloat(gif.height))
+            cellHeight = CGFloat(gif.height) + txtSize.height + ASTopAndBottomHeight + 40
+            if dict["top_comment"] != nil {
+                cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content, size: CGSizeMake(ASMainWidth - 20, CGFloat.max), font: 14).height + 30
+            }
+            type = ContentType.Video
+
         case "image":
             cellHeight = CGFloat(image.height) + txtSize.height +  62 + 65 + 40
             frame = CGRectMake(0, 0, CGFloat(image.width), CGFloat(image.height))
@@ -130,7 +128,7 @@ class ASListsModel: NSObject {
         let temArr = NSMutableArray()
         for dict in jsonArr {
             //暂时先处理视频
-            if dict["type"] == "video" {
+            if dict["type"] != "html" {
                 temArr.addObject(ASListsModel.init(dict: dict))
             }
         }
@@ -139,7 +137,26 @@ class ASListsModel: NSObject {
     
     
     
-    
+    func cellHeight(w:CGFloat, h:CGFloat, txtHeight:CGFloat, topComment:JSON) {
+        var width = w
+        var height = h
+        if width > ASMainWidth - 20 {
+            height =  (ASMainWidth - 20) * height / width
+            width = ASMainWidth - 20
+        }
+        
+        if height > ASMainHeight - 64 {
+            width = (ASMainHeight - 64) * width / height
+            height = ASMainHeight - 64
+        }
+        
+        frame = CGRectMake(10, 8, width, height)
+        cellHeight = height + txtHeight + ASTopAndBottomHeight + 40
+        
+        if !topComment.isEmpty {
+            cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content, size: CGSizeMake(ASMainWidth - 20, CGFloat.max), font: 14).height + 30
+        }
+    }
     
     
 }
