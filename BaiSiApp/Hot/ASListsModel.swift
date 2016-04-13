@@ -128,7 +128,7 @@ class ASListsModel: NSObject {
         let temArr = NSMutableArray()
         for dict in jsonArr {
             //暂时先处理视频
-            if dict["type"] != "html" {
+            if dict["type"] == "video" {
                 temArr.addObject(ASListsModel.init(dict: dict))
             }
         }

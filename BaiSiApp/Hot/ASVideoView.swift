@@ -27,7 +27,7 @@ class ASVideoView: UIView {
    
     var videoModel:ASVideoModel! {
         didSet {
-            bgkImageView.kf_setImageWithURL(NSURL(string: videoModel.thumbnail[0])!)
+            bgkImageView.kf_setImageWithURL(NSURL(string: videoModel.thumbnail.count > 0 ? videoModel.thumbnail[0]: "")!)
             lblPlayCount.text = "\(videoModel.playcount) 播放"
             lblPlayTime.text = getNormalTime(videoModel.duration)
         }
