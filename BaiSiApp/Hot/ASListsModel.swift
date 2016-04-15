@@ -44,7 +44,7 @@ class ASListsModel: NSObject {
         forward = dict["forward"].string!
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
-      
+        
         if !dict["tags"].isEmpty{
             for item in dict["tags"].array! {
                 let tag = ASTagsModel()
@@ -58,7 +58,7 @@ class ASListsModel: NSObject {
             tempu.setValuesForKeysWithDictionary(dict["u"].dictionaryObject!)
             u = tempu;
         }
-     
+        
         
         if !dict["video"].isEmpty {
             let tempVideo = ASVideoModel()
@@ -89,15 +89,15 @@ class ASListsModel: NSObject {
         switch dict["type"].stringValue {
         case "video":
             type = ContentType.Video
-            cellHeight(CGFloat(video.width), h: CGFloat(video.height), txtHeight:txtSize.height, topComment: dict["top_comment"])
+            cellHeight(CGFloat(video.width), h: CGFloat(video.height), txtHeight:txtSize.height)
             
         case "gif":
             type = ContentType.Gif
-            cellHeight(CGFloat(gif.width), h: CGFloat(gif.height), txtHeight: txtSize.height, topComment: dict["top_comment"])
-
+            cellHeight(CGFloat(gif.width), h: CGFloat(gif.height), txtHeight: txtSize.height)
+            
         case "image":
             type = ContentType.Image
-           cellHeight(CGFloat(image.width), h: CGFloat(image.height), txtHeight: txtSize.height, topComment: dict["top_comment"])
+            cellHeight(CGFloat(image.width), h: CGFloat(image.height), txtHeight: txtSize.height)
             
         case "html":
             type = ContentType.Html
@@ -106,7 +106,7 @@ class ASListsModel: NSObject {
         case "text":
             type = ContentType.Text
             cellHeight = txtSize.height +  ASSpaceHeight
-            
+            addCommentHeight()
         default:
             type = ContentType.Text
             cellHeight = txtSize.height +  ASSpaceHeight
@@ -117,7 +117,7 @@ class ASListsModel: NSObject {
         let temArr = NSMutableArray()
         for dict in jsonArr {
             //暂时先处理视频
-            if dict["type"] == "video" || dict["type"] == "image" || dict["type"] == "gif" {
+            if dict["type"] != "html"{
                 temArr.addObject(ASListsModel.init(dict: dict))
             }
         }
@@ -126,7 +126,7 @@ class ASListsModel: NSObject {
     
     
     
-    func cellHeight(w:CGFloat, h:CGFloat, txtHeight:CGFloat, topComment:JSON) {
+    func cellHeight(w:CGFloat, h:CGFloat, txtHeight:CGFloat) {
         var width = w
         var height = h
         if width > ASMainWidth - 20 {
@@ -150,10 +150,12 @@ class ASListsModel: NSObject {
         
         cellHeight = height + txtHeight + ASSpaceHeight
         
-        if !topComment.isEmpty {
+        addCommentHeight()
+    }
+    func addCommentHeight() {
+        if !top_comment.content.isEmpty {
             cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content + top_comment.user.name + ": ", size: CGSizeMake(ASMainWidth - 24, CGFloat.max), font: 14).height + 15
         }
     }
-    
     
 }

@@ -264,7 +264,7 @@
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
                                             <rect key="frame" x="10" y="307" width="80" height="18"/>
-                                            <color key="backgroundColor" red="0.7326775196335078" green="0.7326775196335078" blue="0.7326775196335078" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.79450261780104714" green="0.79450261780104714" blue="0.79450261780104714" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="DX9-tg-hAR"/>
                                             </constraints>
