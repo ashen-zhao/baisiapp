@@ -116,14 +116,4 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         }
         leftImg.hidden = scrollView.contentOffset.x <= 0 ? true : false
     }
-    
-    
-    /*
-     // Only override drawRect: if you perform custom drawing.
-     // An empty implementation adversely affects performance during animation.
-     override func drawRect(rect: CGRect) {
-     // Drawing code
-     }
-     */
-    
 }

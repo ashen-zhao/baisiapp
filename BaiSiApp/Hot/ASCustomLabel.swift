@@ -10,7 +10,7 @@ import UIKit
 
 class ASCustomLabel: UILabel {
     override func drawTextInRect(rect: CGRect) {
-        let newRect = CGRectMake(rect.origin.x, rect.origin.y, rect.size.width, rect.size.height);
+        let newRect = CGRectMake(rect.origin.x + 2, rect.origin.y + 1, rect.size.width - 4, rect.size.height);
         super.drawTextInRect(newRect)
     }
 }

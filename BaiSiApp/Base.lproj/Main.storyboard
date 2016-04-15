@@ -242,50 +242,36 @@
                                                 </mask>
                                             </variation>
                                         </view>
-                                        <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="guh-TS-M5D">
-                                            <rect key="frame" x="0.0" y="302" width="600" height="40"/>
-                                            <subviews>
-                                                <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-C6-zxi" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="23" width="580" height="17"/>
-                                                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" priority="500" id="5SY-kE-k7J"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                    <variation key="default">
-                                                        <mask key="constraints">
-                                                            <exclude reference="5SY-kE-k7J"/>
-                                                        </mask>
-                                                    </variation>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="5" width="80" height="18"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="Xvg-9V-9MY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="NiM-C6-zxi" secondAttribute="bottom" id="COt-n5-Jak"/>
-                                                <constraint firstAttribute="trailing" secondItem="NiM-C6-zxi" secondAttribute="trailing" constant="10" id="TF4-CU-OC5"/>
-                                                <constraint firstItem="yN9-BK-yEa" firstAttribute="leading" secondItem="guh-TS-M5D" secondAttribute="leading" constant="10" id="Uer-fr-hpQ"/>
-                                                <constraint firstItem="NiM-C6-zxi" firstAttribute="top" secondItem="yN9-BK-yEa" secondAttribute="bottom" id="h6y-2u-QE4"/>
-                                                <constraint firstAttribute="height" constant="40" id="vUb-Nf-T9E"/>
-                                                <constraint firstItem="NiM-C6-zxi" firstAttribute="leading" secondItem="guh-TS-M5D" secondAttribute="leading" constant="10" id="yyD-qq-eg4"/>
-                                            </constraints>
-                                        </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-Lu-VHx">
-                                            <rect key="frame" x="0.0" y="88" width="600" height="214"/>
+                                            <rect key="frame" x="0.0" y="96" width="600" height="203"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-C6-zxi" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="325" width="580" height="17"/>
+                                            <color key="backgroundColor" red="0.96284144951277517" green="0.96148537546793578" blue="0.98517261125654454" alpha="1" colorSpace="calibratedRGB"/>
+                                            <rect key="contentStretch" x="0.0" y="1" width="1" height="1"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" priority="500" id="5SY-kE-k7J"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="5SY-kE-k7J"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最热评论" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yN9-BK-yEa" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="307" width="80" height="18"/>
+                                            <color key="backgroundColor" red="0.7326775196335078" green="0.7326775196335078" blue="0.7326775196335078" alpha="1" colorSpace="calibratedRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="80" id="DX9-tg-hAR"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="F2k-Q2-wfL" firstAttribute="top" secondItem="tku-MS-ObZ" secondAttribute="bottom" constant="5" id="0z8-rO-O87"/>
@@ -295,29 +281,37 @@
                                         <constraint firstItem="vlq-3U-olr" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="topMargin" constant="10" id="41Z-XR-B4j"/>
                                         <constraint firstItem="6rk-ke-1Ha" firstAttribute="leading" secondItem="B3F-he-W3l" secondAttribute="trailing" constant="8" id="55m-bV-p87"/>
                                         <constraint firstItem="OU2-Lu-VHx" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="56x-e8-SWy"/>
-                                        <constraint firstItem="guh-TS-M5D" firstAttribute="top" secondItem="OU2-Lu-VHx" secondAttribute="bottom" id="5B9-lY-YeF"/>
-                                        <constraint firstItem="guh-TS-M5D" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="7Q5-Nc-dNT"/>
                                         <constraint firstItem="9DE-E3-rgc" firstAttribute="leading" secondItem="B3F-he-W3l" secondAttribute="trailing" constant="8" id="7vB-5C-il6"/>
                                         <constraint firstItem="C3H-ZV-Cjg" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="KJS-NX-EWL"/>
                                         <constraint firstAttribute="trailing" secondItem="F2k-Q2-wfL" secondAttribute="trailing" id="KKM-ad-ips"/>
-                                        <constraint firstItem="tku-MS-ObZ" firstAttribute="top" secondItem="guh-TS-M5D" secondAttribute="bottom" id="L1z-ct-6Bx"/>
                                         <constraint firstItem="B3F-he-W3l" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="top" constant="20" id="Pup-8A-dyi"/>
                                         <constraint firstItem="C3H-ZV-Cjg" firstAttribute="top" secondItem="6rk-ke-1Ha" secondAttribute="bottom" constant="7" id="Q0G-go-kxs"/>
-                                        <constraint firstItem="OU2-Lu-VHx" firstAttribute="top" secondItem="C3H-ZV-Cjg" secondAttribute="bottom" id="Sim-qC-bVD"/>
-                                        <constraint firstAttribute="trailing" secondItem="guh-TS-M5D" secondAttribute="trailing" id="TMp-eC-8pf"/>
+                                        <constraint firstItem="OU2-Lu-VHx" firstAttribute="top" secondItem="C3H-ZV-Cjg" secondAttribute="bottom" constant="8" id="Sim-qC-bVD"/>
+                                        <constraint firstItem="yN9-BK-yEa" firstAttribute="top" secondItem="OU2-Lu-VHx" secondAttribute="bottom" constant="8" id="Wqh-OH-osC"/>
+                                        <constraint firstItem="NiM-C6-zxi" firstAttribute="top" secondItem="yN9-BK-yEa" secondAttribute="bottom" id="Wzj-K5-p20"/>
                                         <constraint firstAttribute="trailing" secondItem="b84-Zw-VNY" secondAttribute="trailing" id="YHK-ei-BM3"/>
+                                        <constraint firstAttribute="trailing" secondItem="NiM-C6-zxi" secondAttribute="trailing" constant="10" id="Ywh-qk-16e"/>
                                         <constraint firstItem="F2k-Q2-wfL" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="ZD3-qD-iVd"/>
                                         <constraint firstAttribute="trailing" secondItem="C3H-ZV-Cjg" secondAttribute="trailing" constant="26" id="clK-BH-xTa"/>
+                                        <constraint firstItem="tku-MS-ObZ" firstAttribute="top" secondItem="NiM-C6-zxi" secondAttribute="bottom" id="d6C-AL-nkf"/>
+                                        <constraint firstItem="NiM-C6-zxi" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="gFc-zQ-V6w"/>
                                         <constraint firstAttribute="trailing" secondItem="tku-MS-ObZ" secondAttribute="trailing" id="giF-iH-k1m"/>
                                         <constraint firstItem="B3F-he-W3l" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="hYA-ax-JFI"/>
                                         <constraint firstAttribute="bottom" secondItem="F2k-Q2-wfL" secondAttribute="bottom" id="jpA-Ds-cIR"/>
+                                        <constraint firstItem="yN9-BK-yEa" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" constant="10" id="kTC-tM-4cy"/>
                                         <constraint firstItem="b84-Zw-VNY" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="mUF-co-nVL"/>
                                         <constraint firstAttribute="trailing" secondItem="OU2-Lu-VHx" secondAttribute="trailing" id="nmd-vQ-dsu"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="vlq-3U-olr" secondAttribute="trailing" id="pSI-eV-AAO"/>
                                         <constraint firstItem="6rk-ke-1Ha" firstAttribute="top" secondItem="9DE-E3-rgc" secondAttribute="bottom" constant="3" id="poR-hV-sCq"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="6rk-ke-1Ha" secondAttribute="trailing" id="r1h-DJ-qsP"/>
                                         <constraint firstItem="b84-Zw-VNY" firstAttribute="top" secondItem="HJh-SE-DNs" secondAttribute="top" id="tHr-bS-5xM"/>
+                                        <constraint firstItem="NiM-C6-zxi" firstAttribute="top" secondItem="yN9-BK-yEa" secondAttribute="bottom" id="vpi-Jf-0AX"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="vpi-Jf-0AX"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="btnBad" destination="Noj-5X-wXv" id="Nav-Cj-DuW"/>
@@ -325,14 +319,12 @@
                                     <outlet property="btnDing" destination="IKy-f3-nZi" id="4hf-sq-myQ"/>
                                     <outlet property="btnShare" destination="na5-g9-Jmd" id="Gck-WW-EqM"/>
                                     <outlet property="centerView" destination="OU2-Lu-VHx" id="UZc-QZ-W3i"/>
-                                    <outlet property="commentHeight" destination="5SY-kE-k7J" id="4lF-hM-sBr"/>
-                                    <outlet property="commentHot" destination="yN9-BK-yEa" id="grG-rW-BV5"/>
-                                    <outlet property="commentView" destination="guh-TS-M5D" id="Cdo-nF-bSd"/>
                                     <outlet property="imgVHeader" destination="B3F-he-W3l" id="xck-ZF-eHy"/>
                                     <outlet property="lblComment" destination="NiM-C6-zxi" id="xL9-YL-TY9"/>
                                     <outlet property="lblName" destination="9DE-E3-rgc" id="Esq-mb-jkN"/>
                                     <outlet property="lblText" destination="C3H-ZV-Cjg" id="gle-bS-cZW"/>
                                     <outlet property="lblTime" destination="6rk-ke-1Ha" id="YGe-n9-NdK"/>
+                                    <outlet property="lblTopCommentTip" destination="yN9-BK-yEa" id="za1-3r-n1S"/>
                                     <outlet property="scrollTag" destination="wQg-mb-yTa" id="U5b-Jn-kE7"/>
                                 </connections>
                             </tableViewCell>

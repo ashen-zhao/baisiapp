@@ -21,9 +21,7 @@ class ASHotCell: UITableViewCell {
     
     @IBOutlet weak var lblText: UILabel!
     
-    @IBOutlet weak var commentHeight: NSLayoutConstraint!
-    @IBOutlet weak var commentHot: UILabel!
-    @IBOutlet weak var commentView: UIView!
+    @IBOutlet weak var lblTopCommentTip: ASCustomLabel!
     
     @IBOutlet weak var lblComment: UILabel!
     
@@ -39,7 +37,8 @@ class ASHotCell: UITableViewCell {
 
     @IBOutlet weak var centerView: UIView!
     
-    let videoView = ASVideoView.videoView()
+    let video_View = ASVideoView.videoView()
+    let image_View = ASImageView.imageView()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -52,7 +51,7 @@ class ASHotCell: UITableViewCell {
     }
     
     func setupData(listModel:ASListsModel) {
-        
+
         imgVHeader.kf_setImageWithURL(NSURL(string: listModel.u.header[0])!, placeholderImage: UIImage(named: "defaultUserIcon"))
         lblText.text = listModel.text
         lblName.text = listModel.u.name
@@ -60,14 +59,22 @@ class ASHotCell: UITableViewCell {
         
         switch listModel.type {
         case .Video:
-            videoView.frame = listModel.frame
-            videoView.videoModel = listModel.video
-            self.centerView.addSubview(videoView)
+            video_View.frame = listModel.frame
+            video_View.videoModel = listModel.video
+            centerView.addSubview(video_View)
+            image_View.removeFromSuperview()
+        case .Gif: fallthrough
+        case .Image:
+            image_View.frame = listModel.frame
+            image_View.listModel = listModel
+            centerView.addSubview(image_View)
+            video_View.removeFromSuperview()
         default:
             break
         }
         
-        
+        lblTopCommentTip.hidden = listModel.top_comment.content.isEmpty
+        lblComment.hidden = listModel.top_comment.content.isEmpty
         lblComment.text = listModel.top_comment.user.name + ": " + listModel.top_comment.content
         btnDing.setTitle(" " + listModel.up, forState: .Normal)
         btnBad.setTitle(" \(listModel.down!)", forState: .Normal)

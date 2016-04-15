@@ -30,8 +30,8 @@ class ASListsModel: NSObject {
     var top_comment = ASCommentModel()
     
     var cellHeight:CGFloat!
-    
     var frame:CGRect!
+    var isLongLongImage:Bool!
     
     init(dict:JSON) {
         super.init()
@@ -69,11 +69,13 @@ class ASListsModel: NSObject {
         if !dict["image"].isEmpty {
             let tempImage = ASImageModel()
             tempImage.setValuesForKeysWithDictionary(dict["image"].dictionaryObject!)
+            image = tempImage
         }
         
         if !dict["gif"].isEmpty {
             let tempImage = ASGifModel()
             tempImage.setValuesForKeysWithDictionary(dict["gif"].dictionaryObject!)
+            gif = tempImage
         }
         
         if !dict["top_comment"].isEmpty {
@@ -86,49 +88,36 @@ class ASListsModel: NSObject {
         
         switch dict["type"].stringValue {
         case "video":
-            cellHeight(CGFloat(video.width), h: CGFloat(video.height), txtHeight:txtSize.height, topComment: dict["top_comment"])
             type = ContentType.Video
+            cellHeight(CGFloat(video.width), h: CGFloat(video.height), txtHeight:txtSize.height, topComment: dict["top_comment"])
             
         case "gif":
-            if CGFloat(gif.width) > ASMainWidth - 20 {
-                gif.height = (Int)(ASMainWidth - 20) * gif.height / gif.width
-                gif.width = Int(ASMainWidth) - 20
-            }
-            
-            if CGFloat(gif.height) > ASMainHeight - 64 {
-                gif.width = (Int)(ASMainHeight - 64) * gif.width / gif.height
-                gif.height = Int(ASMainHeight) - 64
-            }
-            
-            frame = CGRectMake(10, 8, CGFloat(gif.width), CGFloat(gif.height))
-            cellHeight = CGFloat(gif.height) + txtSize.height + ASTopAndBottomHeight + 40
-            if dict["top_comment"] != nil {
-                cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content, size: CGSizeMake(ASMainWidth - 20, CGFloat.max), font: 14).height + 30
-            }
-            type = ContentType.Video
+            type = ContentType.Gif
+            cellHeight(CGFloat(gif.width), h: CGFloat(gif.height), txtHeight: txtSize.height, topComment: dict["top_comment"])
 
         case "image":
-            cellHeight = CGFloat(image.height) + txtSize.height +  62 + 65 + 40
-            frame = CGRectMake(0, 0, CGFloat(image.width), CGFloat(image.height))
             type = ContentType.Image
+           cellHeight(CGFloat(image.width), h: CGFloat(image.height), txtHeight: txtSize.height, topComment: dict["top_comment"])
+            
         case "html":
-            cellHeight = txtSize.height +  62 + 65 + 40
             type = ContentType.Html
+            cellHeight = txtSize.height +  ASSpaceHeight
+            
         case "text":
-            cellHeight = txtSize.height +  62 + 65 + 40
             type = ContentType.Text
+            cellHeight = txtSize.height +  ASSpaceHeight
+            
         default:
-            cellHeight = txtSize.height +  62 + 65 + 40
             type = ContentType.Text
+            cellHeight = txtSize.height +  ASSpaceHeight
         }
-        
     }
     
     class func getLists(jsonArr:[JSON])->NSMutableArray {
         let temArr = NSMutableArray()
         for dict in jsonArr {
             //暂时先处理视频
-            if dict["type"] == "video" {
+            if dict["type"] == "video" || dict["type"] == "image" || dict["type"] == "gif" {
                 temArr.addObject(ASListsModel.init(dict: dict))
             }
         }
@@ -145,16 +134,24 @@ class ASListsModel: NSObject {
             width = ASMainWidth - 20
         }
         
-        if height > ASMainHeight - 64 {
-            width = (ASMainHeight - 64) * width / height
-            height = ASMainHeight - 64
+        if width < ASMainWidth - 20 {
+            height =  (ASMainWidth - 20) * height / width
+            width = ASMainWidth - 20
         }
         
-        frame = CGRectMake(10, 8, width, height)
-        cellHeight = height + txtHeight + ASTopAndBottomHeight + 40
+        isLongLongImage = false
+        if height > 2 * (ASMainHeight - 64) {
+            width = (ASMainWidth - 20)
+            height = width
+            isLongLongImage = true
+        }
+        
+        frame = CGRectMake((ASMainWidth - width) / 2, 0, width, height)
+        
+        cellHeight = height + txtHeight + ASSpaceHeight
         
         if !topComment.isEmpty {
-            cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content, size: CGSizeMake(ASMainWidth - 20, CGFloat.max), font: 14).height + 30
+            cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content + top_comment.user.name + ": ", size: CGSizeMake(ASMainWidth - 24, CGFloat.max), font: 14).height + 15
         }
     }
     

@@ -14,6 +14,8 @@
 		8C4DD5B41CB4E2B600645380 /* ASGifModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4DD5B31CB4E2B600645380 /* ASGifModel.swift */; };
 		8C4DD5B81CB4F60500645380 /* ASVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4DD5B71CB4F60500645380 /* ASVideoView.swift */; };
 		8C4DD5BA1CB4F61400645380 /* ASVideoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C4DD5B91CB4F61400645380 /* ASVideoView.xib */; };
+		8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */; };
+		8C5AF8741CBDFAF500A45A9A /* ASImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */; };
 		8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */; };
 		8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356A61CA905BA0070BE40 /* AppDelegate.swift */; };
 		8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356AA1CA905BA0070BE40 /* Main.storyboard */; };
@@ -50,6 +52,8 @@
 		8C4DD5B31CB4E2B600645380 /* ASGifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGifModel.swift; sourceTree = "<group>"; };
 		8C4DD5B71CB4F60500645380 /* ASVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoView.swift; sourceTree = "<group>"; };
 		8C4DD5B91CB4F61400645380 /* ASVideoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASVideoView.xib; sourceTree = "<group>"; };
+		8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASImageView.xib; sourceTree = "<group>"; };
+		8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageView.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
 		8CB356A31CA905BA0070BE40 /* BaiSiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CB356A61CA905BA0070BE40 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				8CB3574D1CAA85130070BE40 /* ASHotCell.swift */,
 				8C4DD5B71CB4F60500645380 /* ASVideoView.swift */,
 				8C4DD5B91CB4F61400645380 /* ASVideoView.xib */,
+				8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */,
+				8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 				8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */,
 				8CB356C91CA91EA50070BE40 /* Login.storyboard in Resources */,
 				8CB356C71CA91E9E0070BE40 /* Mine.storyboard in Resources */,
+				8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */,
 				8C4DD5BA1CB4F61400645380 /* ASVideoView.xib in Resources */,
 				8CB356C51CA91E920070BE40 /* Plus.storyboard in Resources */,
 				8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */,
@@ -408,6 +415,7 @@
 				8C4DD5B21CB4E26C00645380 /* ASImageModel.swift in Sources */,
 				8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */,
 				8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */,
+				8C5AF8741CBDFAF500A45A9A /* ASImageView.swift in Sources */,
 				8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */,
 				8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */,
 				8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */,

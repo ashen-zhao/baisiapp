@@ -11,7 +11,9 @@ import UIKit
 
 var ASMainWidth = UIScreen.mainScreen().bounds.width
 var ASMainHeight = UIScreen.mainScreen().bounds.height
-var ASTopAndBottomHeight = CGFloat(71 + 40)
+//上67， 下35， 标签30， 间隔上8，下5，中8
+var ASSpaceHeight = CGFloat(67 + 35 + 30 + 8 + 5 + 8)
+
 
 
 enum ContentType:String {
