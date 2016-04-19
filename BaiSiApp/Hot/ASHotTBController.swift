@@ -8,21 +8,16 @@
 
 import UIKit
 import Kingfisher
+import MJRefresh
 
 class ASHotTBController: UITableViewController {
 
     var dataSource = NSMutableArray()
     
     // MARK: - life Cycle
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        let navView = ASCustomNav.init(frame: (navigationController?.navigationBar.frame)!)
-        navigationItem.titleView = navView
-        self.tableView.separatorStyle = .None
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.separatorStyle = .None
         ASDataHelper.getAllLists { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {

@@ -8,16 +8,24 @@
 
 import UIKit
 
+
+public protocol ASCustomNavDelegate: NSObjectProtocol {
+    func getTitlesCount(count:NSInteger)
+    func titleAction(index:NSInteger)
+}
+
+
 class ASCustomNav: UIView, UIScrollViewDelegate {
     
+    private var scrollView:UIScrollView!
+    private var leftImg:UIImageView!
+    private var rightImg:UIImageView!
+    private var randowBtn:UIButton!
+    private var lineView:UIView!
+    private var lastBtn:UIButton?
     
-    var scrollView:UIScrollView!
-    var leftImg:UIImageView!
-    var rightImg:UIImageView!
-    var randowBtn:UIButton!
-    var lineView:UIView!
-    var lastBtn:UIButton?
-    
+    weak var delegate:ASCustomNavDelegate?
+  
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -28,6 +36,9 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
                 tempArr.addObject((model as! ASMenusModel).name)
             }
             self.makeUI(tempArr)
+            
+            self.delegate?.getTitlesCount(array.count)
+            
         }
     }
     
@@ -92,7 +103,6 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     // MARK: - actons
     func titlesChangeAction(btn:UIButton) {
         
-        
         if lastBtn?.tag == btn.tag {
             return
         }
@@ -105,15 +115,33 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         
         lastBtn = btn
         
+        moveTitlesLine(btn.tag)
+    }
+    
+    func moveTitlesLine(index:NSInteger) {
+        
         var frame = lineView.frame
-        frame.origin.x = CGFloat(btn.tag * 50) + 9
-       
+        frame.origin.x = CGFloat(index * 50) + 9
+        
         var dict:[Int:CGFloat] = [0:0.0, 1:0.0, 2:0.0, 3:50.0, 4:100.0, 5:150.0, 6:160.0, 7:180.0, 8:180.0]
         
+        delegate?.titleAction(index)
+        
         UIView.animateWithDuration(0.3) {
-            self.scrollView.contentOffset.x = dict[btn.tag]!
+            self.scrollView.contentOffset.x = dict[index]!
             self.lineView.frame = frame
         }
         leftImg.hidden = scrollView.contentOffset.x <= 0 ? true : false
+        
+        let btn = scrollView.subviews[index] as! UIButton
+        
+        lastBtn?.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
+        lastBtn?.titleLabel?.font = UIFont.systemFontOfSize(15)
+        
+        btn.setTitleColor(UIColor.redColor(), forState: UIControlState.Normal)
+        btn.titleLabel?.font = UIFont.systemFontOfSize(15.5)
+        
+        lastBtn = btn
     }
+    
 }

@@ -17,24 +17,57 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="iLB-RF-fNe" kind="relationship" relationship="rootViewController" id="mcm-f2-bw3"/>
+                        <segue destination="EYX-qC-M1O" kind="relationship" relationship="rootViewController" id="rBb-cI-Fkx"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cKU-d5-0en" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="250" y="397"/>
         </scene>
+        <!--Main Controller-->
+        <scene sceneID="yxV-bO-oMz">
+            <objects>
+                <viewController id="EYX-qC-M1O" customClass="ASMainController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Vi-97-8XZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="H6J-UC-FG0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="onn-n7-f56">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TR8-wn-w2V">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="H6J-UC-FG0" firstAttribute="top" secondItem="TR8-wn-w2V" secondAttribute="bottom" id="GcZ-s0-lL0"/>
+                            <constraint firstItem="TR8-wn-w2V" firstAttribute="top" secondItem="8Vi-97-8XZ" secondAttribute="bottom" id="Xdx-Ol-SAt"/>
+                            <constraint firstItem="TR8-wn-w2V" firstAttribute="leading" secondItem="onn-n7-f56" secondAttribute="leading" id="eKx-fT-550"/>
+                            <constraint firstAttribute="trailing" secondItem="TR8-wn-w2V" secondAttribute="trailing" id="paO-Ei-9j0"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="v65-Fi-cmt"/>
+                    <connections>
+                        <outlet property="contentScroll" destination="TR8-wn-w2V" id="CnB-gs-bSI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zxx-e9-OjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="250" y="1176"/>
+        </scene>
         <!--HotTB Controller-->
         <scene sceneID="gEM-T8-dmg">
             <objects>
-                <tableViewController id="iLB-RF-fNe" customClass="ASHotTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASHotTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="413" sectionHeaderHeight="18" sectionFooterHeight="18" id="N1m-Be-K6m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="hotCell" rowHeight="413" id="MO8-5L-6p1" customClass="ASHotCell" customModule="BaiSiApp" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="413"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="413"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MO8-5L-6p1" id="HJh-SE-DNs">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="412"/>
@@ -338,7 +371,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zoW-En-hKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="250" y="1099"/>
+            <point key="canvasLocation" x="250" y="1847"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UHp-Rd-POc">
