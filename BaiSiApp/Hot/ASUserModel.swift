@@ -21,7 +21,7 @@ class ASUserModel: NSObject {
     
     var header = [String]()
     var is_v = false
-    var uid = ""
+    var uid:AnyObject!
     var is_vip = false
     var name = ""
     
