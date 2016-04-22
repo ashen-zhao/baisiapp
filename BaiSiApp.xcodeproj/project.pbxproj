@@ -29,7 +29,7 @@
 		8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356CE1CA92B020070BE40 /* ASTabBarController.swift */; };
 		8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D01CA92B220070BE40 /* ASNavigationController.swift */; };
 		8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */; };
-		8CB356D71CAA4ACF0070BE40 /* ASHotTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D61CAA4ACF0070BE40 /* ASHotTBController.swift */; };
+		8CB356D71CAA4ACF0070BE40 /* ASMainTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D61CAA4ACF0070BE40 /* ASMainTBController.swift */; };
 		8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356E01CAA52390070BE40 /* ASCustomNav.swift */; };
 		8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3574D1CAA85130070BE40 /* ASHotCell.swift */; };
 		8CB357501CAA918E0070BE40 /* top_defauth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */; };
@@ -70,7 +70,7 @@
 		8CB356CE1CA92B020070BE40 /* ASTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTabBarController.swift; sourceTree = "<group>"; };
 		8CB356D01CA92B220070BE40 /* ASNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNavigationController.swift; sourceTree = "<group>"; };
 		8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASPlusController.swift; sourceTree = "<group>"; };
-		8CB356D61CAA4ACF0070BE40 /* ASHotTBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHotTBController.swift; sourceTree = "<group>"; };
+		8CB356D61CAA4ACF0070BE40 /* ASMainTBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainTBController.swift; sourceTree = "<group>"; };
 		8CB356E01CAA52390070BE40 /* ASCustomNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASCustomNav.swift; path = ../Hot/ASCustomNav.swift; sourceTree = "<group>"; };
 		8CB3574D1CAA85130070BE40 /* ASHotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHotCell.swift; sourceTree = "<group>"; };
 		8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = top_defauth.jpg; path = Hot/top_defauth.jpg; sourceTree = "<group>"; };
@@ -197,7 +197,7 @@
 		8CB356D81CAA50F80070BE40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				8CB356D61CAA4ACF0070BE40 /* ASHotTBController.swift */,
+				8CB356D61CAA4ACF0070BE40 /* ASMainTBController.swift */,
 				8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */,
 			);
 			name = Controllers;
@@ -403,7 +403,7 @@
 				8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */,
 				8C4DD5B41CB4E2B600645380 /* ASGifModel.swift in Sources */,
 				8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */,
-				8CB356D71CAA4ACF0070BE40 /* ASHotTBController.swift in Sources */,
+				8CB356D71CAA4ACF0070BE40 /* ASMainTBController.swift in Sources */,
 				8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */,
 				8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */,
 				8C5AFA0C1CC4E2B400A45A9A /* ASMainController.swift in Sources */,

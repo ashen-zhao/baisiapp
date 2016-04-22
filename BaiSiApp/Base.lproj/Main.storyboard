@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="250" y="1176"/>
         </scene>
-        <!--HotTB Controller-->
+        <!--MainTB Controller-->
         <scene sceneID="gEM-T8-dmg">
             <objects>
-                <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASHotTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASMainTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="413" sectionHeaderHeight="18" sectionFooterHeight="18" id="N1m-Be-K6m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -411,10 +411,10 @@
             </objects>
             <point key="canvasLocation" x="1087" y="377"/>
         </scene>
-        <!--最新-->
+        <!--Main Controller-->
         <scene sceneID="Seb-HR-DT1">
             <objects>
-                <viewController id="Ldd-Yn-fK6" sceneMemberID="viewController">
+                <viewController id="Ldd-Yn-fK6" customClass="ASMainController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7jb-U2-VOE"/>
                         <viewControllerLayoutGuide type="bottom" id="mU8-DY-EAH"/>
@@ -423,19 +423,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new" translatesAutoresizingMaskIntoConstraints="NO" id="lzc-gt-j5f">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" bounces="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2QK-4c-SmC">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
-                            </imageView>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lzc-gt-j5f" firstAttribute="top" secondItem="7jb-U2-VOE" secondAttribute="bottom" id="Ddf-KK-BPR"/>
-                            <constraint firstItem="lzc-gt-j5f" firstAttribute="leading" secondItem="SiP-vg-mA0" secondAttribute="leading" id="ZtW-a4-zWg"/>
-                            <constraint firstAttribute="trailing" secondItem="lzc-gt-j5f" secondAttribute="trailing" id="e7V-3Q-H92"/>
-                            <constraint firstItem="mU8-DY-EAH" firstAttribute="top" secondItem="lzc-gt-j5f" secondAttribute="bottom" id="wZe-7h-fBM"/>
+                            <constraint firstAttribute="trailing" secondItem="2QK-4c-SmC" secondAttribute="trailing" id="FPE-pe-xZF"/>
+                            <constraint firstItem="2QK-4c-SmC" firstAttribute="leading" secondItem="SiP-vg-mA0" secondAttribute="leading" id="TW5-TY-InB"/>
+                            <constraint firstItem="mU8-DY-EAH" firstAttribute="top" secondItem="2QK-4c-SmC" secondAttribute="bottom" id="oBK-FN-ce1"/>
+                            <constraint firstItem="2QK-4c-SmC" firstAttribute="top" secondItem="7jb-U2-VOE" secondAttribute="bottom" id="yMf-Rf-bu5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="最新" id="FqZ-vp-fou"/>
+                    <navigationItem key="navigationItem" id="FqZ-vp-fou"/>
+                    <connections>
+                        <outlet property="contentScroll" destination="2QK-4c-SmC" id="NQJ-hp-VgD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Piu-QJ-qtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,7 +569,6 @@
         <image name="mainCellShare" width="20" height="20"/>
         <image name="mainCellShareClick" width="23" height="23"/>
         <image name="mine" width="438" height="630"/>
-        <image name="new" width="440" height="630"/>
         <image name="tabBar_essence_click_icon" width="37" height="37"/>
         <image name="tabBar_essence_icon" width="37" height="37"/>
         <image name="tabBar_friendTrends_click_icon" width="37" height="37"/>

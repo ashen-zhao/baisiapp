@@ -26,10 +26,9 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     
     weak var delegate:ASCustomNavDelegate?
   
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        ASDataHelper.getMenusType("精华") { (AnyObject) in
+    init(frame: CGRect ,menuType:String) {
+       super.init(frame: frame)
+        ASDataHelper.getMenusType(menuType) { (AnyObject) in
             let array = AnyObject as! NSMutableArray
             let tempArr = NSMutableArray()
             let urlsArr = NSMutableArray()

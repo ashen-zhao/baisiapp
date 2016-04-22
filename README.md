@@ -5,12 +5,12 @@
 
 ---
 
-##已完成的功能 
-1. 滚动的导航切换功能
-2. 精华列表视频、图片（动图和静图）、文本的展示  
-![](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/164201714.gif)  
+##功能展示 
+
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/164201714.gif)  
 
 ##2016年4月22日更新
 1. 根据类型获取不同的推荐列表
+2. 完成最新栏目
  
 ---

@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import MJRefresh
 
-class ASHotTBController: UITableViewController {
+class ASMainTBController: UITableViewController {
 
     private var dataSource = NSMutableArray()
     var menuURL:String!
