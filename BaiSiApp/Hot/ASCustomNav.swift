@@ -10,7 +10,7 @@ import UIKit
 
 
 public protocol ASCustomNavDelegate: NSObjectProtocol {
-    func getTitlesCount(count:NSInteger)
+    func getTitlesCount(menuURLS:NSMutableArray, count:NSInteger)
     func titleAction(index:NSInteger)
 }
 
@@ -32,12 +32,13 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         ASDataHelper.getMenusType("精华") { (AnyObject) in
             let array = AnyObject as! NSMutableArray
             let tempArr = NSMutableArray()
+            let urlsArr = NSMutableArray()
             for model in array {
                 tempArr.addObject((model as! ASMenusModel).name)
+                urlsArr.addObject((model as! ASMenusModel).url)
             }
             self.makeUI(tempArr)
-            
-            self.delegate?.getTitlesCount(array.count)
+            self.delegate?.getTitlesCount(urlsArr, count: array.count)
             
         }
     }

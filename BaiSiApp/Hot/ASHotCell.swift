@@ -15,8 +15,6 @@ class ASHotCell: UITableViewCell {
     
     @IBOutlet weak var lblName: UILabel!
     
-    
-    
     @IBOutlet weak var lblTime: UILabel!
     
     @IBOutlet weak var lblText: UILabel!

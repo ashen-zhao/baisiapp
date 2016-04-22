@@ -14,35 +14,26 @@ class ASDataHelper: NSObject {
     class func getMenusType(type:String, successs:(AnyObject)->Void){
         ASNetWorkHepler.getResponseData("http://s.budejie.com/public/list-appbar/baisi_xiaohao-iphone-4.1", parameters: nil, success: { (result) in
             successs(ASMenusModel.getMenus(type, jsonArr: result["menus"].array!))
-            }) { (error) in
-              NSLog("请求失败")
+        }) { (error) in
+            print("请求失败")
         }
     }
     
     //获取推荐列表数据
-    class func getAllLists(success:(AnyObject)->Void) {
-        ASNetWorkHepler.getResponseData("http://s.budejie.com/topic/list/jingxuan/1/baisi_xiaohao-iphone-4.1/0-20.json", parameters: nil, success: { (result) in
+    class func getListsWithMenuURL(url:String, success:(AnyObject)->Void) {
+        ASNetWorkHepler.getResponseData(url.stringByAppendingString("/baisi_xiaohao-iphone-4.1/0-20.json"), parameters: nil, success: { (result) in
             success(ASListsModel.getLists(result["list"].array!))
-            }) { (error) in
-               NSLog("请求失败")
+        }) { (error) in
+            print("请求失败")
         }
     }
-    
-    //推荐段子
-    class func getTextLists(success:(AnyObject)->Void) {
-        ASNetWorkHepler.getResponseData("http://s.budejie.com/topic/tag-topic/64/hot/baisi_xiaohao-iphone-4.1/1460644972-20.json", parameters: nil, success: { (result) in
-            success(ASListsModel.getLists(result["list"].array!))
-            }) { (error) in
-                NSLog("请求失败")
-        }
-    }
-    
+
     //获取top图片
     class func getTopImages(success:(AnyObject)->Void) {
         ASNetWorkHepler.getResponseData("http://api.budejie.com/api/api_open.php?a=get_top_promotion&appname=baisi_xiaohao&asid=34FC34B8-5F29-473B-B771-6EE702C04384&c=topic&client=iphone&device=ios%20device&from=ios&jbk=1&mac=&market=&openudid=df051fdd9cd44aa5e2a8b1de8547ad7188a996b9&udid=&ver=4.1", parameters: nil, success: { (result) in
             success(ASTopImagesModel.getImages(result["result"].dictionary!["list"]! .arrayObject!))
-            }) { (error) in
-                NSLog("请求失败")
+        }) { (error) in
+            NSLog("请求失败")
         }
     }
     

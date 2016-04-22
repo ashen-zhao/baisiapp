@@ -12,13 +12,13 @@ import MJRefresh
 
 class ASHotTBController: UITableViewController {
 
-    var dataSource = NSMutableArray()
-    
+    private var dataSource = NSMutableArray()
+    var menuURL:String!
     // MARK: - life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
-        ASDataHelper.getAllLists { (AnyObject) in
+        ASDataHelper.getListsWithMenuURL(menuURL) { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
                 self.dataSource.addObject(listModel as! ASListsModel)

@@ -32,9 +32,11 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     }
     
     // MARK: - ASCustomNavDelegate
-    func getTitlesCount(count: NSInteger) {
-        for _ in 0 ..< count {
+
+    func getTitlesCount(menuURLS: NSMutableArray, count: NSInteger) {
+        for i in 0 ..< count {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASHotTBController
+            vc.menuURL = menuURLS[i] as! String
             addChildViewController(vc)
         }
         contentScroll.delegate = self
