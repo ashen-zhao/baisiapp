@@ -31,7 +31,7 @@
 		8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */; };
 		8CB356D71CAA4ACF0070BE40 /* ASMainTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D61CAA4ACF0070BE40 /* ASMainTBController.swift */; };
 		8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356E01CAA52390070BE40 /* ASCustomNav.swift */; };
-		8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3574D1CAA85130070BE40 /* ASHotCell.swift */; };
+		8CB3574E1CAA85130070BE40 /* ASMainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB3574D1CAA85130070BE40 /* ASMainCell.swift */; };
 		8CB357501CAA918E0070BE40 /* top_defauth.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */; };
 		8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */; };
 		8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */; };
@@ -48,7 +48,7 @@
 		021689F21EBB6C393EB45DA5 /* Pods-BaiSiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiApp/Pods-BaiSiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		17963E05FF71DBF1B530016D /* Pods_BaiSiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiSiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToolHelper.swift; sourceTree = "<group>"; };
-		8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomLabel.swift; sourceTree = "<group>"; };
+		8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASCustomLabel.swift; path = ../Hot/ASCustomLabel.swift; sourceTree = "<group>"; };
 		8C4DD5B11CB4E26C00645380 /* ASImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageModel.swift; sourceTree = "<group>"; };
 		8C4DD5B31CB4E2B600645380 /* ASGifModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASGifModel.swift; sourceTree = "<group>"; };
 		8C4DD5B71CB4F60500645380 /* ASVideoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASVideoView.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASPlusController.swift; sourceTree = "<group>"; };
 		8CB356D61CAA4ACF0070BE40 /* ASMainTBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainTBController.swift; sourceTree = "<group>"; };
 		8CB356E01CAA52390070BE40 /* ASCustomNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASCustomNav.swift; path = ../Hot/ASCustomNav.swift; sourceTree = "<group>"; };
-		8CB3574D1CAA85130070BE40 /* ASHotCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASHotCell.swift; sourceTree = "<group>"; };
+		8CB3574D1CAA85130070BE40 /* ASMainCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainCell.swift; sourceTree = "<group>"; };
 		8CB3574F1CAA918D0070BE40 /* top_defauth.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = top_defauth.jpg; path = Hot/top_defauth.jpg; sourceTree = "<group>"; };
 		8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNetWorkHepler.swift; sourceTree = "<group>"; };
 		8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDataHelper.swift; sourceTree = "<group>"; };
@@ -120,11 +120,11 @@
 			isa = PBXGroup;
 			children = (
 				8CD6044B1CABCF8500A350C6 /* Helper */,
-				8CB356BE1CA91CB40070BE40 /* Main */,
+				8CB356BE1CA91CB40070BE40 /* General */,
 				8CB356C11CA91E5B0070BE40 /* Login */,
 				8CB356C21CA91E5B0070BE40 /* Mine */,
 				8CB356C31CA91E5B0070BE40 /* Plus */,
-				8CB356BD1CA91CB40070BE40 /* Hot */,
+				8CB356BD1CA91CB40070BE40 /* Main */,
 				8CB356BF1CA91CB40070BE40 /* New */,
 				8CB356C01CA91CB40070BE40 /* Vendors */,
 				8CD604471CABBCA300A350C6 /* Sources */,
@@ -132,25 +132,28 @@
 			path = BaiSiApp;
 			sourceTree = "<group>";
 		};
-		8CB356BD1CA91CB40070BE40 /* Hot */ = {
+		8CB356BD1CA91CB40070BE40 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				8CD604481CABBD0500A350C6 /* Models */,
 				8CB356D91CAA51090070BE40 /* Views */,
 				8CB356D81CAA50F80070BE40 /* Controllers */,
 			);
+			name = Main;
 			path = Hot;
 			sourceTree = "<group>";
 		};
-		8CB356BE1CA91CB40070BE40 /* Main */ = {
+		8CB356BE1CA91CB40070BE40 /* General */ = {
 			isa = PBXGroup;
 			children = (
 				8CB356A61CA905BA0070BE40 /* AppDelegate.swift */,
 				8CB356CE1CA92B020070BE40 /* ASTabBarController.swift */,
 				8CB356D01CA92B220070BE40 /* ASNavigationController.swift */,
 				8CB356E01CAA52390070BE40 /* ASCustomNav.swift */,
+				8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */,
 				8CB356AA1CA905BA0070BE40 /* Main.storyboard */,
 			);
+			name = General;
 			path = Main;
 			sourceTree = "<group>";
 		};
@@ -206,8 +209,7 @@
 		8CB356D91CAA51090070BE40 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */,
-				8CB3574D1CAA85130070BE40 /* ASHotCell.swift */,
+				8CB3574D1CAA85130070BE40 /* ASMainCell.swift */,
 				8C4DD5B71CB4F60500645380 /* ASVideoView.swift */,
 				8C4DD5B91CB4F61400645380 /* ASVideoView.xib */,
 				8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */,
@@ -410,7 +412,7 @@
 				8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */,
 				8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */,
 				8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */,
-				8CB3574E1CAA85130070BE40 /* ASHotCell.swift in Sources */,
+				8CB3574E1CAA85130070BE40 /* ASMainCell.swift in Sources */,
 				8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */,
 				8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */,
 				8C4DD5B81CB4F60500645380 /* ASVideoView.swift in Sources */,

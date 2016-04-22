@@ -1,5 +1,5 @@
 //
-//  ASHotTBController.swift
+//  ASMainTBController.swift
 //  BaiSiApp
 //
 //  Created by ashen on 16/3/29.
@@ -41,7 +41,7 @@ class ASMainTBController: UITableViewController {
 
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("hotCell") as! ASHotCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("hotCell") as! ASMainCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
         return cell
     }
@@ -62,7 +62,7 @@ class ASMainTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return ASHotCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
+        return ASMainCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
     }
     
     /*

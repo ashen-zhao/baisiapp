@@ -27,6 +27,9 @@
                         <constraint firstAttribute="height" constant="70" id="wKR-jr-lFb"/>
                     </constraints>
                     <state key="normal" image="video-play"/>
+                    <connections>
+                        <action selector="btnPlayAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="hcR-kW-1Ca"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-KG-8AA" userLabel="次数">
                     <rect key="frame" x="0.0" y="268" width="38" height="18"/>

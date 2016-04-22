@@ -55,8 +55,10 @@ class ASListsModel: NSObject {
         
         if !dict["u"].isEmpty {
             let tempu = ASUserModel()
+            print(dict["u"].dictionaryObject!)
             tempu.setValuesForKeysWithDictionary(dict["u"].dictionaryObject!)
             u = tempu;
+            print(u.name)
         }
         
         

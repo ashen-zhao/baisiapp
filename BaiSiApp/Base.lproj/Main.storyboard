@@ -66,7 +66,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="hotCell" rowHeight="413" id="MO8-5L-6p1" customClass="ASHotCell" customModule="BaiSiApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="hotCell" rowHeight="413" id="MO8-5L-6p1" customClass="ASMainCell" customModule="BaiSiApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="600" height="413"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MO8-5L-6p1" id="HJh-SE-DNs">

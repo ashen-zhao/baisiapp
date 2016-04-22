@@ -1,5 +1,5 @@
 //
-//  ASHotCell.swift
+//  ASMainCell.swift
 //  BaiSiApp
 //
 //  Created by ashen on 16/3/29.
@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-class ASHotCell: UITableViewCell {
+class ASMainCell: UITableViewCell {
 
     @IBOutlet weak var imgVHeader: UIImageView!
     
@@ -49,8 +49,8 @@ class ASHotCell: UITableViewCell {
     }
     
     func setupData(listModel:ASListsModel) {
-
-        imgVHeader.kf_setImageWithURL(NSURL(string: listModel.u.header[0])!, placeholderImage: UIImage(named: "defaultUserIcon"))
+        
+        imgVHeader.kf_setImageWithURL(NSURL(string: listModel.u.header.count > 0 ? listModel.u.header[0] : "")!, placeholderImage: UIImage(named: "defaultUserIcon"))
         lblText.text = listModel.text
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
