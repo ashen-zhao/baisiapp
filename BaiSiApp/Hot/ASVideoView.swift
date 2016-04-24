@@ -26,18 +26,17 @@ class ASVideoView: UIView {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stateChanged), name: MPMoviePlayerPlaybackStateDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finished), name: MPMoviePlayerPlaybackDidFinishNotification, object: nil)
     }
-  
+    
     
     class func videoView() -> ASVideoView {
         return NSBundle.mainBundle().loadNibNamed("ASVideoView", owner: nil, options: nil)[0] as! ASVideoView
     }
-    
+
     // MARK: -
-    
     var videoModel:ASVideoModel! {
         didSet {
             player.contentURL = NSURL(string: videoModel.video[0])
-            player.view.frame = bgkImageView.frame
+            player.view.frame = self.bounds
             player.scalingMode = .AspectFit;
             player.backgroundView.backgroundColor = UIColor.lightGrayColor()
             self.addSubview(player.view)
@@ -52,23 +51,20 @@ class ASVideoView: UIView {
     
     //MARK: - Actions
     @IBAction func btnPlayAction(sender: AnyObject) {
-        self.bringSubviewToFront(player.view)
         player.play()
     }
     
-    
     //MARK: - private Methods
-    
     func stateChanged() {
         switch (self.player.playbackState) {
         case .Playing:
-            print("正在播放...");
+            self.bringSubviewToFront(player.view)
             break;
         case .Paused:
             print("暂停播放.");
             break;
         case .Stopped:
-            print("停止播放.");
+            self.sendSubviewToBack(player.view)
             break;
         default:
             break;
