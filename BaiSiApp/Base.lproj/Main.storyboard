@@ -276,7 +276,7 @@
                                             </variation>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-Lu-VHx">
-                                            <rect key="frame" x="0.0" y="96" width="600" height="203"/>
+                                            <rect key="frame" x="0.0" y="96" width="600" height="238"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiM-C6-zxi" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
@@ -324,6 +324,7 @@
                                         <constraint firstItem="NiM-C6-zxi" firstAttribute="top" secondItem="yN9-BK-yEa" secondAttribute="bottom" id="Wzj-K5-p20"/>
                                         <constraint firstAttribute="trailing" secondItem="b84-Zw-VNY" secondAttribute="trailing" id="YHK-ei-BM3"/>
                                         <constraint firstAttribute="trailing" secondItem="NiM-C6-zxi" secondAttribute="trailing" constant="10" id="Ywh-qk-16e"/>
+                                        <constraint firstItem="tku-MS-ObZ" firstAttribute="top" secondItem="OU2-Lu-VHx" secondAttribute="bottom" constant="8" id="Z6h-Ld-dWU"/>
                                         <constraint firstItem="F2k-Q2-wfL" firstAttribute="leading" secondItem="HJh-SE-DNs" secondAttribute="leading" id="ZD3-qD-iVd"/>
                                         <constraint firstAttribute="trailing" secondItem="C3H-ZV-Cjg" secondAttribute="trailing" constant="26" id="clK-BH-xTa"/>
                                         <constraint firstItem="tku-MS-ObZ" firstAttribute="top" secondItem="NiM-C6-zxi" secondAttribute="bottom" id="d6C-AL-nkf"/>
@@ -342,6 +343,7 @@
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="Wqh-OH-osC"/>
                                             <exclude reference="vpi-Jf-0AX"/>
                                         </mask>
                                     </variation>

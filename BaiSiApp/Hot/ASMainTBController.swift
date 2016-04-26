@@ -39,8 +39,8 @@ class ASMainTBController: UITableViewController {
         return dataSource.count ?? 0
     }
 
-
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("hotCell") as! ASMainCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
         return cell

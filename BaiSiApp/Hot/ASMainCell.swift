@@ -54,7 +54,7 @@ class ASMainCell: UITableViewCell {
         lblText.text = listModel.text
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
-        
+    
         switch listModel.type {
         case .Video:
             video_View.frame = listModel.frame
@@ -68,12 +68,15 @@ class ASMainCell: UITableViewCell {
             centerView.addSubview(image_View)
             video_View.removeFromSuperview()
         default:
+            image_View.removeFromSuperview()
+            video_View.removeFromSuperview()
             break
         }
         
         lblTopCommentTip.hidden = listModel.top_comment.content.isEmpty
         lblComment.hidden = listModel.top_comment.content.isEmpty
         lblComment.text = listModel.top_comment.user.name + ": " + listModel.top_comment.content
+        
         btnDing.setTitle(" " + listModel.up, forState: .Normal)
         btnBad.setTitle(" \(listModel.down!)", forState: .Normal)
         

@@ -27,9 +27,6 @@
                         <constraint firstAttribute="height" constant="70" id="wKR-jr-lFb"/>
                     </constraints>
                     <state key="normal" image="video-play"/>
-                    <connections>
-                        <action selector="btnPlayAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="hcR-kW-1Ca"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pXX-KG-8AA" userLabel="次数">
                     <rect key="frame" x="0.0" y="268" width="38" height="18"/>
@@ -46,15 +43,15 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uRy-XS-iDV">
-                    <rect key="frame" x="0.0" y="0.0" width="411" height="241"/>
+                    <rect key="frame" x="0.0" y="0.0" width="411" height="286"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <gestureRecognizers/>
                     <connections>
                         <outletCollection property="gestureRecognizers" destination="Qfs-VQ-A7c" appends="YES" id="TWT-qU-cQf"/>
                     </connections>
                 </view>
-                <view hidden="YES" alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3e-mi-OcJ">
-                    <rect key="frame" x="0.0" y="241" width="411" height="45"/>
+                <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B3e-mi-OcJ" userLabel="ControlsVIew">
+                    <rect key="frame" x="0.0" y="286" width="411" height="45"/>
                     <subviews>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="i6X-WE-Fsc">
                             <rect key="frame" x="0.0" y="0.0" width="411" height="3"/>
@@ -68,7 +65,10 @@
                                 <constraint firstAttribute="height" constant="20" id="A4D-d9-3Ge"/>
                                 <constraint firstAttribute="width" constant="20" id="qg6-oN-QWn"/>
                             </constraints>
-                            <state key="normal" image="voice-play-start"/>
+                            <state key="normal" image="playButtonPause"/>
+                            <connections>
+                                <action selector="btnStartAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xml-mz-5GP"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzh-4H-nIM">
                             <rect key="frame" x="45" y="12" width="41" height="25"/>
@@ -91,14 +91,23 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6g-RY-EfY">
                             <rect key="frame" x="381" y="10" width="20" height="27"/>
                             <state key="normal" image="video_fullscreen"/>
+                            <connections>
+                                <action selector="btnFullScreenAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="UTb-4y-HbX"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3P-WD-ynr">
                             <rect key="frame" x="341" y="7" width="25" height="33"/>
                             <state key="normal" image="video_barrage_close"/>
+                            <connections>
+                                <action selector="btnAlertAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="vOB-qf-Fx8"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io3-KS-67m">
                             <rect key="frame" x="309" y="10" width="17" height="27"/>
                             <state key="normal" image="videoDownLoad"/>
+                            <connections>
+                                <action selector="btnDownAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="0x5-PF-MUI"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,7 +149,7 @@
                 <constraint firstItem="B3e-mi-OcJ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="DVL-Mg-tgG"/>
                 <constraint firstItem="B3e-mi-OcJ" firstAttribute="top" secondItem="uRy-XS-iDV" secondAttribute="bottom" id="E3B-uv-8uq"/>
                 <constraint firstItem="apH-dt-pGb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FT1-az-cbR"/>
-                <constraint firstAttribute="bottom" secondItem="B3e-mi-OcJ" secondAttribute="bottom" id="J8n-X4-bGS"/>
+                <constraint firstAttribute="bottom" secondItem="B3e-mi-OcJ" secondAttribute="bottom" constant="-45" id="J8n-X4-bGS"/>
                 <constraint firstItem="sCd-uz-itu" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="JPA-XM-fhe"/>
                 <constraint firstAttribute="bottom" secondItem="pXX-KG-8AA" secondAttribute="bottom" id="ODJ-8N-Q2m"/>
                 <constraint firstAttribute="trailing" secondItem="uRy-XS-iDV" secondAttribute="trailing" id="PIw-Z8-WoA"/>
@@ -168,9 +177,13 @@
                 <outlet property="bgkImageView" destination="sCd-uz-itu" id="mC6-vP-ZcT"/>
                 <outlet property="btnPlay" destination="cCb-w7-OFf" id="UtF-bI-gYc"/>
                 <outlet property="controlsVIew" destination="B3e-mi-OcJ" id="W6k-EF-35E"/>
+                <outlet property="lblCurrentTime" destination="nzh-4H-nIM" id="EiE-NJ-vs3"/>
                 <outlet property="lblPlayCount" destination="pXX-KG-8AA" id="j0a-Ox-fiR"/>
                 <outlet property="lblPlayTime" destination="Qp2-YE-ome" id="rRB-bH-amd"/>
+                <outlet property="lblTotalTime" destination="1L9-b2-7SB" id="6hn-BX-qPs"/>
                 <outlet property="logoBgk" destination="apH-dt-pGb" id="nXq-2u-qpv"/>
+                <outlet property="progress" destination="i6X-WE-Fsc" id="90i-jG-gtq"/>
+                <outlet property="touchView" destination="uRy-XS-iDV" id="4LF-K6-nbC"/>
             </connections>
             <point key="canvasLocation" x="341.5" y="368"/>
         </view>
@@ -182,10 +195,10 @@
     </objects>
     <resources>
         <image name="imageBackground" width="75" height="15"/>
+        <image name="playButtonPause" width="26" height="26"/>
         <image name="video-play" width="71" height="71"/>
         <image name="videoDownLoad" width="17" height="18"/>
         <image name="video_barrage_close" width="25" height="15"/>
         <image name="video_fullscreen" width="20" height="20"/>
-        <image name="voice-play-start" width="53" height="53"/>
     </resources>
 </document>
