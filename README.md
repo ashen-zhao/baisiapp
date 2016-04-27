@@ -5,17 +5,17 @@
 
 ---
 
-##功能展示 
-
-![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/164201714.gif)  
 
 ##2016年4月22日更新
 1. 根据类型获取不同的推荐列表
-2. 完成最新栏目
+2. 完成最新栏目  
+
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/164201714.gif)  
+
  
 ##2016年4月26日更新
 1. 新增视频播放功能(有待完善)
-
+2. 完善视频播放页面
 本项目由swift编写，不定期更新，感谢百思不得姐
 
 ---
