@@ -41,8 +41,9 @@ class ASMainTBController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("hotCell") as! ASMainCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
+        
         return cell
     }
     
