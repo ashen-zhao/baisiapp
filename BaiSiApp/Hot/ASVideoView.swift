@@ -32,6 +32,7 @@ class ASVideoView: UIView {
     @IBOutlet weak var lblCurrentTime: UILabel!
     
     @IBOutlet weak var lblTotalTime: UILabel!
+    
     @IBOutlet weak var controlStart: UIButton!
     
     let player = MPMoviePlayerController()
@@ -40,14 +41,13 @@ class ASVideoView: UIView {
     var currentTimer:NSTimer!
     var touchTime:NSDate!
     var isFirstTouch = false
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         autoresizingMask = .None
+        NSNotificationCenter.defaultCenter().removeObserver(self)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(stateChanged), name: MPMoviePlayerPlaybackStateDidChangeNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(finished), name: MPMoviePlayerPlaybackDidFinishNotification, object: nil)
-        
-//        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(start), name: MPMediaPlaybackIsPreparedToPlayDidChangeNotification, object: nil)
     }
     
     
@@ -58,16 +58,16 @@ class ASVideoView: UIView {
     // MARK: -
     var videoModel:ASVideoModel! {
         didSet {
-        
+
             player.contentURL = NSURL(string: videoModel.video[0])
             player.view.frame = self.bounds
             player.scalingMode = .AspectFit;
             player.controlStyle = .None
             player.backgroundView.backgroundColor = UIColor.lightGrayColor()
             self.addSubview(player.view)
-            self.sendSubviewToBack(player.view)
-            
+            self.insertSubview(player.view, belowSubview: bgkImageView)
             bgkImageView.kf_setImageWithURL(NSURL(string: videoModel.thumbnail.count > 0 ? videoModel.thumbnail[0]: "")!)
+            
             lblPlayCount.text = "\(videoModel.playcount) 播放"
             lblPlayTime.text = getNormalTimeStyle(String(videoModel.duration))
             logoBgk.hidden = true
@@ -76,14 +76,16 @@ class ASVideoView: UIView {
             lblCurrentTime.text = "00:00"
             slider.setThumbImage(UIImage(named: "voice-play-progress-icon"), forState: .Normal)
             slider.value = 0.0
-            viewsHidden(false)
+            
             isFirstTouch = false
             indicator.hidden = true
+            btnPlay.hidden = false
+            lblPlayTime.hidden = false
+            lblPlayCount.hidden = false
             controlsHidden = true
             controlStart.setImage(UIImage(named: "playButtonPause"), forState: .Normal)
         }
     }
-    
     
     //MARK: - Actions
     
@@ -97,7 +99,7 @@ class ASVideoView: UIView {
                 if timer != nil {
                     timer.invalidate()
                 }
-                timer =  NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(autoHiddenControls), userInfo: nil, repeats: true)
+                timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(autoHiddenControls), userInfo: nil, repeats: true)
                 
             } else {
                 frame.origin.y += 55
@@ -108,9 +110,11 @@ class ASVideoView: UIView {
             }
         } else {
             if !isFirstTouch{
-                indicator.hidden = false
-                indicator.startAnimating()
                 player.play()
+                //这里很神奇，如果将btnPlay.hidden = true写在player.play()前面，则btnPlay不会隐藏，不知道是什么原因
+                indicator.hidden = false
+                btnPlay.hidden = true
+                indicator.startAnimating()
             }
             isFirstTouch = true
         }
@@ -147,13 +151,11 @@ class ASVideoView: UIView {
                 currentTimer.invalidate()
             }
             currentTimer =  NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(changeCurrentTimeLbl), userInfo: nil, repeats: true)
-            viewsHidden(true)
             break;
         case .Paused:
             if currentTimer != nil {
                 currentTimer.invalidate()
             }
-            viewsHidden(true)
             break;
         default:
             break;
@@ -161,10 +163,12 @@ class ASVideoView: UIView {
     }
     
     @objc private func finished() {
-        self.sendSubviewToBack(player.view)
         isFirstTouch = false
-        viewsHidden(false)
         bgkImageView.hidden = false
+        lblPlayTime.hidden = false
+        lblPlayCount.hidden = false
+        btnPlay.hidden = false
+        
         if currentTimer != nil {
             currentTimer.invalidate()
         }
@@ -202,6 +206,8 @@ class ASVideoView: UIView {
         slider.setMinimumTrackImage(UIImage(named: "voice-play-progress"), forState: .Normal)
         indicator.hidden = true
         bgkImageView.hidden = true
+        lblPlayTime.hidden = true
+        lblPlayCount.hidden = true
     }
     
     func getNormalTimeStyle(time:String)->String {
@@ -213,11 +219,5 @@ class ASVideoView: UIView {
            result = String(format: "%02d:%02d", timeInterval / 60, timeInterval % 60)
         }
         return result
-    }
-    
-    private func viewsHidden(hidden:Bool) {
-        btnPlay.hidden = hidden
-        lblPlayTime.hidden = hidden
-        lblPlayCount.hidden = hidden
     }
 }

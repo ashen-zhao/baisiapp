@@ -41,12 +41,22 @@ class ASMainTBController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
-        cell.setupData(dataSource[indexPath.row] as! ASListsModel)
+        let iden = "mainCell"
+        var cell = tableView.dequeueReusableCellWithIdentifier(iden) as? ASMainCell
+        if cell == nil {
+            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: nil, options: nil)[0] as? ASMainCell
+        } else {
+            while cell?.contentView.subviews.last != nil {
+                cell?.contentView.subviews.last?.removeFromSuperview()
+            }
+        }
+        cell!.setupData(dataSource[indexPath.row] as! ASListsModel)
+        return cell!
         
-        return cell
+//        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
+//        cell.setupData(dataSource[indexPath.row] as! ASListsModel)
+//        return cell
     }
-    
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
@@ -65,15 +75,4 @@ class ASMainTBController: UITableViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return ASMainCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
