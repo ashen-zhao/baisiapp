@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" rowHeight="413" id="Ctj-hJ-dXm" userLabel="mainCell" customClass="ASMainCell" customModule="BaiSiApp" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" restorationIdentifier="cell" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainCell" rowHeight="413" id="Ctj-hJ-dXm" userLabel="mainCell" customClass="ASMainCell" customModule="BaiSiApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="413"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ctj-hJ-dXm" id="AlV-hn-bXh">
@@ -218,10 +218,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dcj-nQ-vyd">
-                        <rect key="frame" x="0.0" y="96" width="600" height="238"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
                     <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="呵呵，哈哈，不错哦，很不错哦啊" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVX-MQ-SGC" customClass="ASCustomLabel" customModule="BaiSiApp" customModuleProvider="target">
                         <rect key="frame" x="10" y="325" width="580" height="17"/>
                         <color key="backgroundColor" red="0.96284144949999995" green="0.96148537550000002" blue="0.9851726113" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,14 +244,18 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfc-KB-Pu2" userLabel="centerview">
+                        <rect key="frame" x="0.0" y="96" width="600" height="211"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="V7b-zO-qfq" secondAttribute="trailing" id="069-vG-Krr"/>
                     <constraint firstItem="J33-7z-6uw" firstAttribute="top" secondItem="AlV-hn-bXh" secondAttribute="top" id="1uI-Ge-MLp"/>
+                    <constraint firstAttribute="trailing" secondItem="Yfc-KB-Pu2" secondAttribute="trailing" id="4Y6-Sr-1bM"/>
                     <constraint firstItem="iyy-Ww-qav" firstAttribute="leading" secondItem="jWE-v1-gDe" secondAttribute="trailing" constant="8" id="8Ml-Ah-Oo1"/>
                     <constraint firstAttribute="trailing" secondItem="GVX-MQ-SGC" secondAttribute="trailing" constant="10" id="9qb-UK-jZY"/>
                     <constraint firstAttribute="trailing" secondItem="v66-30-4pR" secondAttribute="trailing" id="BjT-2w-tss"/>
-                    <constraint firstItem="Dcj-nQ-vyd" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" id="DCm-xJ-OF3"/>
                     <constraint firstAttribute="trailing" secondItem="jx1-IV-7b9" secondAttribute="trailing" id="DQr-TC-94L"/>
                     <constraint firstItem="v66-30-4pR" firstAttribute="top" secondItem="jx1-IV-7b9" secondAttribute="bottom" constant="5" id="EOF-iZ-bgj"/>
                     <constraint firstItem="wNS-ta-pYR" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" constant="10" id="EYd-ki-kQs"/>
@@ -267,10 +267,11 @@
                     <constraint firstAttribute="bottom" secondItem="v66-30-4pR" secondAttribute="bottom" id="Rvi-M9-xVC"/>
                     <constraint firstItem="V7b-zO-qfq" firstAttribute="leading" secondItem="jWE-v1-gDe" secondAttribute="trailing" constant="8" id="TrW-og-Eg1"/>
                     <constraint firstItem="iyy-Ww-qav" firstAttribute="top" secondItem="AlV-hn-bXh" secondAttribute="top" constant="22" id="Ulq-gE-13b"/>
-                    <constraint firstItem="wNS-ta-pYR" firstAttribute="top" secondItem="Dcj-nQ-vyd" secondAttribute="bottom" constant="8" id="Xzy-da-lYa"/>
+                    <constraint firstItem="wNS-ta-pYR" firstAttribute="top" secondItem="Yfc-KB-Pu2" secondAttribute="bottom" id="WKv-dL-FuU"/>
+                    <constraint firstItem="Yfc-KB-Pu2" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" id="XHC-1x-Dpy"/>
                     <constraint firstItem="jWE-v1-gDe" firstAttribute="top" secondItem="AlV-hn-bXh" secondAttribute="top" constant="20" id="bTV-jq-nJh"/>
+                    <constraint firstItem="Yfc-KB-Pu2" firstAttribute="top" secondItem="2Ys-UB-s2I" secondAttribute="bottom" constant="8" id="c2F-EA-Mc3"/>
                     <constraint firstItem="GVX-MQ-SGC" firstAttribute="top" secondItem="wNS-ta-pYR" secondAttribute="bottom" id="dXP-r3-9HF"/>
-                    <constraint firstAttribute="trailing" secondItem="Dcj-nQ-vyd" secondAttribute="trailing" id="hUD-uJ-XLP"/>
                     <constraint firstAttribute="trailing" secondItem="iyy-Ww-qav" secondAttribute="trailing" constant="70" id="hrT-xr-Xor"/>
                     <constraint firstItem="2Ys-UB-s2I" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" constant="10" id="l4S-Md-xj4"/>
                     <constraint firstAttribute="trailingMargin" secondItem="f83-pF-drB" secondAttribute="trailing" id="l5N-lq-vcb"/>
@@ -281,12 +282,9 @@
                     <constraint firstItem="jx1-IV-7b9" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" id="paR-ux-XYk"/>
                     <constraint firstItem="jWE-v1-gDe" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" constant="10" id="qhN-6L-1GP"/>
                     <constraint firstItem="v66-30-4pR" firstAttribute="leading" secondItem="AlV-hn-bXh" secondAttribute="leading" id="xGW-Cc-b6j"/>
-                    <constraint firstItem="jx1-IV-7b9" firstAttribute="top" secondItem="Dcj-nQ-vyd" secondAttribute="bottom" constant="8" id="xHU-wd-xfa"/>
-                    <constraint firstItem="Dcj-nQ-vyd" firstAttribute="top" secondItem="2Ys-UB-s2I" secondAttribute="bottom" constant="8" id="ydf-eQ-yse"/>
                 </constraints>
                 <variation key="default">
                     <mask key="constraints">
-                        <exclude reference="Xzy-da-lYa"/>
                         <exclude reference="dXP-r3-9HF"/>
                     </mask>
                 </variation>
@@ -296,7 +294,7 @@
                 <outlet property="btnComment" destination="37O-Md-7HY" id="oM0-ue-ax6"/>
                 <outlet property="btnDing" destination="QNo-3T-izU" id="LOV-Sb-Cjd"/>
                 <outlet property="btnShare" destination="KFZ-LE-3cq" id="hjb-9X-IQ8"/>
-                <outlet property="centerView" destination="Dcj-nQ-vyd" id="3SG-Et-xA3"/>
+                <outlet property="centerView" destination="Yfc-KB-Pu2" id="0To-hf-mIY"/>
                 <outlet property="imgVHeader" destination="jWE-v1-gDe" id="mlg-8X-c7p"/>
                 <outlet property="lblComment" destination="GVX-MQ-SGC" id="0ib-3K-CNO"/>
                 <outlet property="lblName" destination="iyy-Ww-qav" id="R75-hf-j7G"/>

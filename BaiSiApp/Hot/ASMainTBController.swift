@@ -11,9 +11,11 @@ import Kingfisher
 import MJRefresh
 
 class ASMainTBController: UITableViewController {
-
+    
     private var dataSource = NSMutableArray()
     var menuURL:String!
+    let iden = "mainCell"
+    
     // MARK: - life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,36 +28,30 @@ class ASMainTBController: UITableViewController {
             self.tableView.reloadData()
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     // MARK: - Table view data source
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count ?? 0
     }
-
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let iden = "mainCell"
         var cell = tableView.dequeueReusableCellWithIdentifier(iden) as? ASMainCell
         if cell == nil {
-            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: nil, options: nil)[0] as? ASMainCell
+            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: self, options: nil).first as? ASMainCell
         } else {
-            while cell?.contentView.subviews.last != nil {
-                cell?.contentView.subviews.last?.removeFromSuperview()
-            }
+            cell?.removeFromSuperview()
+            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: self, options: nil).first as? ASMainCell
         }
+        
         cell!.setupData(dataSource[indexPath.row] as! ASListsModel)
         return cell!
-        
-//        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
-//        cell.setupData(dataSource[indexPath.row] as! ASListsModel)
-//        return cell
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

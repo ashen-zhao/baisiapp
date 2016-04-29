@@ -58,7 +58,6 @@ class ASVideoView: UIView {
     // MARK: -
     var videoModel:ASVideoModel! {
         didSet {
-
             player.contentURL = NSURL(string: videoModel.video[0])
             player.view.frame = self.bounds
             player.scalingMode = .AspectFit;
@@ -143,7 +142,7 @@ class ASVideoView: UIView {
     }
     
     //MARK: - private Methods
-    @objc private func stateChanged() {
+    func stateChanged() {
         
         switch (self.player.playbackState) {
         case .Playing:
@@ -162,7 +161,7 @@ class ASVideoView: UIView {
         }
     }
     
-    @objc private func finished() {
+    func finished() {
         isFirstTouch = false
         bgkImageView.hidden = false
         lblPlayTime.hidden = false

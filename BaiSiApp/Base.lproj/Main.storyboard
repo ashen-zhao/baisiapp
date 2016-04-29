@@ -58,6 +58,7 @@
         <!--MainTB Controller-->
         <scene sceneID="gEM-T8-dmg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zoW-En-hKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASMainTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="413" sectionHeaderHeight="18" sectionFooterHeight="18" id="N1m-Be-K6m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -70,7 +71,6 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="h2I-Zl-Ldx"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zoW-En-hKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="277" y="2064"/>
         </scene>
