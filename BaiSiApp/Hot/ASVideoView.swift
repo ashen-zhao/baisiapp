@@ -41,7 +41,7 @@ class ASVideoView: UIView {
     var currentTimer:NSTimer!
     var touchTime:NSDate!
     var isFirstTouch = false
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         autoresizingMask = .None
@@ -62,9 +62,10 @@ class ASVideoView: UIView {
             player.view.frame = self.bounds
             player.scalingMode = .AspectFit;
             player.controlStyle = .None
-            player.backgroundView.backgroundColor = UIColor.lightGrayColor()
+            player.backgroundView.backgroundColor = UIColor.clearColor()
             self.addSubview(player.view)
             self.insertSubview(player.view, belowSubview: bgkImageView)
+            
             bgkImageView.kf_setImageWithURL(NSURL(string: videoModel.thumbnail.count > 0 ? videoModel.thumbnail[0]: "")!)
             
             lblPlayCount.text = "\(videoModel.playcount) 播放"
@@ -77,6 +78,7 @@ class ASVideoView: UIView {
             slider.value = 0.0
             
             isFirstTouch = false
+            bgkImageView.hidden = false
             indicator.hidden = true
             btnPlay.hidden = false
             lblPlayTime.hidden = false
@@ -109,7 +111,7 @@ class ASVideoView: UIView {
             }
         } else {
             if !isFirstTouch{
-                player.play()
+                self.player.play()
                 //这里很神奇，如果将btnPlay.hidden = true写在player.play()前面，则btnPlay不会隐藏，不知道是什么原因
                 indicator.hidden = false
                 btnPlay.hidden = true
@@ -142,7 +144,7 @@ class ASVideoView: UIView {
     }
     
     //MARK: - private Methods
-    func stateChanged() {
+    @objc private func stateChanged() {
         
         switch (self.player.playbackState) {
         case .Playing:
@@ -161,7 +163,7 @@ class ASVideoView: UIView {
         }
     }
     
-    func finished() {
+    @objc private func finished() {
         isFirstTouch = false
         bgkImageView.hidden = false
         lblPlayTime.hidden = false
@@ -215,7 +217,7 @@ class ASVideoView: UIView {
         if timeInterval < 60 {
             result = String(format:"00:%02d", timeInterval!)
         } else if timeInterval < 3600 {
-           result = String(format: "%02d:%02d", timeInterval / 60, timeInterval % 60)
+            result = String(format: "%02d:%02d", timeInterval / 60, timeInterval % 60)
         }
         return result
     }

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7FD73CFA8D837BA245457903 /* Pods_BaiSiApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17963E05FF71DBF1B530016D /* Pods_BaiSiApp.framework */; };
-		8C0A91A31CD216D9001062DF /* ASMainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C0A91A21CD216D9001062DF /* ASMainCell.xib */; };
 		8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */; };
 		8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */; };
 		8C4DD5B21CB4E26C00645380 /* ASImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C4DD5B11CB4E26C00645380 /* ASImageModel.swift */; };
@@ -48,7 +47,6 @@
 /* Begin PBXFileReference section */
 		021689F21EBB6C393EB45DA5 /* Pods-BaiSiApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BaiSiApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BaiSiApp/Pods-BaiSiApp.debug.xcconfig"; sourceTree = "<group>"; };
 		17963E05FF71DBF1B530016D /* Pods_BaiSiApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BaiSiApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C0A91A21CD216D9001062DF /* ASMainCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMainCell.xib; sourceTree = "<group>"; };
 		8C4D03091CAE543D00C5E308 /* ASToolHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASToolHelper.swift; sourceTree = "<group>"; };
 		8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASCustomLabel.swift; path = ../Hot/ASCustomLabel.swift; sourceTree = "<group>"; };
 		8C4DD5B11CB4E26C00645380 /* ASImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageModel.swift; sourceTree = "<group>"; };
@@ -212,7 +210,6 @@
 			isa = PBXGroup;
 			children = (
 				8CB3574D1CAA85130070BE40 /* ASMainCell.swift */,
-				8C0A91A21CD216D9001062DF /* ASMainCell.xib */,
 				8C4DD5B71CB4F60500645380 /* ASVideoView.swift */,
 				8C4DD5B91CB4F61400645380 /* ASVideoView.xib */,
 				8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */,
@@ -338,7 +335,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8CB356B11CA905BA0070BE40 /* LaunchScreen.storyboard in Resources */,
-				8C0A91A31CD216D9001062DF /* ASMainCell.xib in Resources */,
 				8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */,
 				8CB356C91CA91EA50070BE40 /* Login.storyboard in Resources */,
 				8CB356C71CA91E9E0070BE40 /* Mine.storyboard in Resources */,

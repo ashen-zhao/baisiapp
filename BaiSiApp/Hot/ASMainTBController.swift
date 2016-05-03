@@ -14,7 +14,6 @@ class ASMainTBController: UITableViewController {
     
     private var dataSource = NSMutableArray()
     var menuURL:String!
-    let iden = "mainCell"
     
     // MARK: - life Cycle
     override func viewDidLoad() {
@@ -42,16 +41,9 @@ class ASMainTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier(iden) as? ASMainCell
-        if cell == nil {
-            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: self, options: nil).first as? ASMainCell
-        } else {
-            cell?.removeFromSuperview()
-            cell = NSBundle.mainBundle().loadNibNamed("ASMainCell", owner: self, options: nil).first as? ASMainCell
-        }
-        
-        cell!.setupData(dataSource[indexPath.row] as! ASListsModel)
-        return cell!
+        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
+        cell.setupData(dataSource[indexPath.row] as! ASListsModel)
+        return cell
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

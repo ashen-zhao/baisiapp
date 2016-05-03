@@ -35,8 +35,7 @@ class ASMainCell: UITableViewCell {
 
     @IBOutlet weak var centerView: UIView!
     
-    let video_View = ASVideoView.videoView()
-    let image_View = ASImageView.imageView()
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,21 +54,25 @@ class ASMainCell: UITableViewCell {
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
     
+        for v in centerView.subviews {
+            NSNotificationCenter.defaultCenter().removeObserver(v)
+            v.removeFromSuperview()
+        }
+        
         switch listModel.type {
         case .Video:
+            let video_View = ASVideoView.videoView()
             video_View.frame = listModel.frame
             video_View.videoModel = listModel.video
             centerView.addSubview(video_View)
-            image_View.removeFromSuperview()
         case .Gif: fallthrough
         case .Image:
+            let image_View = ASImageView.imageView()
             image_View.frame = listModel.frame
             image_View.listModel = listModel
             centerView.addSubview(image_View)
-            video_View.removeFromSuperview()
         default:
-            image_View.removeFromSuperview()
-            video_View.removeFromSuperview()
+        
             break
         }
         
