@@ -13,19 +13,38 @@ import MJRefresh
 class ASMainTBController: UITableViewController {
     
     private var dataSource = NSMutableArray()
+    var currentCell:ASMainCell!
     var menuURL:String!
+    var lagePage = "0"
+    
+    
+    // 顶部刷新
+    let header = MJRefreshNormalHeader()
+    // 底部刷新
+    let footer = MJRefreshAutoNormalFooter()
+    
+    
     
     // MARK: - life Cycle
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if currentCell == nil {
+            return
+        }
+        currentCell.video_View.player.pause()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
-        ASDataHelper.getListsWithMenuURL(menuURL) { (AnyObject) in
-            let dataArr = AnyObject as! NSMutableArray
-            for listModel in dataArr {
-                self.dataSource.addObject(listModel as! ASListsModel)
-            }
-            self.tableView.reloadData()
-        }
+        
+        // 下拉刷新
+        header.setRefreshingTarget(self, refreshingAction: #selector(ASMainTBController.headerRefresh))
+        self.tableView.mj_header = header
+        self.tableView.mj_header.beginRefreshing()
+        // 上拉刷新
+        footer.setRefreshingTarget(self, refreshingAction: #selector(ASMainTBController.footerRefresh))
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +62,13 @@ class ASMainTBController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
+        
+        cell.blc_currentCell = {(currentCell)->() in
+            if self.currentCell != nil {
+                self.currentCell.video_View.player.stop()
+            }
+            self.currentCell = currentCell
+        }
         return cell
     }
     
@@ -62,5 +88,36 @@ class ASMainTBController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return ASMainCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
+    }
+    
+    
+    // MARK: - Refresh 
+    func headerRefresh() {
+        ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
+            let dataArr = AnyObject as! NSMutableArray
+            for listModel in dataArr {
+                self.dataSource.addObject(listModel as! ASListsModel)
+            }
+            self.tableView.reloadData()
+            self.tableView.mj_footer = self.footer
+            
+            }) { (AnyObject) in
+                self.lagePage = "\(AnyObject)"
+        }
+        self.tableView.mj_header.endRefreshing()
+    }
+    
+    func footerRefresh() {
+        ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
+            let dataArr = AnyObject as! NSMutableArray
+            for listModel in dataArr {
+                self.dataSource.addObject(listModel as! ASListsModel)
+            }
+            self.tableView.reloadData()
+        }) { (AnyObject) in
+            self.lagePage = AnyObject as! String
+        }
+
+        self.tableView.mj_footer.endRefreshing()
     }
 }

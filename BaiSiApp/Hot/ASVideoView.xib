@@ -67,24 +67,25 @@
                             </constraints>
                         </slider>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jdm-Nd-0lu">
-                            <rect key="frame" x="10" y="15" width="20" height="20"/>
+                            <rect key="frame" x="10" y="5" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="20" id="A4D-d9-3Ge"/>
-                                <constraint firstAttribute="width" constant="20" id="qg6-oN-QWn"/>
+                                <constraint firstAttribute="height" constant="40" id="A4D-d9-3Ge"/>
+                                <constraint firstAttribute="width" constant="40" id="qg6-oN-QWn"/>
                             </constraints>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="12"/>
                             <state key="normal" image="playButtonPause"/>
                             <connections>
                                 <action selector="btnStartAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xml-mz-5GP"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nzh-4H-nIM">
-                            <rect key="frame" x="45" y="14" width="41" height="18"/>
+                            <rect key="frame" x="65" y="14" width="41" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-b2-7SB">
-                            <rect key="frame" x="101" y="14" width="39" height="18"/>
+                            <rect key="frame" x="121" y="14" width="39" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.73267751960000005" green="0.73267751960000005" blue="0.73267751960000005" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>

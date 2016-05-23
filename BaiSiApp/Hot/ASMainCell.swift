@@ -35,7 +35,13 @@ class ASMainCell: UITableViewCell {
 
     @IBOutlet weak var centerView: UIView!
     
+    typealias callbackFunc = (ASMainCell)->()
     
+    var blc_currentCell:callbackFunc!
+    
+    var video_View:ASVideoView!
+    
+    var image_View:ASImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -55,24 +61,29 @@ class ASMainCell: UITableViewCell {
         lblTime.text = listModel.passtime
     
         for v in centerView.subviews {
+            if v.isKindOfClass(ASVideoView) {
+                (v as! ASVideoView).player.stop()
+            }
             NSNotificationCenter.defaultCenter().removeObserver(v)
             v.removeFromSuperview()
         }
         
         switch listModel.type {
         case .Video:
-            let video_View = ASVideoView.videoView()
+            video_View = ASVideoView.videoView()
+            video_View.blc_Touch = {() -> () in
+                self.blc_currentCell(self)
+            }
             video_View.frame = listModel.frame
             video_View.videoModel = listModel.video
             centerView.addSubview(video_View)
         case .Gif: fallthrough
         case .Image:
-            let image_View = ASImageView.imageView()
+            image_View = ASImageView.imageView()
             image_View.frame = listModel.frame
             image_View.listModel = listModel
             centerView.addSubview(image_View)
         default:
-        
             break
         }
         

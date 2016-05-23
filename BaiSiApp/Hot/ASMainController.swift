@@ -12,6 +12,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     @IBOutlet weak var contentScroll: UIScrollView!
     private var navView:ASCustomNav!
+    private var currentMainTBV:ASMainTBController!
     
     // MARK: - life Cycle
     override func viewWillAppear(animated: Bool) {
@@ -51,9 +52,8 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         }
     }
     
-    
     // MARK: UIScrollViewDelegate
-    
+
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         let currentPage = Int(scrollView.contentOffset.x / view.frame.size.width)
         let controller = childViewControllers[currentPage] as! ASMainTBController
@@ -61,6 +61,10 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         controller.view.frame.origin.x = scrollView.contentOffset.x
         contentScroll.addSubview(controller.view)
         
+        if currentMainTBV != nil && currentMainTBV!.currentCell != nil && !controller.isEqual(currentMainTBV) {
+            currentMainTBV!.currentCell.video_View.player.pause()
+        }
+        currentMainTBV = controller
         navView.moveTitlesLine(currentPage)
     }
     

@@ -19,10 +19,11 @@ class ASDataHelper: NSObject {
         }
     }
     
-    //获取推荐列表数据
-    class func getListsWithMenuURL(url:String, success:(AnyObject)->Void) {
-        ASNetWorkHepler.getResponseData(url.stringByAppendingString("/baisi_xiaohao-iphone-4.1/0-20.json"), parameters: nil, success: { (result) in
+    //获取列表数据
+    class func getListsWithMenuURL(url:String, lagePage:String, success:(AnyObject)->Void, lastPage:(AnyObject)->Void) {
+        ASNetWorkHepler.getResponseData(url.stringByAppendingString("/baisi_xiaohao-iphone-4.1/\(lagePage)-20.json"), parameters: nil, success: { (result) in
             success(ASListsModel.getLists(result["list"].array!))
+            lastPage(result["info"].dictionary!["np"]!.object)
         }) { (error) in
             print("请求失败")
         }

@@ -35,6 +35,11 @@ class ASVideoView: UIView {
     
     @IBOutlet weak var controlStart: UIButton!
     
+    
+    typealias callbackfunc = ()->()
+
+    var blc_Touch:callbackfunc!
+    
     let player = MPMoviePlayerController()
     var controlsHidden = true
     var timer:NSTimer!
@@ -112,6 +117,7 @@ class ASVideoView: UIView {
         } else {
             if !isFirstTouch{
                 self.player.play()
+                blc_Touch()
                 //这里很神奇，如果将btnPlay.hidden = true写在player.play()前面，则btnPlay不会隐藏，不知道是什么原因
                 indicator.hidden = false
                 btnPlay.hidden = true
@@ -128,6 +134,10 @@ class ASVideoView: UIView {
         } else {
             (sender as! UIButton).setImage(UIImage(named: "playButtonPause"), forState: .Normal)
             player.play()
+            if timer != nil {
+                timer.invalidate()
+            }
+            timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(autoHiddenControls), userInfo: nil, repeats: true)
         }
     }
     
@@ -145,21 +155,34 @@ class ASVideoView: UIView {
     
     //MARK: - private Methods
     @objc private func stateChanged() {
+        if currentTimer != nil {
+            currentTimer.invalidate()
+        }
         
         switch (self.player.playbackState) {
         case .Playing:
-            if currentTimer != nil {
-                currentTimer.invalidate()
-            }
             currentTimer =  NSTimer.scheduledTimerWithTimeInterval(0, target: self, selector: #selector(changeCurrentTimeLbl), userInfo: nil, repeats: true)
             break;
         case .Paused:
-            if currentTimer != nil {
-                currentTimer.invalidate()
-            }
+            pauseState()
             break;
         default:
             break;
+        }
+    }
+    
+    
+    func pauseState() {
+        
+        controlStart.setImage(UIImage(named: "voice-play-start"), forState: .Normal)
+        
+        if controlsHidden {
+            var frame = controlsVIew.frame
+            frame.origin.y -= 55
+            UIView.animateWithDuration(0.3) {
+                self.controlsVIew.frame = frame
+            }
+            controlsHidden = false
         }
     }
     
