@@ -115,7 +115,7 @@ class ASMainTBController: UITableViewController {
             }
             self.tableView.reloadData()
         }) { (AnyObject) in
-            self.lagePage = AnyObject as! String
+            self.lagePage = "\(AnyObject)"
         }
 
         self.tableView.mj_footer.endRefreshing()
