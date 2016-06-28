@@ -74,11 +74,16 @@ class ASMainTBController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
+  
         ASDataHelper.getTopImages { (AnyObject) in
-            let model = (AnyObject as! NSMutableArray)[0] as! ASTopImagesModel
-            topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+            let topAry = (AnyObject as! NSMutableArray);
+            if topAry.count > 0 {
+                let model = topAry.firstObject as! ASTopImagesModel
+                topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+            } else {
+                topImg.image = UIImage(named: "top_defauth.jpg")
+            }
         }
-        
         return topImg
     }
     

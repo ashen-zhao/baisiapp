@@ -18,7 +18,7 @@ class ASListsModel: NSObject {
     var text = ""
     var up = ""
     var down:AnyObject?
-    var forward = ""
+    var forward:AnyObject?
     var share_url = ""
     var passtime = ""
     
@@ -41,7 +41,7 @@ class ASListsModel: NSObject {
         text = dict["text"].string!
         up = dict["up"].string!
         down = dict["down"].object
-        forward = dict["forward"].string!
+        forward = dict["forward"].object
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
         
