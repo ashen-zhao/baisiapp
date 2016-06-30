@@ -94,7 +94,7 @@ class ASMainCell: UITableViewCell {
         btnDing.setTitle(" " + listModel.up, forState: .Normal)
         btnBad.setTitle(" \(listModel.down!)", forState: .Normal)
         
-        btnShare.setTitle(" \(listModel.forward)", forState: .Normal)
+        btnShare.setTitle(" \(listModel.forward!)", forState: .Normal)
         btnComment.setTitle(" \(listModel.comment!)", forState: .Normal)
         
         

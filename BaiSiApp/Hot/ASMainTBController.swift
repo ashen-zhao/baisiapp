@@ -74,7 +74,7 @@ class ASMainTBController: UITableViewController {
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
-  
+        
         ASDataHelper.getTopImages { (AnyObject) in
             let topAry = (AnyObject as! NSMutableArray);
             if topAry.count > 0 {
@@ -96,7 +96,7 @@ class ASMainTBController: UITableViewController {
     }
     
     
-    // MARK: - Refresh 
+    // MARK: - Refresh
     func headerRefresh() {
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
@@ -106,8 +106,8 @@ class ASMainTBController: UITableViewController {
             self.tableView.reloadData()
             self.tableView.mj_footer = self.footer
             
-            }) { (AnyObject) in
-                self.lagePage = "\(AnyObject)"
+        }) { (AnyObject) in
+            self.lagePage = "\(AnyObject)"
         }
         self.tableView.mj_header.endRefreshing()
     }
@@ -122,7 +122,7 @@ class ASMainTBController: UITableViewController {
         }) { (AnyObject) in
             self.lagePage = "\(AnyObject)"
         }
-
+        
         self.tableView.mj_footer.endRefreshing()
     }
 }
