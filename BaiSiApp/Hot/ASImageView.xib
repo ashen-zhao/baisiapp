@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -23,25 +23,27 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="2xb-oq-E0Z">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huO-8z-R9h">
-                    <rect key="frame" x="198" y="119" width="80" height="80"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="3dt-ap-7Nm"/>
-                        <constraint firstAttribute="height" constant="80" id="K7s-X4-cYp"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-yB-Vbs">
                     <rect key="frame" x="0.0" y="275" width="477" height="43"/>
                     <state key="normal" title=" 点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiC-dR-WV6">
+                    <rect key="frame" x="198" y="119" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="FZA-02-FGJ"/>
+                        <constraint firstAttribute="width" constant="80" id="TNg-8c-SGx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                    <color key="textColor" red="0.66144469895287961" green="0.66144469895287961" blue="0.66144469895287961" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="nWO-yB-Vbs" secondAttribute="bottom" id="2DW-IH-Wcs"/>
                 <constraint firstAttribute="trailing" secondItem="nWO-yB-Vbs" secondAttribute="trailing" id="3PD-X5-vx2"/>
-                <constraint firstItem="huO-8z-R9h" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="6cp-5l-eMc"/>
                 <constraint firstItem="ATo-fW-J63" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="7Wz-b5-hfs"/>
                 <constraint firstAttribute="trailing" secondItem="zXg-Tc-FoX" secondAttribute="trailing" id="OYq-sb-0lw"/>
                 <constraint firstAttribute="bottom" secondItem="zXg-Tc-FoX" secondAttribute="bottom" id="Wfk-GY-SIL"/>
@@ -49,7 +51,8 @@
                 <constraint firstItem="ATo-fW-J63" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZBk-ax-deQ"/>
                 <constraint firstItem="zXg-Tc-FoX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ehi-6O-Fue"/>
                 <constraint firstItem="nWO-yB-Vbs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ex9-bH-Gaf"/>
-                <constraint firstItem="huO-8z-R9h" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="mep-bF-fsE"/>
+                <constraint firstItem="jiC-dR-WV6" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="jJz-Dj-gPY"/>
+                <constraint firstItem="jiC-dR-WV6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p4v-g0-WB3"/>
                 <constraint firstItem="2xb-oq-E0Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qHj-OV-sta"/>
                 <constraint firstItem="zXg-Tc-FoX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zAx-y1-tnp"/>
                 <constraint firstItem="2xb-oq-E0Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zoY-AN-qJm"/>
@@ -58,7 +61,7 @@
             <connections>
                 <outlet property="bgkImageV" destination="zXg-Tc-FoX" id="uHU-NN-Qyh"/>
                 <outlet property="btnCheckLongImage" destination="nWO-yB-Vbs" id="oRH-9Z-WLi"/>
-                <outlet property="imgLoadProgress" destination="huO-8z-R9h" id="uXD-U2-AmY"/>
+                <outlet property="imgLoadProgress" destination="jiC-dR-WV6" id="9tH-av-uaA"/>
                 <outlet property="isGifImg" destination="2xb-oq-E0Z" id="NPq-aG-i9M"/>
                 <outlet property="lookBigImg" destination="nWO-yB-Vbs" id="xp3-4F-6wD"/>
             </connections>
