@@ -96,6 +96,10 @@ class ASMainTBController: UITableViewController {
     }
     
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+   
+    }
+    
     // MARK: - Refresh
     func headerRefresh() {
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in

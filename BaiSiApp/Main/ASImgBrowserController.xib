@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ASImgBrowserController" customModule="BaiSiApp" customModuleProvider="target">
+            <connections>
+                <outlet property="scrollView" destination="es0-eW-0Iv" id="vWn-fW-toh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="es0-eW-0Iv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="w6i-nD-OCu">
+                    <rect key="frame" x="16" y="40" width="35" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Ytr-75-G7T"/>
+                        <constraint firstAttribute="width" constant="35" id="hgz-FC-ufv"/>
+                    </constraints>
+                    <state key="normal" image="show_image_back_icon"/>
+                    <connections>
+                        <action selector="disMissBrowserAction:" destination="-1" eventType="touchUpInside" id="6Uj-TH-9yC"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GEH-Ib-ub3">
+                    <rect key="frame" x="16" y="550" width="40" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="gfe-IL-cvk"/>
+                        <constraint firstAttribute="width" constant="40" id="klc-JB-qlt"/>
+                    </constraints>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveImgAction:" destination="-1" eventType="touchUpInside" id="npv-68-SEp"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UF0-Dy-Jqw">
+                    <rect key="frame" x="504" y="550" width="80" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="DRd-aj-Na8"/>
+                        <constraint firstAttribute="width" constant="80" id="NVQ-8e-uqi"/>
+                    </constraints>
+                    <state key="normal" image="mainCellComment">
+                        <attributedString key="attributedTitle">
+                            <fragment content="999">
+                                <attributes>
+                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEO-nr-cM4">
+                    <rect key="frame" x="414" y="550" width="80" height="30"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="Xp6-nl-MKd"/>
+                        <constraint firstAttribute="width" constant="80" id="ib1-oi-Id3"/>
+                    </constraints>
+                    <state key="normal" image="mainCellShare">
+                        <attributedString key="attributedTitle">
+                            <fragment content="777">
+                                <attributes>
+                                    <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <font key="NSFont" size="16" name="HelveticaNeue"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="es0-eW-0Iv" secondAttribute="bottom" id="1Sq-A0-9jX"/>
+                <constraint firstItem="UF0-Dy-Jqw" firstAttribute="leading" secondItem="hEO-nr-cM4" secondAttribute="trailing" constant="10" id="4FG-SM-4cs"/>
+                <constraint firstItem="w6i-nD-OCu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="40" id="7ub-pu-qRS"/>
+                <constraint firstAttribute="bottom" secondItem="UF0-Dy-Jqw" secondAttribute="bottom" constant="20" id="AL5-Jh-5lM"/>
+                <constraint firstAttribute="bottom" secondItem="hEO-nr-cM4" secondAttribute="bottom" constant="20" id="ItN-Hc-9QS"/>
+                <constraint firstAttribute="trailing" secondItem="UF0-Dy-Jqw" secondAttribute="trailing" constant="16" id="PUu-IP-Bd1"/>
+                <constraint firstAttribute="trailing" secondItem="es0-eW-0Iv" secondAttribute="trailing" id="Q6Y-lr-6WI"/>
+                <constraint firstItem="w6i-nD-OCu" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="SYa-cP-Ofs"/>
+                <constraint firstItem="GEH-Ib-ub3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="gM0-2x-IC0"/>
+                <constraint firstAttribute="bottom" secondItem="GEH-Ib-ub3" secondAttribute="bottom" constant="20" id="jAL-TN-vsv"/>
+                <constraint firstItem="es0-eW-0Iv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="mVy-ft-tge"/>
+                <constraint firstItem="es0-eW-0Iv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pES-9A-ot7"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="mainCellComment" width="20" height="20"/>
+        <image name="mainCellShare" width="20" height="20"/>
+        <image name="show_image_back_icon" width="35" height="35"/>
+    </resources>
+</document>

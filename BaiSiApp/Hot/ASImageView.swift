@@ -14,7 +14,10 @@ class ASImageView: UIView {
     @IBOutlet weak var isGifImg: UIImageView!
     @IBOutlet weak var bgkImageV: UIImageView!
     @IBOutlet weak var imgLoadProgress: UILabel!
-    @IBOutlet weak var btnCheckLongImage: UIButton!
+    @IBOutlet weak var lookBigImg: UIButton!
+    
+    var image:UIImage!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         autoresizingMask = .None
@@ -24,7 +27,18 @@ class ASImageView: UIView {
         return NSBundle.mainBundle().loadNibNamed("ASImageView", owner: nil, options: nil)[0] as! ASImageView
     }
     
-    @IBOutlet weak var lookBigImg: UIButton!
+    
+    @IBAction func lookBigImgAction(sender: AnyObject) {
+        if !self.imgLoadProgress.hidden {
+            return
+        }
+        
+        let browser = ASImgBrowserController()
+        browser.listModel = self.listModel
+        browser.image = image
+        browser.isGIF = self.listModel.type == .Image ? false : true
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(browser, animated: true, completion: nil)
+    }
     
     var listModel:ASListsModel! {
         didSet {
@@ -34,8 +48,9 @@ class ASImageView: UIView {
                     self.imgLoadProgress.text = NSString(string: "\((Int(CGFloat(receivedSize)/CGFloat(totalSize) * 100)))%") as String;
                     }, completionHandler: { (image, error, cacheType, imageURL) in
                         self.imgLoadProgress.hidden = true
+                        self.image = self.bgkImageV.image
                 })
-                btnCheckLongImage.hidden = !listModel.isLongLongImage
+                lookBigImg.hidden = !listModel.isLongLongImage
                 bgkImageV.contentMode = listModel.isLongLongImage == true ? .Top : .ScaleAspectFit;
             } else {
                 isGifImg.hidden = false
@@ -43,9 +58,9 @@ class ASImageView: UIView {
                     self.imgLoadProgress.text = NSString(string: "\((Int(CGFloat(receivedSize)/CGFloat(totalSize) * 100)))%") as String;
                     }, completionHandler: { (image, error, cacheType, imageURL) in
                         self.imgLoadProgress.hidden = true
+                        self.image = self.bgkImageV.image
                 })
-
-                btnCheckLongImage.hidden = !listModel.isLongLongImage
+                lookBigImg.hidden = !listModel.isLongLongImage
             }
         }
     }

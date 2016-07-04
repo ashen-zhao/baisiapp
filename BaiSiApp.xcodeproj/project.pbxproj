@@ -36,6 +36,8 @@
 		8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */; };
 		8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */; };
 		8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */; };
+		8CE16AC11D26767A00D22023 /* ASImgBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CE16ABF1D26767A00D22023 /* ASImgBrowserController.swift */; };
+		8CE16AC21D26767A00D22023 /* ASImgBrowserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CE16AC01D26767A00D22023 /* ASImgBrowserController.xib */; };
 		8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70931CAE192400A3155B /* ASListsModel.swift */; };
 		8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70951CAE1E0B00A3155B /* ASTagsModel.swift */; };
 		8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CED70971CAE1E4600A3155B /* ASUserModel.swift */; };
@@ -77,6 +79,8 @@
 		8CD6044C1CABCFE000A350C6 /* ASNetWorkHepler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNetWorkHepler.swift; sourceTree = "<group>"; };
 		8CD6044E1CABD5CC00A350C6 /* ASDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASDataHelper.swift; sourceTree = "<group>"; };
 		8CD604501CACB4AD00A350C6 /* ASMenusModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMenusModel.swift; sourceTree = "<group>"; };
+		8CE16ABF1D26767A00D22023 /* ASImgBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImgBrowserController.swift; sourceTree = "<group>"; };
+		8CE16AC01D26767A00D22023 /* ASImgBrowserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASImgBrowserController.xib; sourceTree = "<group>"; };
 		8CED70931CAE192400A3155B /* ASListsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASListsModel.swift; sourceTree = "<group>"; };
 		8CED70951CAE1E0B00A3155B /* ASTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTagsModel.swift; sourceTree = "<group>"; };
 		8CED70971CAE1E4600A3155B /* ASUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASUserModel.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				8CB356E01CAA52390070BE40 /* ASCustomNav.swift */,
 				8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */,
 				8CB356AA1CA905BA0070BE40 /* Main.storyboard */,
+				8CE16ABF1D26767A00D22023 /* ASImgBrowserController.swift */,
+				8CE16AC01D26767A00D22023 /* ASImgBrowserController.xib */,
 			);
 			name = General;
 			path = Main;
@@ -340,6 +346,7 @@
 				8CB356C71CA91E9E0070BE40 /* Mine.storyboard in Resources */,
 				8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */,
 				8C4DD5BA1CB4F61400645380 /* ASVideoView.xib in Resources */,
+				8CE16AC21D26767A00D22023 /* ASImgBrowserController.xib in Resources */,
 				8CB356C51CA91E920070BE40 /* Plus.storyboard in Resources */,
 				8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */,
 				8CB357501CAA918E0070BE40 /* top_defauth.jpg in Resources */,
@@ -405,6 +412,7 @@
 				8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */,
 				8C4DD5B41CB4E2B600645380 /* ASGifModel.swift in Sources */,
 				8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */,
+				8CE16AC11D26767A00D22023 /* ASImgBrowserController.swift in Sources */,
 				8CB356D71CAA4ACF0070BE40 /* ASMainTBController.swift in Sources */,
 				8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */,
 				8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */,

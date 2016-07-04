@@ -140,7 +140,7 @@ class ASListsModel: NSObject {
         }
         
         isLongLongImage = false
-        if height > 2 * (ASMainHeight - 64) {
+        if height > 3 * (ASMainHeight - 64) {
             width = (ASMainWidth - 20)
             height = width
             isLongLongImage = true

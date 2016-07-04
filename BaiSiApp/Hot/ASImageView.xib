@@ -17,17 +17,24 @@
                         <constraint firstAttribute="height" constant="25" id="X4R-T3-TBP"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXg-Tc-FoX">
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zXg-Tc-FoX">
                     <rect key="frame" x="0.0" y="0.0" width="477" height="318"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="1lQ-Z7-Ck0" appends="YES" id="dJr-zI-8m9"/>
+                    </connections>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="common-gif" translatesAutoresizingMaskIntoConstraints="NO" id="2xb-oq-E0Z">
                     <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
                 </imageView>
-                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-yB-Vbs">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWO-yB-Vbs">
                     <rect key="frame" x="0.0" y="275" width="477" height="43"/>
                     <state key="normal" title=" 点击查看全图" image="see-big-picture" backgroundImage="see-big-picture-background">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="lookBigImgAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="UmJ-nv-nVc"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jiC-dR-WV6">
                     <rect key="frame" x="198" y="119" width="80" height="80"/>
@@ -60,13 +67,17 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="bgkImageV" destination="zXg-Tc-FoX" id="uHU-NN-Qyh"/>
-                <outlet property="btnCheckLongImage" destination="nWO-yB-Vbs" id="oRH-9Z-WLi"/>
                 <outlet property="imgLoadProgress" destination="jiC-dR-WV6" id="9tH-av-uaA"/>
                 <outlet property="isGifImg" destination="2xb-oq-E0Z" id="NPq-aG-i9M"/>
                 <outlet property="lookBigImg" destination="nWO-yB-Vbs" id="xp3-4F-6wD"/>
             </connections>
             <point key="canvasLocation" x="301.5" y="275"/>
         </view>
+        <tapGestureRecognizer id="1lQ-Z7-Ck0">
+            <connections>
+                <action selector="lookBigImgAction:" destination="iN0-l3-epB" id="9lZ-qf-beg"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="common-gif" width="31" height="31"/>
