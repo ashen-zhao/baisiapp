@@ -33,7 +33,7 @@ class ASImageView: UIView {
             return
         }
         
-        let browser = ASImgBrowserController()
+        let browser = ASImgBrowserController.init()
         browser.listModel = self.listModel
         browser.image = image
         browser.isGIF = self.listModel.type == .Image ? false : true
