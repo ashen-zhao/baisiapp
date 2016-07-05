@@ -11,7 +11,7 @@ import UIKit
 class ASImgBrowserController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-
+    
     var listModel:ASListsModel!
     var image:UIImage!
     var imgV = UIImageView()
@@ -30,11 +30,14 @@ class ASImgBrowserController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.addSubview(imgV)
+        imgV.userInteractionEnabled = true
+        imgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(disMissBrowserAction)))
+        
         let w = ASMainWidth
         var h:CGFloat
         if (isGIF == true) {
@@ -61,7 +64,16 @@ class ASImgBrowserController: UIViewController {
     }
     
     @IBAction func saveImgAction(sender: AnyObject) {
+        UIImageWriteToSavedPhotosAlbum(imgV.image!, self, #selector(saveimage), nil)
+    }
+    
+    func saveimage(image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
         
+        if didFinishSavingWithError != nil {
+            print("Fail")
+        }else {
+            print("OK")
+        }
     }
     
     /*
