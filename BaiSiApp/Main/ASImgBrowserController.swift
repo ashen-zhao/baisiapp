@@ -20,16 +20,17 @@ class ASImgBrowserController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        //println(nibName);
     }
+    
     convenience init() {
-        let nibNameOrNil = String?("ASImgBrowserController")
-       
-        self.init(nibName: nibNameOrNil, bundle: nil)
+        self.init(nibName: "ASImgBrowserController", bundle: nil)
     }
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
