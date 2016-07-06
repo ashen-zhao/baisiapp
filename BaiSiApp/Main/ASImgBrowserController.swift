@@ -68,7 +68,6 @@ class ASImgBrowserController: UIViewController {
     }
     
     func saveimage(image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
-        
         if didFinishSavingWithError != nil {
             print("Fail")
         }else {
