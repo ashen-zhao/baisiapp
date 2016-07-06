@@ -26,7 +26,9 @@
 1. 新增图片加载进度显示
  
 ##2016年7月06日更新
-1. 新增点击图片大图浏览
+1. 新增点击图片大图浏览  
+ 
+
  ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607061133.gif)   
 
 ---
