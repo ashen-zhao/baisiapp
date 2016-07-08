@@ -5,4 +5,5 @@ target ‘BaiSiApp’ do
     pod 'Alamofire', '~> 3.0'
     pod 'MJRefresh'
     pod 'Kingfisher'
+    pod 'PKHUD', '~> 3.1.0'
 end 

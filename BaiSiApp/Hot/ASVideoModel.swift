@@ -37,7 +37,6 @@ class ASVideoModel: NSObject {
     var video = [String]()
     var thumbnail = [String]()
     var download = [String]()
-    
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
     }

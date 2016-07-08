@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PKHUD.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BaiSiApp.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6847254D016329D4A531D34ED2B6DF81</key>
+		<key>1699B080CFE38BD8970B414CC77929DB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>68E6395695D967C76A6466BCA6361916</key>
+		<key>6847254D016329D4A531D34ED2B6DF81</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,7 +52,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D1831B0FB5FB7592EFE6A391068DF7C0</key>
+		<key>8A3292F68CB6CAFAECB1EBDEF1885BF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F6F0516F82D07656D12F1C0716898F73</key>
 		<dict>
 			<key>primary</key>
 			<true/>

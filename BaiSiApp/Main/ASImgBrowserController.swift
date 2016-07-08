@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import PKHUD
 
 class ASImgBrowserController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var commentBtn: UIButton!
     
     var listModel:ASListsModel!
     var image:UIImage!
@@ -51,6 +54,9 @@ class ASImgBrowserController: UIViewController {
         }
         imgV.image = image
         scrollView.contentSize = imgV.frame.size
+        shareBtn.setTitle(" \(listModel.forward!)", forState: .Normal)
+        commentBtn.setTitle(" \(listModel.comment!)", forState: .Normal)
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,12 +75,11 @@ class ASImgBrowserController: UIViewController {
     
     func saveimage(image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
         if didFinishSavingWithError != nil {
-            print("Fail")
+            HUD.flash(.Error, delay: 1.0)
         }else {
-            print("OK")
+            HUD.flash(.Success, delay: 1.0)
         }
     }
-    
     /*
      // MARK: - Navigation
      

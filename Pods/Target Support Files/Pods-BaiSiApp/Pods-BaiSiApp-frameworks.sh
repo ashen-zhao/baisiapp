@@ -87,11 +87,13 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/PKHUD/PKHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/PKHUD/PKHUD.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/SwiftyJSON/SwiftyJSON.framework"
 fi
