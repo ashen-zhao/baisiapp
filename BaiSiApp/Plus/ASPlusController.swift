@@ -9,31 +9,57 @@
 import UIKit
 
 class ASPlusController: UIViewController {
-
-    @IBOutlet weak var imgV: UIImageView!
+    
+    @IBOutlet weak var titleIMgv: UIImageView!
+    @IBOutlet weak var cancel: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imgV.userInteractionEnabled = true
+        cancel.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cancel.layer.borderWidth = 0.5
+        cancel.layer.cornerRadius = 2
+        cancel.layer.masksToBounds = true
+        
+        var i = 1
+        for view in self.view.subviews {
+            view.transform = CGAffineTransformMakeTranslation(0, -100 - CGFloat(i) * 50)
+            i += 1
+        }
     }
-
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animateWithDuration(0.5,
+                                   delay: 0,
+                                   usingSpringWithDamping: 0.9,
+                                   initialSpringVelocity: 5,
+                                   options: .CurveEaseInOut,
+                                   animations: { () -> Void in
+                                    for view in self.view.subviews {
+                                        view.transform = CGAffineTransformIdentity
+                                    }
+        }) { (bool:Bool) -> Void in
+            self.view.userInteractionEnabled = true
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(false, completion: nil)
+        UIView.animateWithDuration(0.3, animations: {
+            var i = 1
+            for view in self.view.subviews {
+                view.transform = CGAffineTransformMakeTranslation(0, 50 + CGFloat(i) * 100)
+                i += 1
+            }
+        }) { (bool:Bool) in
+            self.dismissViewControllerAnimated(false, completion: nil)
+        }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    
 }
