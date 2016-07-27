@@ -14,17 +14,29 @@ class ASPlusController: UIViewController {
     @IBOutlet weak var cancel: UIButton!
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        cancel.layer.borderColor = UIColor.lightGrayColor().CGColor
-        cancel.layer.borderWidth = 0.5
-        cancel.layer.cornerRadius = 2
-        cancel.layer.masksToBounds = true
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        var i = 1
         for view in self.view.subviews {
-            view.transform = CGAffineTransformMakeTranslation(0, -100 - CGFloat(i) * 50)
-            i += 1
+            
+            switch view.tag {
+            case 1001:
+                view.transform = CGAffineTransformMakeTranslation(0, -1900)
+            case 1002:
+                view.transform = CGAffineTransformMakeTranslation(0, -1500)
+            case 1003:
+                view.transform = CGAffineTransformMakeTranslation(0, -1700)
+            case 1004:
+                view.transform = CGAffineTransformMakeTranslation(0, -1200)
+            case 1005:
+                view.transform = CGAffineTransformMakeTranslation(0, -500)
+            case 1006:
+                view.transform = CGAffineTransformMakeTranslation(0, -1000)
+            case 1007:
+                view.transform = CGAffineTransformMakeTranslation(0, 0)
+            default:
+                view.transform = CGAffineTransformMakeTranslation(0, -1700)
+            }
         }
     }
     
@@ -32,8 +44,8 @@ class ASPlusController: UIViewController {
         super.viewDidAppear(animated)
         UIView.animateWithDuration(0.5,
                                    delay: 0,
-                                   usingSpringWithDamping: 0.9,
-                                   initialSpringVelocity: 5,
+                                   usingSpringWithDamping: 1,
+                                   initialSpringVelocity: 3,
                                    options: .CurveEaseInOut,
                                    animations: { () -> Void in
                                     for view in self.view.subviews {
@@ -44,6 +56,14 @@ class ASPlusController: UIViewController {
         }
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        cancel.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cancel.layer.borderWidth = 0.6
+        cancel.layer.cornerRadius = 2
+        cancel.layer.masksToBounds = true
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -51,10 +71,26 @@ class ASPlusController: UIViewController {
     
     @IBAction func cancel(sender: AnyObject) {
         UIView.animateWithDuration(0.3, animations: {
-            var i = 1
             for view in self.view.subviews {
-                view.transform = CGAffineTransformMakeTranslation(0, 50 + CGFloat(i) * 100)
-                i += 1
+                
+                switch view.tag {
+                case 1001:
+                    view.transform = CGAffineTransformMakeTranslation(0, 900)
+                case 1002:
+                    view.transform = CGAffineTransformMakeTranslation(0, 500)
+                case 1003:
+                    view.transform = CGAffineTransformMakeTranslation(0, 700)
+                case 1004:
+                    view.transform = CGAffineTransformMakeTranslation(0, 200)
+                case 1005:
+                    view.transform = CGAffineTransformMakeTranslation(0, 500)
+                case 1006:
+                    view.transform = CGAffineTransformMakeTranslation(0, 400)
+                case 1007:
+                    view.transform = CGAffineTransformMakeTranslation(0, 100)
+                default:
+                    view.transform = CGAffineTransformMakeTranslation(0, 700)
+                }
             }
         }) { (bool:Bool) in
             self.dismissViewControllerAnimated(false, completion: nil)
