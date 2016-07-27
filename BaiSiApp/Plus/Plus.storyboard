@@ -39,6 +39,9 @@
                                         <exclude reference="fWz-by-IKE"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="pPc-yG-C0q"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发视频" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4e-Ec-Ms6">
                                 <rect key="frame" x="29" y="261" width="42" height="17"/>
@@ -62,6 +65,9 @@
                                         <exclude reference="vrW-aj-B8p"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="XFM-dp-dbS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发图片" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xma-e8-y3z">
                                 <rect key="frame" x="279" y="261" width="42" height="17"/>
@@ -91,6 +97,9 @@
                                         <exclude reference="c9t-ac-bJd"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="1hF-xq-qa9"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rQ-Ky-jA1">
                                 <rect key="frame" x="15" y="298" width="70" height="70"/>
@@ -108,6 +117,9 @@
                                         <exclude reference="fIA-KQ-jjx"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="dGK-wD-8Kc"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发声音" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUX-rM-Wco">
                                 <rect key="frame" x="29" y="378" width="42" height="17"/>
@@ -131,6 +143,9 @@
                                         <exclude reference="Xqb-zH-4cH"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="hK4-PQ-TCb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" tag="1005" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XgW-7n-kPC">
                                 <rect key="frame" x="286" y="378" width="28" height="17"/>
@@ -181,6 +196,9 @@
                                         <exclude reference="p41-j1-Q46"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="publishActions:" destination="j9y-yp-rbg" eventType="touchUpInside" id="Vwv-Gh-0Ns"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.99310068288315123" green="0.99593688480942022" blue="1" alpha="1" colorSpace="calibratedRGB"/>

@@ -20,16 +20,23 @@
  
 ##2016年5月23日更新
 1. 加入下拉刷新，上拉加载功能
- 
 
 ##2016年7月01日更新
 1. 新增图片加载进度显示
  
 ##2016年7月06日更新
 1. 新增点击图片大图浏览  
- 
+2. 保存图片到相册  
 
- ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607061133.gif)   
+ 
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607061133.gif)   
+
+##2016年7月27日更新  
+1. 新增发布功能界面  
+2. 发布功能图片动画展示  
+
+ ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607271503.gif)   
+ 
 
 ---
 ####该项目是模仿百思不得姐而做的集以短视频、音乐、图片以及文本展示的社交软件
@@ -38,6 +45,6 @@
 ---
 
 
-注：本项目是由swift语言编写，不定期更新，向百思不得姐致敬！
+注：本项目是由swift语言编写，不定期更新，向‘百思不得姐’致敬！
 
 ---

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import PKHUD
 class ASPlusController: UIViewController {
     
     @IBOutlet weak var titleIMgv: UIImageView!
@@ -18,41 +18,45 @@ class ASPlusController: UIViewController {
         super.viewWillAppear(animated)
         
         for view in self.view.subviews {
-            
-            switch view.tag {
-            case 1001:
-                view.transform = CGAffineTransformMakeTranslation(0, -1900)
-            case 1002:
-                view.transform = CGAffineTransformMakeTranslation(0, -1500)
-            case 1003:
-                view.transform = CGAffineTransformMakeTranslation(0, -1700)
-            case 1004:
-                view.transform = CGAffineTransformMakeTranslation(0, -1200)
-            case 1005:
-                view.transform = CGAffineTransformMakeTranslation(0, -500)
-            case 1006:
-                view.transform = CGAffineTransformMakeTranslation(0, -1000)
-            case 1007:
-                view.transform = CGAffineTransformMakeTranslation(0, 0)
-            default:
-                view.transform = CGAffineTransformMakeTranslation(0, -1700)
-            }
+            view.transform = CGAffineTransformMakeTranslation(0, -600)
         }
+        cancel.transform = CGAffineTransformMakeTranslation(0, 0)
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        UIView.animateWithDuration(0.5,
-                                   delay: 0,
-                                   usingSpringWithDamping: 1,
-                                   initialSpringVelocity: 3,
-                                   options: .CurveEaseInOut,
-                                   animations: { () -> Void in
-                                    for view in self.view.subviews {
+        
+        for view in self.view.subviews {
+            var delay:Double = 0.0
+            switch view.tag {
+            case 1001:
+                delay = 0.25
+            case 1002:
+                delay = 0.15
+            case 1003:
+                delay = 0.2
+            case 1004:
+                delay = 0.1
+            case 1005:
+                delay = 0.0
+            case 1006:
+                delay = 0.05
+            case 1007:
+                delay = 0.0
+            default:
+                delay = 0.3
+            }
+            
+            UIView.animateWithDuration(0.6,
+                                       delay: delay,
+                                       usingSpringWithDamping: 0.82,
+                                       initialSpringVelocity: 0,
+                                       options: .CurveEaseOut,
+                                       animations: { () -> Void in
                                         view.transform = CGAffineTransformIdentity
-                                    }
-        }) { (bool:Bool) -> Void in
-            self.view.userInteractionEnabled = true
+            }) { (bool:Bool) -> Void in
+                
+            }
         }
     }
     
@@ -69,31 +73,61 @@ class ASPlusController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //MARK: -Actions
+    @IBAction func publishActions(sender: AnyObject) {
+        switch sender.tag {
+        case 1001:
+            HUD.show(HUDContentType.Label("发视频"))
+        case 1002:
+            HUD.show(HUDContentType.Label("发图片"))
+        case 1003:
+            HUD.show(HUDContentType.Label("发段子"))
+        case 1004:
+            HUD.show(HUDContentType.Label("发声音"))
+        case 1005:
+            HUD.show(HUDContentType.Label("审核"))
+        case 1006:
+            HUD.show(HUDContentType.Label("发连接"))
+        default:break
+            
+        }
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+            HUD.hide()
+        }
+    }
     @IBAction func cancel(sender: AnyObject) {
-        UIView.animateWithDuration(0.3, animations: {
-            for view in self.view.subviews {
-                
-                switch view.tag {
-                case 1001:
-                    view.transform = CGAffineTransformMakeTranslation(0, 900)
-                case 1002:
-                    view.transform = CGAffineTransformMakeTranslation(0, 500)
-                case 1003:
-                    view.transform = CGAffineTransformMakeTranslation(0, 700)
-                case 1004:
-                    view.transform = CGAffineTransformMakeTranslation(0, 200)
-                case 1005:
-                    view.transform = CGAffineTransformMakeTranslation(0, 500)
-                case 1006:
-                    view.transform = CGAffineTransformMakeTranslation(0, 400)
-                case 1007:
-                    view.transform = CGAffineTransformMakeTranslation(0, 100)
-                default:
-                    view.transform = CGAffineTransformMakeTranslation(0, 700)
-                }
+        for view in self.view.subviews {
+            var delay:Double = 0.0
+            switch view.tag {
+            case 1001:
+                delay = 0.25
+            case 1002:
+                delay = 0.15
+            case 1003:
+                delay = 0.2
+            case 1004:
+                delay = 0.1
+            case 1005:
+                delay = 0.02
+            case 1006:
+                delay = 0.05
+            case 1007:
+                delay = 0.0
+            default:
+                delay = 0.3
             }
-        }) { (bool:Bool) in
-            self.dismissViewControllerAnimated(false, completion: nil)
+            UIView.animateWithDuration(0.5,
+                                       delay: delay,
+                                       usingSpringWithDamping: 1,
+                                       initialSpringVelocity: 0,
+                                       options: .CurveEaseOut,
+                                       animations: { () -> Void in
+                                        view.transform = CGAffineTransformMakeTranslation(0, 500)
+                                        
+            }) { (bool:Bool) in
+                self.dismissViewControllerAnimated(false, completion: nil)
+            }
         }
     }
     
