@@ -12,7 +12,7 @@
 1. 新增视频播放功能
 2. 完善视频播放页面  
 
- ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1605032123.gif)   
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1605032123.gif)   
 
 
 ##2016年5月03日更新
@@ -28,14 +28,13 @@
 1. 新增点击图片大图浏览  
 2. 保存图片到相册  
 
- 
 ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607061133.gif)   
 
 ##2016年7月27日更新  
 1. 新增发布功能界面  
 2. 发布功能图片动画展示  
 
- ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607271503.gif)   
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607271503.gif)   
  
 
 ---
