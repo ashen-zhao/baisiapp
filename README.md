@@ -35,6 +35,12 @@
 2. 发布功能图片动画展示  
 
 ![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1607271503.gif)   
+
+##2016年8月12日更新  
+1. 新增关注tabbar页面    
+
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1608120942.gif)   
+ 
  
 
 ---
