@@ -479,115 +479,28 @@
         <scene sceneID="0dy-rM-SOA">
             <objects>
                 <navigationController id="87W-cn-oNX" customClass="ASNavigationController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="关注" image="tabBar_friendTrends_icon" selectedImage="tabBar_friendTrends_click_iconN" id="W5d-lV-Nu8"/>
+                    <tabBarItem key="tabBarItem" title="关注" image="tabBar_friendTrends_icon" selectedImage="tabBar_friendTrends_click_icon" id="W5d-lV-Nu8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wdA-Nd-r1X">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="1sG-hZ-hrq" kind="relationship" relationship="rootViewController" id="lTn-YB-5eL"/>
+                        <segue destination="MRp-qt-Pvh" kind="relationship" relationship="rootViewController" id="bzY-PN-dbZ"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bCm-ux-JAq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2590" y="392"/>
         </scene>
-        <!--我的关注-->
-        <scene sceneID="Ysv-G0-gKA">
+        <!--ASLoginController-->
+        <scene sceneID="7QU-iW-3o1">
             <objects>
-                <viewController id="1sG-hZ-hrq" customClass="ASLoginController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HU6-ty-IaZ"/>
-                        <viewControllerLayoutGuide type="bottom" id="rGd-8M-28P"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="vOd-bm-peW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="快快登录吧，关注百思最in牛人" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfj-XS-Hbj">
-                                <rect key="frame" x="0.0" y="84" width="600" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="gcV-Id-yN0"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好友动态让你过把瘾，欧耶！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M5V-Bq-qO8">
-                                <rect key="frame" x="0.0" y="119" width="600" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="PTP-UH-29h"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header_cry_icon" translatesAutoresizingMaskIntoConstraints="NO" id="KUT-Hd-6h0">
-                                <rect key="frame" x="205" y="205" width="190" height="190"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBe-sg-2Ex">
-                                <rect key="frame" x="25" y="476" width="265" height="35"/>
-                                <color key="backgroundColor" red="0.8991737565445026" green="0.22210011787765482" blue="0.24056817075308867" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="y79-Tk-v7i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="登录">
-                                    <color key="titleColor" red="0.99318962700000002" green="0.99318962700000002" blue="0.99318962700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="loginAction:" destination="1sG-hZ-hrq" eventType="touchUpInside" id="brv-Cx-o6T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt6-q2-KG5">
-                                <rect key="frame" x="310" y="476" width="265" height="35"/>
-                                <color key="backgroundColor" red="0.99318962700000002" green="0.99318962700000002" blue="0.99318962700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="UBa-i7-AGI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="注册">
-                                    <color key="titleColor" red="0.89033867801047117" green="0.21991781221138662" blue="0.23820440216451264" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="registerAction:" destination="1sG-hZ-hrq" eventType="touchUpInside" id="3qF-AS-xjM"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.99318962696335078" green="0.99318962696335078" blue="0.99318962696335078" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="Dt6-q2-KG5" firstAttribute="width" secondItem="kBe-sg-2Ex" secondAttribute="width" id="0Dg-3z-vr5"/>
-                            <constraint firstItem="rGd-8M-28P" firstAttribute="top" secondItem="kBe-sg-2Ex" secondAttribute="bottom" constant="40" id="27h-Bf-yXa"/>
-                            <constraint firstItem="sfj-XS-Hbj" firstAttribute="top" secondItem="HU6-ty-IaZ" secondAttribute="bottom" constant="20" id="DG3-Iw-fZP"/>
-                            <constraint firstAttribute="trailing" secondItem="M5V-Bq-qO8" secondAttribute="trailing" id="DT5-Fa-OvX"/>
-                            <constraint firstItem="KUT-Hd-6h0" firstAttribute="centerY" secondItem="vOd-bm-peW" secondAttribute="centerY" id="ETH-Ba-xUP"/>
-                            <constraint firstItem="Dt6-q2-KG5" firstAttribute="leading" secondItem="kBe-sg-2Ex" secondAttribute="trailing" constant="20" id="Ha8-fQ-oU0"/>
-                            <constraint firstItem="sfj-XS-Hbj" firstAttribute="leading" secondItem="vOd-bm-peW" secondAttribute="leading" id="M7O-62-ldj"/>
-                            <constraint firstItem="KUT-Hd-6h0" firstAttribute="centerX" secondItem="vOd-bm-peW" secondAttribute="centerX" id="NiP-nx-Sgy"/>
-                            <constraint firstItem="kBe-sg-2Ex" firstAttribute="leading" secondItem="vOd-bm-peW" secondAttribute="leading" constant="25" id="P7w-QT-Teu"/>
-                            <constraint firstItem="rGd-8M-28P" firstAttribute="top" secondItem="Dt6-q2-KG5" secondAttribute="bottom" constant="40" id="R14-ih-IBr"/>
-                            <constraint firstAttribute="trailing" secondItem="Dt6-q2-KG5" secondAttribute="trailing" constant="25" id="ql1-0f-SyS"/>
-                            <constraint firstItem="M5V-Bq-qO8" firstAttribute="top" secondItem="sfj-XS-Hbj" secondAttribute="bottom" id="sAC-Iw-lbn"/>
-                            <constraint firstItem="M5V-Bq-qO8" firstAttribute="leading" secondItem="vOd-bm-peW" secondAttribute="leading" id="tWy-QQ-3cr"/>
-                            <constraint firstAttribute="trailing" secondItem="sfj-XS-Hbj" secondAttribute="trailing" id="zVQ-ah-uUD"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="我的关注" id="497-lz-ZDZ">
-                        <barButtonItem key="leftBarButtonItem" image="cellFollowIcon" id="Rm0-KX-HYN">
-                            <color key="tintColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <connections>
-                                <action selector="adds:" destination="1sG-hZ-hrq" id="ZvI-vY-jCf"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="btnLogIn" destination="kBe-sg-2Ex" id="YyO-jB-apL"/>
-                        <outlet property="btnRegister" destination="Dt6-q2-KG5" id="yRs-ub-lpd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="67o-nM-Grc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Login" referencedIdentifier="ASLoginController" id="MRp-qt-Pvh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FzN-DW-O5T"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n53-ha-7BS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2590" y="1137"/>
+            <point key="canvasLocation" x="2590.5" y="940"/>
         </scene>
         <!--我的-->
         <scene sceneID="ymo-4Q-mCb">
@@ -623,11 +536,9 @@
     <resources>
         <image name="cell-button-line" width="1" height="29"/>
         <image name="cell-content-line" width="299" height="1"/>
-        <image name="cellFollowIcon" width="19" height="20"/>
         <image name="cellmorebtnclick" width="24" height="20"/>
         <image name="cellmorebtnnormal" width="24" height="20"/>
         <image name="defaultUserIcon" width="50" height="50"/>
-        <image name="header_cry_icon" width="190" height="190"/>
         <image name="mainCellCai" width="20" height="20"/>
         <image name="mainCellCaiClick" width="20" height="20"/>
         <image name="mainCellComment" width="20" height="20"/>
@@ -639,7 +550,7 @@
         <image name="mine" width="438" height="630"/>
         <image name="tabBar_essence_click_icon" width="37" height="37"/>
         <image name="tabBar_essence_icon" width="37" height="37"/>
-        <image name="tabBar_friendTrends_click_iconN" width="37" height="37"/>
+        <image name="tabBar_friendTrends_click_icon" width="37" height="37"/>
         <image name="tabBar_friendTrends_icon" width="37" height="37"/>
         <image name="tabBar_me_icon" width="37" height="37"/>
         <image name="tabBar_new_click_icon" width="37" height="37"/>
