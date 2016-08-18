@@ -29,16 +29,6 @@ class ASTBController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
-        for item in dataSource {
-            let model = item as! ASListsModel
-            let data = NSMutableData()
-            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-            archiver.encodeObject(model, forKey: "lists")
-            archiver.finishEncoding()
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/lists"
-            data.writeToFile(path, atomically: true)
-        }
-
         if currentCell == nil {
             return
         }
@@ -46,19 +36,45 @@ class ASTBController: UITableViewController {
         
     }
     
+    
+    func archiver() {
+        let cacheArr = NSMutableArray()
+        for index in 0 ..< dataSource.count {
+            let model = dataSource[index] as! ASListsModel
+            let data = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+            archiver.encodeObject(model, forKey: menuURL.componentsSeparatedByString("/topic/").last! + "\(index)")
+            archiver.finishEncoding()
+            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/" + menuURL.componentsSeparatedByString("/topic/").last!.stringByReplacingOccurrencesOfString("/", withString: "") + "\(index)"
+            print(path)
+            data.writeToFile(path, atomically: true)
+            cacheArr.addObject(path)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(cacheArr, forKey: menuURL.componentsSeparatedByString("/topic/").last!)
+        
+
+    }
+    
     func getArchiver() {
-        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/lists"
-        let data = NSMutableData.init(contentsOfFile: path)
-        let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
-        let model = unarchiver.decodeObjectForKey("lists") as! ASListsModel
-        print(model.u.name)
-        unarchiver.finishDecoding()
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) == nil {
+            return
+        }
+        
+        let cacheArr = NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) as! NSMutableArray
+        for index in 0..<cacheArr.count {
+            let path = cacheArr[index] as! String
+            let data = NSMutableData.init(contentsOfFile: path)
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
+            let model = unarchiver.decodeObjectForKey(menuURL.componentsSeparatedByString("/topic/").last! + "\(index)") as! ASListsModel
+            print(model.u.name)
+            unarchiver.finishDecoding()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
-//        getArchiver()
         // 下拉刷新
         header.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.headerRefresh))
         self.tableView.mj_header = header
