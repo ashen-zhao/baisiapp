@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASGifModel: NSObject {
+class ASGifModel: NSObject,NSCoding {
 //    "gif": {
 //    "images": [
 //    "http://wimg.spriteapp.cn/ugc/2016/04/05/57035c819fa26.gif"
@@ -31,6 +31,23 @@ class ASGifModel: NSObject {
     var width = 0
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
+    }
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(images, forKey: "images")
+        aCoder.encodeObject(gif_thumbnail, forKey: "gif_thumbnail")
+        aCoder.encodeObject(height, forKey: "height")
+        aCoder.encodeObject(width, forKey: "width")
+    }
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.images = aDecoder.decodeObjectForKey("images") as! [String]
+        self.gif_thumbnail = aDecoder.decodeObjectForKey("gif_thumbnail") as! [String]
+        self.height = aDecoder.decodeObjectForKey("height") as! Int
+        self.width = aDecoder.decodeObjectForKey("width") as! Int
     }
 }
 

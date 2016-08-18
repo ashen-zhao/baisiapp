@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASTagsModel: NSObject {
+class ASTagsModel: NSObject, NSCoding {
     //    "tags": [
     //    {
     //    "id": 56,
@@ -22,4 +22,17 @@ class ASTagsModel: NSObject {
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
     }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(name, forKey: "tags")
+    }
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.name = aDecoder.decodeObjectForKey("tags") as! String
+    }
+
 }

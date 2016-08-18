@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASCommentModel: NSObject {
+class ASCommentModel: NSObject, NSCoding {
 //    "top_comment": {
 //    "voicetime": 0,
 //    "precid": 0,
@@ -33,5 +33,20 @@ class ASCommentModel: NSObject {
         if key == "u" {
             user.setValuesForKeysWithDictionary(value as! Dictionary)
         }
+    }
+    
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(content, forKey: "content")
+        aCoder.encodeObject(user, forKey: "user")
+    }
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.content = aDecoder.decodeObjectForKey("content") as! String
+        self.user = aDecoder.decodeObjectForKey("user") as! ASUserModel
     }
 }

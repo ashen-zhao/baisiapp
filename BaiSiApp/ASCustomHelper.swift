@@ -21,6 +21,6 @@ enum ContentType:String {
     case Gif = "gif"
     case Image = "image"
     case Text = "text"
-    case Html = "Html"
+    case Html = "html"
 }
 

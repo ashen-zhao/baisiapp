@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASImageModel: NSObject {
+class ASImageModel: NSObject,NSCoding {
 //    "image": {
 //    "medium": [ ],
 //    "big": [
@@ -29,5 +29,21 @@ class ASImageModel: NSObject {
     var width = 0
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(big, forKey: "big")
+        aCoder.encodeObject(height, forKey: "height")
+        aCoder.encodeObject(width, forKey: "width")
+    }
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.big = aDecoder.decodeObjectForKey("big") as! [String]
+        self.height = aDecoder.decodeObjectForKey("height") as! Int
+        self.width = aDecoder.decodeObjectForKey("width") as! Int
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ASVideoModel: NSObject {
+class ASVideoModel: NSObject,NSCoding {
     
     //    "video": {
     //    "playfcount": 1992,
@@ -39,5 +39,31 @@ class ASVideoModel: NSObject {
     var download = [String]()
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(playfcount, forKey: "playfcount")
+        aCoder.encodeObject(height, forKey: "height")
+        aCoder.encodeObject(width, forKey: "width")
+        aCoder.encodeObject(duration, forKey: "duration")
+        aCoder.encodeObject(playcount, forKey: "playcount")
+        aCoder.encodeObject(video, forKey: "video")
+        aCoder.encodeObject(thumbnail, forKey: "thumbnail")
+        aCoder.encodeObject(download, forKey: "download")
+    }
+    
+    override init() {
+        super.init()
+    }
+    required init?(coder aDecoder: NSCoder) {
+        super.init()
+        self.playfcount = aDecoder.decodeObjectForKey("playfcount") as! Int
+        self.height = aDecoder.decodeObjectForKey("height") as! Int
+        self.width = aDecoder.decodeObjectForKey("width") as! Int
+        self.duration = aDecoder.decodeObjectForKey("duration") as! Int
+        self.playcount = aDecoder.decodeObjectForKey("playcount") as! Int
+        self.video = aDecoder.decodeObjectForKey("video") as! [String]
+        self.thumbnail = aDecoder.decodeObjectForKey("thumbnail") as! [String]
+        self.download = aDecoder.decodeObjectForKey("download") as! [String]
     }
 }

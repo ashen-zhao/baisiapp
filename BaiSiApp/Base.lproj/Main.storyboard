@@ -57,10 +57,10 @@
             </objects>
             <point key="canvasLocation" x="250" y="1176"/>
         </scene>
-        <!--MainTB Controller-->
+        <!--Controller-->
         <scene sceneID="gEM-T8-dmg">
             <objects>
-                <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASMainTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="sbTBView" id="iLB-RF-fNe" customClass="ASTBController" customModule="BaiSiApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="413" sectionHeaderHeight="18" sectionFooterHeight="18" id="N1m-Be-K6m">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

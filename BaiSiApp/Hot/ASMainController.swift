@@ -12,7 +12,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     @IBOutlet weak var contentScroll: UIScrollView!
     private var navView:ASCustomNav!
-    private var currentMainTBV:ASMainTBController!
+    private var currentMainTBV:ASTBController!
     
     // MARK: - life Cycle
     override func viewWillAppear(animated: Bool) {
@@ -36,7 +36,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
 
     func getTitlesCount(menuURLS: NSMutableArray, count: NSInteger) {
         for i in 0 ..< count {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASMainTBController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
             vc.menuURL = menuURLS[i] as! String
             addChildViewController(vc)
         }
@@ -56,7 +56,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
 
     func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         let currentPage = Int(scrollView.contentOffset.x / view.frame.size.width)
-        let controller = childViewControllers[currentPage] as! ASMainTBController
+        let controller = childViewControllers[currentPage] as! ASTBController
         controller.view.frame = view.frame
         controller.view.frame.origin.x = scrollView.contentOffset.x
         contentScroll.addSubview(controller.view)

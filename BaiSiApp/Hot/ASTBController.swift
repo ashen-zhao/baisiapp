@@ -1,5 +1,5 @@
 //
-//  ASMainTBController.swift
+//  ASTBController.swift
 //  BaiSiApp
 //
 //  Created by ashen on 16/3/29.
@@ -10,7 +10,7 @@ import UIKit
 import Kingfisher
 import MJRefresh
 
-class ASMainTBController: UITableViewController {
+class ASTBController: UITableViewController {
     
     private var dataSource = NSMutableArray()
     var currentCell:ASMainCell!
@@ -29,22 +29,42 @@ class ASMainTBController: UITableViewController {
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        for item in dataSource {
+            let model = item as! ASListsModel
+            let data = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+            archiver.encodeObject(model, forKey: "lists")
+            archiver.finishEncoding()
+            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/lists"
+            data.writeToFile(path, atomically: true)
+        }
+
         if currentCell == nil {
             return
         }
         currentCell.video_View.player.pause()
+        
+    }
+    
+    func getArchiver() {
+        let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/lists"
+        let data = NSMutableData.init(contentsOfFile: path)
+        let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
+        let model = unarchiver.decodeObjectForKey("lists") as! ASListsModel
+        print(model.u.name)
+        unarchiver.finishDecoding()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
-        
+//        getArchiver()
         // 下拉刷新
-        header.setRefreshingTarget(self, refreshingAction: #selector(ASMainTBController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.headerRefresh))
         self.tableView.mj_header = header
         self.tableView.mj_header.beginRefreshing()
         // 上拉刷新
-        footer.setRefreshingTarget(self, refreshingAction: #selector(ASMainTBController.footerRefresh))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
     }
     
     override func didReceiveMemoryWarning() {
