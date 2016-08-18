@@ -23,24 +23,37 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     private var randowBtn:UIButton!
     private var lineView:UIView!
     private var lastBtn:UIButton?
+    private var tempArr = NSMutableArray()
+    private var urlsArr = NSMutableArray()
+    private var mType = "精华"
     
     weak var delegate:ASCustomNavDelegate?
   
     init(frame: CGRect ,menuType:String) {
        super.init(frame: frame)
-        ASDataHelper.getMenusType(menuType) { (AnyObject) in
+        mType = menuType
+        ASDataHelper.getMenusType(menuType, successs: { (AnyObject) in
             let array = AnyObject as! NSMutableArray
-            let tempArr = NSMutableArray()
-            let urlsArr = NSMutableArray()
             for model in array {
-                tempArr.addObject((model as! ASMenusModel).name)
-                urlsArr.addObject((model as! ASMenusModel).url)
+                self.tempArr.addObject((model as! ASMenusModel).name)
+                self.urlsArr.addObject((model as! ASMenusModel).url)
             }
-            self.makeUI(tempArr)
-            self.delegate?.getTitlesCount(urlsArr, count: array.count)
-            
+            self.makeUI(self.tempArr)
+            self.delegate?.getTitlesCount(self.urlsArr, count: array.count)
+            self.saveCache()
+            }) {
+                
+                if NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") == nil || NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") == nil {
+                    return
+                }
+                
+                self.tempArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") as! NSMutableArray
+                self.urlsArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") as! NSMutableArray
+                self.makeUI(self.tempArr)
+                self.delegate?.getTitlesCount(self.urlsArr, count: self.urlsArr.count)
         }
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -48,6 +61,11 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     
     
     // MARK: - Methods
+    func saveCache() {
+        NSUserDefaults.standardUserDefaults().setObject(self.tempArr, forKey: mType + "name")
+        NSUserDefaults.standardUserDefaults().setObject(self.urlsArr, forKey: mType + "url")
+    }
+    
     func makeUI(titles:NSMutableArray) {
         
         scrollView = UIScrollView(frame: CGRect.init(x: 0, y: 0, width:self.frame.size.width - 35, height: self.frame.size.height))

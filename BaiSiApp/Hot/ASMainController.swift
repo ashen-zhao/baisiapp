@@ -15,15 +15,11 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     private var currentMainTBV:ASTBController!
     
     // MARK: - life Cycle
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         navView = ASCustomNav.init(frame: (navigationController?.navigationBar.frame)!,menuType: contentScroll.tag == 0 ? "精华" : "最新")
         navView.delegate = self
         navigationItem.titleView = navView
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         automaticallyAdjustsScrollViewInsets = false
     }
     

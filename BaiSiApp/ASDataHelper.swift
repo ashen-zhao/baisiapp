@@ -11,10 +11,11 @@ import SwiftyJSON
 class ASDataHelper: NSObject {
     
     //获取类型
-    class func getMenusType(type:String, successs:(AnyObject)->Void){
+    class func getMenusType(type:String, successs:(AnyObject)->Void, fails:()->Void){
         ASNetWorkHepler.getResponseData("http://s.budejie.com/public/list-appbar/baisi_xiaohao-iphone-4.1", parameters: nil, success: { (result) in
             successs(ASMenusModel.getMenus(type, jsonArr: result["menus"].array!))
         }) { (error) in
+            fails()
             print("请求失败")
         }
     }
