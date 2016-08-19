@@ -13,6 +13,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     @IBOutlet weak var contentScroll: UIScrollView!
     private var navView:ASCustomNav!
     private var currentMainTBV:ASTBController!
+    private var topImg = UIImageView()
     
     // MARK: - life Cycle
     override func viewDidLoad() {
@@ -21,6 +22,16 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         navView.delegate = self
         navigationItem.titleView = navView
         automaticallyAdjustsScrollViewInsets = false
+        
+        ASDataHelper.getTopImages { (AnyObject) in
+            let topAry = (AnyObject as! NSMutableArray);
+            if topAry.count > 0 {
+                let model = topAry.firstObject as! ASTopImagesModel
+                self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+            } else {
+                self.topImg.image = UIImage(named: "top_defauth.jpg")
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -34,6 +45,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         for i in 0 ..< count {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
             vc.menuURL = menuURLS[i] as! String
+            vc.topImg = self.topImg
             addChildViewController(vc)
         }
         contentScroll.delegate = self

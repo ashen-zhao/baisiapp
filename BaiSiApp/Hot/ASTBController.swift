@@ -16,7 +16,7 @@ class ASTBController: UITableViewController {
     var currentCell:ASMainCell!
     var menuURL:String!
     var lagePage = "0"
-    
+    var topImg:UIImageView! = nil
     
     // 顶部刷新
     let header = MJRefreshNormalHeader()
@@ -109,17 +109,7 @@ class ASTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let topImg = UIImageView(frame: CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60))
-        
-        ASDataHelper.getTopImages { (AnyObject) in
-            let topAry = (AnyObject as! NSMutableArray);
-            if topAry.count > 0 {
-                let model = topAry.firstObject as! ASTopImagesModel
-                topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
-            } else {
-                topImg.image = UIImage(named: "top_defauth.jpg")
-            }
-        }
+        topImg.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60)
         return topImg
     }
     
