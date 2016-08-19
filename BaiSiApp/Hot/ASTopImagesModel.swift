@@ -29,7 +29,7 @@ class ASTopImagesModel: NSObject {
 //    }
     
     var image = ""
-    
+    var url = "http://www.devashen.com"
     override func setValue(value: AnyObject?, forUndefinedKey key: String) {
         
     }

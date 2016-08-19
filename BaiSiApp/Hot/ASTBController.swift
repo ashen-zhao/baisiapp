@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import MJRefresh
 
+
 class ASTBController: UITableViewController {
     
     private var dataSource = NSMutableArray()
@@ -17,7 +18,7 @@ class ASTBController: UITableViewController {
     var menuURL:String!
     var lagePage = "0"
     var topImg:UIImageView! = nil
-    
+    var topImgURL = "http://www.devashen.com"
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     // 底部刷新
@@ -75,6 +76,9 @@ class ASTBController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
+        topImg.userInteractionEnabled = true
+        topImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(gotoWeb)))
+        
         // 下拉刷新
         header.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.headerRefresh))
         self.tableView.mj_header = header
@@ -125,6 +129,16 @@ class ASTBController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
    
     }
+    
+    
+    // MARK: - Actions 
+    func gotoWeb() {
+        let wk = ASWebController()
+        wk.urlString = topImgURL
+        self.tabBarController?.tabBar.hidden = true
+        self.navigationController?.pushViewController(wk, animated: true)
+    }
+    
     
     // MARK: - Refresh
     func headerRefresh() {

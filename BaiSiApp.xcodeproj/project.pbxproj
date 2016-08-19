@@ -17,6 +17,7 @@
 		8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */; };
 		8C5AF8741CBDFAF500A45A9A /* ASImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */; };
 		8C5AFA0C1CC4E2B400A45A9A /* ASMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */; };
+		8C9293C91D66DA0F00C59B85 /* ASWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9293C71D66DA0F00C59B85 /* ASWebController.swift */; };
 		8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */; };
 		8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */; };
 		8CB356A71CA905BA0070BE40 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356A61CA905BA0070BE40 /* AppDelegate.swift */; };
@@ -58,6 +59,7 @@
 		8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASImageView.xib; sourceTree = "<group>"; };
 		8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageView.swift; sourceTree = "<group>"; };
 		8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainController.swift; sourceTree = "<group>"; };
+		8C9293C71D66DA0F00C59B85 /* ASWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASWebController.swift; path = BaiSiApp/ASWebController.swift; sourceTree = SOURCE_ROOT; };
 		8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLoginController.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
 		8CB356A31CA905BA0070BE40 /* BaiSiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,9 +157,9 @@
 				8CB356D01CA92B220070BE40 /* ASNavigationController.swift */,
 				8CB356E01CAA52390070BE40 /* ASCustomNav.swift */,
 				8C4D030B1CAE653200C5E308 /* ASCustomLabel.swift */,
-				8CB356AA1CA905BA0070BE40 /* Main.storyboard */,
 				8CE16ABF1D26767A00D22023 /* ASImgBrowserController.swift */,
 				8CE16AC01D26767A00D22023 /* ASImgBrowserController.xib */,
+				8C9293C71D66DA0F00C59B85 /* ASWebController.swift */,
 			);
 			name = General;
 			path = Main;
@@ -206,6 +208,7 @@
 		8CB356D81CAA50F80070BE40 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8CB356AA1CA905BA0070BE40 /* Main.storyboard */,
 				8CB356D61CAA4ACF0070BE40 /* ASTBController.swift */,
 				8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */,
 			);
@@ -429,6 +432,7 @@
 				8C4DD5B21CB4E26C00645380 /* ASImageModel.swift in Sources */,
 				8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */,
 				8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */,
+				8C9293C91D66DA0F00C59B85 /* ASWebController.swift in Sources */,
 				8C5AF8741CBDFAF500A45A9A /* ASImageView.swift in Sources */,
 				8CD604511CACB4AD00A350C6 /* ASMenusModel.swift in Sources */,
 				8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */,

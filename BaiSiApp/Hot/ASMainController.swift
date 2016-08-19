@@ -14,7 +14,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     private var navView:ASCustomNav!
     private var currentMainTBV:ASTBController!
     private var topImg = UIImageView()
-    
+    private var topImgUrl = "http://www.devashen.com"
     // MARK: - life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         navigationItem.titleView = navView
         automaticallyAdjustsScrollViewInsets = false
         
-        ASDataHelper.getTopImages { (AnyObject) in
-            let topAry = (AnyObject as! NSMutableArray);
-            if topAry.count > 0 {
-                let model = topAry.firstObject as! ASTopImagesModel
-                self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
-            } else {
-                self.topImg.image = UIImage(named: "top_defauth.jpg")
-            }
-        }
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -42,15 +34,30 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     // MARK: - ASCustomNavDelegate
 
     func getTitlesCount(menuURLS: NSMutableArray, count: NSInteger) {
-        for i in 0 ..< count {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
-            vc.menuURL = menuURLS[i] as! String
-            vc.topImg = self.topImg
-            addChildViewController(vc)
+        
+        ASDataHelper.getTopImages { (AnyObject) in
+            let topAry = (AnyObject as! NSMutableArray);
+            if topAry.count > 0 {
+                let model = topAry.firstObject as! ASTopImagesModel
+                self.topImgUrl = model.url
+                self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+            } else {
+                self.topImg.image = UIImage(named: "top_defauth.jpg")
+            }
+            
+            for i in 0 ..< count {
+                let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
+                vc.menuURL = menuURLS[i] as! String
+                vc.topImgURL = self.topImgUrl
+                vc.topImg = self.topImg
+                self.addChildViewController(vc)
+            }
+            self.contentScroll.delegate = self
+            self.contentScroll.contentSize = CGSizeMake(CGFloat(count) * self.contentScroll.frame.width, self.contentScroll.frame.height)
+            self.scrollViewDidEndScrollingAnimation(self.contentScroll)
         }
-        contentScroll.delegate = self
-        contentScroll.contentSize = CGSizeMake(CGFloat(count) * contentScroll.frame.width, contentScroll.frame.height)
-        scrollViewDidEndScrollingAnimation(contentScroll)
+        
+        
     }
     
     func titleAction(index: NSInteger) {
