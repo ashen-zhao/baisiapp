@@ -30,7 +30,7 @@ class ASWebController: UIViewController,WKNavigationDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         self.navigationItem.title = webView.title
     }
 }

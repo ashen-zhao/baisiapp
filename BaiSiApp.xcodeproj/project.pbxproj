@@ -60,6 +60,8 @@
 		8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageView.swift; sourceTree = "<group>"; };
 		8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainController.swift; sourceTree = "<group>"; };
 		8C9293C71D66DA0F00C59B85 /* ASWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASWebController.swift; path = BaiSiApp/ASWebController.swift; sourceTree = SOURCE_ROOT; };
+		8C9293CD1D66E99800C59B85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
+		8C9293CE1D66E99800C59B85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLoginController.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
 		8CB356A31CA905BA0070BE40 /* BaiSiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -325,7 +327,6 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
 			);
 			mainGroup = 8CB3569A1CA905BA0070BE40;
@@ -448,6 +449,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8CB356AB1CA905BA0070BE40 /* Base */,
+				8C9293CD1D66E99800C59B85 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			path = ..;
@@ -457,6 +459,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				8CB356B01CA905BA0070BE40 /* Base */,
+				8C9293CE1D66E99800C59B85 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
