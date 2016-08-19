@@ -17,7 +17,7 @@ class ASTBController: UITableViewController {
     var currentCell:ASMainCell!
     var menuURL:String!
     var lagePage = "0"
-    var topImg:UIImageView! = nil
+    var topImg = UIImageView()
     var topImgURL = "http://www.devashen.com"
     // 顶部刷新
     let header = MJRefreshNormalHeader()

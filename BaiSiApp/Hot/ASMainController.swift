@@ -37,27 +37,29 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         
         ASDataHelper.getTopImages { (AnyObject) in
             let topAry = (AnyObject as! NSMutableArray);
+            var imgrsrc = ""
             if topAry.count > 0 {
                 let model = topAry.firstObject as! ASTopImagesModel
                 self.topImgUrl = model.url
+                imgrsrc = model.image
                 self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+                
             } else {
                 self.topImg.image = UIImage(named: "top_defauth.jpg")
             }
-            
             for i in 0 ..< count {
                 let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
                 vc.menuURL = menuURLS[i] as! String
+                if i == 0 {
+                    vc.topImg.kf_setImageWithURL(NSURL(string:imgrsrc)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+                }
                 vc.topImgURL = self.topImgUrl
-                vc.topImg = self.topImg
                 self.addChildViewController(vc)
             }
             self.contentScroll.delegate = self
             self.contentScroll.contentSize = CGSizeMake(CGFloat(count) * self.contentScroll.frame.width, self.contentScroll.frame.height)
             self.scrollViewDidEndScrollingAnimation(self.contentScroll)
         }
-        
-        
     }
     
     func titleAction(index: NSInteger) {
@@ -74,6 +76,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         let controller = childViewControllers[currentPage] as! ASTBController
         controller.view.frame = view.frame
         controller.view.frame.origin.x = scrollView.contentOffset.x
+        controller.topImg.image = self.topImg.image
         contentScroll.addSubview(controller.view)
         
         if currentMainTBV != nil && currentMainTBV!.currentCell != nil && !controller.isEqual(currentMainTBV) {
