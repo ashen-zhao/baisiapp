@@ -6,4 +6,5 @@ target ‘BaiSiApp’ do
     pod 'MJRefresh'
     pod 'Kingfisher'
     pod 'PKHUD', '~> 3.1.0'
+    pod 'FDFullscreenPopGesture', '1.1'
 end 

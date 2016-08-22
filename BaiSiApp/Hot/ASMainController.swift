@@ -76,7 +76,9 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         let controller = childViewControllers[currentPage] as! ASTBController
         controller.view.frame = view.frame
         controller.view.frame.origin.x = scrollView.contentOffset.x
-        controller.topImg.image = self.topImg.image
+        if currentPage != 0 {
+            controller.topImg.image = self.topImg.image
+        }
         contentScroll.addSubview(controller.view)
         
         if currentMainTBV != nil && currentMainTBV!.currentCell != nil && !controller.isEqual(currentMainTBV) {

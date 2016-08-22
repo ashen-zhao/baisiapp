@@ -135,7 +135,6 @@ class ASTBController: UITableViewController {
     func gotoWeb() {
         let wk = ASWebController()
         wk.urlString = topImgURL
-        self.tabBarController?.tabBar.hidden = true
         self.navigationController?.pushViewController(wk, animated: true)
     }
     

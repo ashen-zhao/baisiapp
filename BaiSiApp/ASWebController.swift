@@ -8,14 +8,11 @@
 
 import UIKit
 import WebKit
+import FDFullscreenPopGesture
 
 class ASWebController: UIViewController,WKNavigationDelegate {
 
     var urlString:String! = nil
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        self.tabBarController?.tabBar.hidden = false
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.title = "正在加载..."
@@ -31,6 +28,10 @@ class ASWebController: UIViewController,WKNavigationDelegate {
     }
     
     func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        self.navigationItem.title = webView.title
+        
+        if webView.title?.characters.count <= 0 {
+            return
+        }
+        self.navigationItem.title = webView.title!
     }
 }

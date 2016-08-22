@@ -85,6 +85,7 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/PKHUD/PKHUD.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$CONFIGURATION_BUILD_DIR/Alamofire/Alamofire.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/FDFullscreenPopGesture/FDFullscreenPopGesture.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Kingfisher/Kingfisher.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/MJRefresh/MJRefresh.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/PKHUD/PKHUD.framework"

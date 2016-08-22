@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (3.3.0)
+  - FDFullscreenPopGesture (1.1)
   - Kingfisher (2.2.0)
   - MJRefresh (3.1.0)
   - PKHUD (3.1.0)
@@ -7,6 +8,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - FDFullscreenPopGesture (= 1.1)
   - Kingfisher
   - MJRefresh
   - PKHUD (~> 3.1.0)
@@ -14,11 +16,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 9054db4a1b1ca9e363223183e01cea380159a27c
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   Kingfisher: 350869ed88d6451803b390475d977abdd9f0a357
   MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
   PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 1af1ab153b0b5ac57c1a0c95fa112614696fa9da
+PODFILE CHECKSUM: fa4b3149d9d8ea3eece40a4d4f2751ddb27bfd14
 
 COCOAPODS: 1.0.0.beta.4
