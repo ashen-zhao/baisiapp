@@ -13,7 +13,7 @@ import MJRefresh
 
 class ASTBController: UITableViewController {
     
-    private var dataSource = NSMutableArray()
+    var dataSource = NSMutableArray()
     var currentCell:ASMainCell!
     var menuURL:String!
     var lagePage = "0"
@@ -85,6 +85,7 @@ class ASTBController: UITableViewController {
         self.tableView.mj_header.beginRefreshing()
         // 上拉刷新
         footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -141,6 +142,21 @@ class ASTBController: UITableViewController {
     
     // MARK: - Refresh
     func headerRefresh() {
+        
+        ASDataHelper.getTopImages({ (AnyObject) in
+            let topAry = (AnyObject as! NSMutableArray);
+            if topAry.count > 0 {
+                let model = topAry.firstObject as! ASTopImagesModel
+                self.topImgURL = model.url
+                self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+            } else {
+                self.topImg.image = UIImage(named: "top_defauth.jpg")
+            }
+            }, fails: {
+                
+        })
+
+        
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
