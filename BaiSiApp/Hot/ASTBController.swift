@@ -142,7 +142,6 @@ class ASTBController: UITableViewController {
     
     // MARK: - Refresh
     func headerRefresh() {
-        
         ASDataHelper.getTopImages({ (AnyObject) in
             let topAry = (AnyObject as! NSMutableArray);
             if topAry.count > 0 {

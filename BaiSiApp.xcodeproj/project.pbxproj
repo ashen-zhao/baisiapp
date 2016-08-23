@@ -17,6 +17,8 @@
 		8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */; };
 		8C5AF8741CBDFAF500A45A9A /* ASImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */; };
 		8C5AFA0C1CC4E2B400A45A9A /* ASMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */; };
+		8C8040EB1D6C24B600D15F8D /* ASMineTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */; };
+		8C8040ED1D6C255B00D15F8D /* ASMineLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */; };
 		8C9293C91D66DA0F00C59B85 /* ASWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9293C71D66DA0F00C59B85 /* ASWebController.swift */; };
 		8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */; };
 		8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */; };
@@ -25,8 +27,6 @@
 		8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356AD1CA905BA0070BE40 /* Images.xcassets */; };
 		8CB356B11CA905BA0070BE40 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356AF1CA905BA0070BE40 /* LaunchScreen.storyboard */; };
 		8CB356C51CA91E920070BE40 /* Plus.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356C41CA91E920070BE40 /* Plus.storyboard */; };
-		8CB356C71CA91E9E0070BE40 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356C61CA91E9E0070BE40 /* Mine.storyboard */; };
-		8CB356CB1CA91FE30070BE40 /* New.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8CB356CA1CA91FE30070BE40 /* New.storyboard */; };
 		8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356CE1CA92B020070BE40 /* ASTabBarController.swift */; };
 		8CB356D11CA92B220070BE40 /* ASNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D01CA92B220070BE40 /* ASNavigationController.swift */; };
 		8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */; };
@@ -59,9 +59,9 @@
 		8C5AF8711CBDFAD700A45A9A /* ASImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASImageView.xib; sourceTree = "<group>"; };
 		8C5AF8731CBDFAF500A45A9A /* ASImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASImageView.swift; sourceTree = "<group>"; };
 		8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainController.swift; sourceTree = "<group>"; };
+		8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTBController.swift; sourceTree = "<group>"; };
+		8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineLoginCell.swift; sourceTree = "<group>"; };
 		8C9293C71D66DA0F00C59B85 /* ASWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASWebController.swift; path = BaiSiApp/ASWebController.swift; sourceTree = SOURCE_ROOT; };
-		8C9293CD1D66E99800C59B85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
-		8C9293CE1D66E99800C59B85 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.storyboard"; sourceTree = "<group>"; };
 		8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLoginController.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
 		8CB356A31CA905BA0070BE40 /* BaiSiApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaiSiApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +71,6 @@
 		8CB356B01CA905BA0070BE40 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8CB356B21CA905BA0070BE40 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CB356C41CA91E920070BE40 /* Plus.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Plus.storyboard; sourceTree = "<group>"; };
-		8CB356C61CA91E9E0070BE40 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
-		8CB356CA1CA91FE30070BE40 /* New.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = New.storyboard; sourceTree = "<group>"; };
 		8CB356CE1CA92B020070BE40 /* ASTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASTabBarController.swift; sourceTree = "<group>"; };
 		8CB356D01CA92B220070BE40 /* ASNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASNavigationController.swift; sourceTree = "<group>"; };
 		8CB356D41CAA2A8D0070BE40 /* ASPlusController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASPlusController.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				8CB356C21CA91E5B0070BE40 /* Mine */,
 				8CB356C31CA91E5B0070BE40 /* Plus */,
 				8CB356BD1CA91CB40070BE40 /* Main */,
-				8CB356BF1CA91CB40070BE40 /* New */,
 				8CB356C01CA91CB40070BE40 /* Vendors */,
 				8CD604471CABBCA300A350C6 /* Sources */,
 			);
@@ -167,14 +164,6 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		8CB356BF1CA91CB40070BE40 /* New */ = {
-			isa = PBXGroup;
-			children = (
-				8CB356CA1CA91FE30070BE40 /* New.storyboard */,
-			);
-			path = New;
-			sourceTree = "<group>";
-		};
 		8CB356C01CA91CB40070BE40 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +182,8 @@
 		8CB356C21CA91E5B0070BE40 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				8CB356C61CA91E9E0070BE40 /* Mine.storyboard */,
+				8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */,
+				8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -346,14 +336,12 @@
 			files = (
 				8CB356B11CA905BA0070BE40 /* LaunchScreen.storyboard in Resources */,
 				8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */,
-				8CB356C71CA91E9E0070BE40 /* Mine.storyboard in Resources */,
 				8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */,
 				8C4DD5BA1CB4F61400645380 /* ASVideoView.xib in Resources */,
 				8CE16AC21D26767A00D22023 /* ASImgBrowserController.xib in Resources */,
 				8CB356C51CA91E920070BE40 /* Plus.storyboard in Resources */,
 				8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */,
 				8CB357501CAA918E0070BE40 /* top_defauth.jpg in Resources */,
-				8CB356CB1CA91FE30070BE40 /* New.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +409,7 @@
 				8C4D030A1CAE543D00C5E308 /* ASToolHelper.swift in Sources */,
 				8C5AFA0C1CC4E2B400A45A9A /* ASMainController.swift in Sources */,
 				8CB356D51CAA2A8E0070BE40 /* ASPlusController.swift in Sources */,
+				8C8040ED1D6C255B00D15F8D /* ASMineLoginCell.swift in Sources */,
 				8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */,
 				8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */,
 				8CB3574E1CAA85130070BE40 /* ASMainCell.swift in Sources */,
@@ -430,6 +419,7 @@
 				8C4DD5B81CB4F60500645380 /* ASVideoView.swift in Sources */,
 				8CED709E1CAE48AB00A3155B /* ASTopImagesModel.swift in Sources */,
 				8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */,
+				8C8040EB1D6C24B600D15F8D /* ASMineTBController.swift in Sources */,
 				8C4DD5B21CB4E26C00645380 /* ASImageModel.swift in Sources */,
 				8CB356CF1CA92B020070BE40 /* ASTabBarController.swift in Sources */,
 				8CB356E11CAA52390070BE40 /* ASCustomNav.swift in Sources */,
@@ -449,7 +439,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8CB356AB1CA905BA0070BE40 /* Base */,
-				8C9293CD1D66E99800C59B85 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			path = ..;
@@ -459,7 +448,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				8CB356B01CA905BA0070BE40 /* Base */,
-				8C9293CE1D66E99800C59B85 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

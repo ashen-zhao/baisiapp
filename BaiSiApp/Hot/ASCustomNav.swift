@@ -28,9 +28,9 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     private var mType = "精华"
     
     weak var delegate:ASCustomNavDelegate?
-  
+    
     init(frame: CGRect ,menuType:String) {
-       super.init(frame: frame)
+        super.init(frame: frame)
         mType = menuType
         ASDataHelper.getMenusType(menuType, successs: { (AnyObject) in
             let array = AnyObject as! NSMutableArray
@@ -41,19 +41,19 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
             self.makeUI(self.tempArr)
             self.delegate?.getTitlesCount(self.urlsArr, count: array.count)
             self.saveCache()
-            }) {
-                
-                if NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") == nil || NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") == nil {
-                    return
-                }
-                
-                self.tempArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") as! NSMutableArray
-                self.urlsArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") as! NSMutableArray
-                self.makeUI(self.tempArr)
-                self.delegate?.getTitlesCount(self.urlsArr, count: self.urlsArr.count)
+        }) {
+            if NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") == nil || NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") == nil {
+                return
+            }
+            
+            self.tempArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "name") as! NSMutableArray
+            self.urlsArr = NSUserDefaults.standardUserDefaults().objectForKey(self.mType + "url") as! NSMutableArray
+            self.makeUI(self.tempArr)
+            self.delegate?.getTitlesCount(self.urlsArr, count: self.urlsArr.count)
         }
+        
     }
-
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
