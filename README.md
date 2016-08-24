@@ -51,7 +51,7 @@
 1.新增我的界面
 
 
-![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1608241523.gif)  
+![百思](https://github.com/ashen-zhao/baisiapp/blob/master/screenshots/1608241523.png)  
 
 
 ---
