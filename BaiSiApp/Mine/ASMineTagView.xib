@@ -17,7 +17,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="kfJ-WR-vTv"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -49,6 +49,7 @@
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="eUw-fR-1cK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2lk-NW-kjT"/>
                 <constraint firstItem="d2Q-ja-oOS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Ca-Ma-5RF"/>
@@ -75,9 +76,15 @@
             <connections>
                 <outlet property="iconImgv" destination="x9B-AY-0GI" id="RBe-yN-HKH"/>
                 <outlet property="lblIconTitle" destination="eUw-fR-1cK" id="Zj1-V2-1Ki"/>
+                <outletCollection property="gestureRecognizers" destination="G5M-XX-7cr" appends="YES" id="D0m-8x-sd8"/>
             </connections>
             <point key="canvasLocation" x="290.5" y="355.5"/>
         </view>
+        <tapGestureRecognizer id="G5M-XX-7cr">
+            <connections>
+                <action selector="iconTapAction:" destination="iN0-l3-epB" id="uer-PD-5Jb"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <image name="publish-review" width="72" height="72"/>

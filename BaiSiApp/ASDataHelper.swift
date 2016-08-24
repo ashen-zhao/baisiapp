@@ -42,7 +42,9 @@ class ASDataHelper: NSObject {
     
     class func getMyLists(success:(AnyObject)->Void,fails:()->Void) {
      ASNetWorkHepler.getResponseData("http://api.budejie.com/api/api_open.php?a=square&appname=baisi_xiaohao&asid=2CA17E5B-D6EB-43B0-95B6-EE70D8D466F7&c=topic&client=iphone&device=ios%20device&from=ios&jbk=1&mac=&market=&openudid=df051fdd9cd44aa5e2a8b1de8547ad7188a996b9&udid=&ver=4.1", parameters: nil, success: { (result) in
-        
+        let model = ASMineTagsModel()
+        model.setValuesForKeysWithDictionary(result.object as! [String : AnyObject])
+        success(model)
         }) { (error) in
             fails()
             print("请求失败")

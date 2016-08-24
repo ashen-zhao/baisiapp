@@ -9,17 +9,29 @@
 import UIKit
 import WebKit
 import FDFullscreenPopGesture
+import PKHUD
 
 class ASWebController: UIViewController,WKNavigationDelegate {
 
     var urlString:String! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "正在加载..."
-        let wk = WKWebView(frame: self.view.frame)
-        wk.navigationDelegate = self
-        wk.loadRequest(NSURLRequest(URL: NSURL(string: urlString)!))
-        view.addSubview(wk)
+        self.view.backgroundColor = UIColor.whiteColor()
+        if urlString == "" {
+            urlString = "http://www.devashen.com"
+        }
+        if urlString.containsString("http://") || urlString.containsString("https://"){
+            self.navigationItem.title = "正在加载..."
+            let wk = WKWebView(frame: self.view.frame)
+            wk.navigationDelegate = self
+            wk.loadRequest(NSURLRequest(URL: NSURL(string: urlString)!))
+            view.addSubview(wk)
+            
+        } else if urlString.containsString("mod://") {
+            let alert = UIAlertView(title: nil, message: "mod://,内部跳转机制，有待探索", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+
     }
 
     override func didReceiveMemoryWarning() {

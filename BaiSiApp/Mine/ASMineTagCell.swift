@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ASMineTagCell: UITableViewCell {
 
@@ -21,14 +22,14 @@ class ASMineTagCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func makeUIByData() {
+    func makeUIByData(tagsModel:ASMineTagsModel) {
         
         var x:CGFloat = 0
         var y:CGFloat = 0
         let width:CGFloat = contentView.frame.size.width / 4
         
         var index = 0
-        let count = 10
+        let count = tagsModel.square_list.count
         for _ in 0...(count / 4) {
             for _ in 1...4 {
                 index += 1
@@ -36,6 +37,9 @@ class ASMineTagCell: UITableViewCell {
                     break
                 }
                 let tv = ASMineTagView.mineTagView()
+                tv.iconImgv.kf_setImageWithURL(NSURL(string: tagsModel.square_list[index - 1]["icon"] as! String)!)
+                tv.lblIconTitle.text = tagsModel.square_list[index - 1]["name"] as? String
+                tv.actionUrl = (tagsModel.square_list[index - 1]["url"] as? String)!
                 tv.frame = CGRectMake(x, y, width, width + 20)
                 contentView.addSubview(tv)
                 x += width

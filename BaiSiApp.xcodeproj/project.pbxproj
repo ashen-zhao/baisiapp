@@ -22,6 +22,7 @@
 		8C8040EF1D6D4CBD00D15F8D /* ASMineTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EE1D6D4CBD00D15F8D /* ASMineTagView.swift */; };
 		8C8040F11D6D4CCB00D15F8D /* ASMineTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8040F01D6D4CCB00D15F8D /* ASMineTagView.xib */; };
 		8C8040F31D6D4FA900D15F8D /* ASMineTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040F21D6D4FA900D15F8D /* ASMineTagCell.swift */; };
+		8C8040F81D6D739A00D15F8D /* ASMineTagsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040F71D6D739A00D15F8D /* ASMineTagsModel.swift */; };
 		8C9293C91D66DA0F00C59B85 /* ASWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9293C71D66DA0F00C59B85 /* ASWebController.swift */; };
 		8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */; };
 		8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */; };
@@ -67,6 +68,7 @@
 		8C8040EE1D6D4CBD00D15F8D /* ASMineTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTagView.swift; sourceTree = "<group>"; };
 		8C8040F01D6D4CCB00D15F8D /* ASMineTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMineTagView.xib; sourceTree = "<group>"; };
 		8C8040F21D6D4FA900D15F8D /* ASMineTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTagCell.swift; sourceTree = "<group>"; };
+		8C8040F71D6D739A00D15F8D /* ASMineTagsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTagsModel.swift; sourceTree = "<group>"; };
 		8C9293C71D66DA0F00C59B85 /* ASWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASWebController.swift; path = BaiSiApp/ASWebController.swift; sourceTree = SOURCE_ROOT; };
 		8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLoginController.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
@@ -127,6 +129,14 @@
 				8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		8C8040F61D6D737400D15F8D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C8040F71D6D739A00D15F8D /* ASMineTagsModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		8CB3569A1CA905BA0070BE40 = {
@@ -207,6 +217,7 @@
 		8CB356C21CA91E5B0070BE40 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				8C8040F61D6D737400D15F8D /* Models */,
 				8C8040F51D6D4FD300D15F8D /* Controllers */,
 				8C8040F41D6D4FC600D15F8D /* Views */,
 			);
@@ -439,6 +450,7 @@
 				8C8040ED1D6C255B00D15F8D /* ASMineLoginCell.swift in Sources */,
 				8CED709C1CAE3AA200A3155B /* ASCommentModel.swift in Sources */,
 				8CED70961CAE1E0B00A3155B /* ASTagsModel.swift in Sources */,
+				8C8040F81D6D739A00D15F8D /* ASMineTagsModel.swift in Sources */,
 				8CB3574E1CAA85130070BE40 /* ASMainCell.swift in Sources */,
 				8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */,
 				8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */,

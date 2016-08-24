@@ -10,8 +10,17 @@ import UIKit
 
 class ASMineTBController: UITableViewController {
 
+    var tagsModel:ASMineTagsModel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        ASDataHelper.getMyLists({ (AnyObject) in
+            self.tagsModel = AnyObject as! ASMineTagsModel
+            self.tableView.reloadData()
+            }, fails: {
+                
+        })
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(iconAction), name: "NOTIICONACTION", object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +31,9 @@ class ASMineTBController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        if tagsModel == nil {
+            return 3
+        }
         return 4
     }
 
@@ -42,7 +54,8 @@ class ASMineTBController: UITableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier("tagsCell", forIndexPath: indexPath) as! ASMineTagCell
-            cell.makeUIByData()
+            cell.makeUIByData(tagsModel)
+            cell.selectionStyle = .None
             return cell
         }
     }
@@ -61,5 +74,14 @@ class ASMineTBController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
+    }
+    
+    
+    //MARK: -Actions 
+    func iconAction(noti:NSNotification) {
+        let url = noti.object as! String
+        let wk = ASWebController()
+        wk.urlString = url
+        self.navigationController?.pushViewController(wk, animated: true)
     }
 }
