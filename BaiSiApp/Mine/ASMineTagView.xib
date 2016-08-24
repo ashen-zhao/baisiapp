@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ASMineTagView" customModule="BaiSiApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="191" height="217"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="审核" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-fR-1cK">
+                    <rect key="frame" x="0.0" y="181" width="191" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="kfJ-WR-vTv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="publish-review" translatesAutoresizingMaskIntoConstraints="NO" id="x9B-AY-0GI">
+                    <rect key="frame" x="15" y="10" width="161" height="161"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="151" id="491-PZ-BfM"/>
+                        <constraint firstAttribute="width" secondItem="x9B-AY-0GI" secondAttribute="height" multiplier="1:1" id="Eoj-6q-0KR"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="491-PZ-BfM"/>
+                        </mask>
+                    </variation>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2Q-ja-oOS">
+                    <rect key="frame" x="0.0" y="216" width="191" height="1"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="q1Z-wt-2gl"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJh-z3-5Ab">
+                    <rect key="frame" x="190" y="0.0" width="1" height="217"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1" id="63i-OC-4OF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="eUw-fR-1cK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2lk-NW-kjT"/>
+                <constraint firstItem="d2Q-ja-oOS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3Ca-Ma-5RF"/>
+                <constraint firstItem="JJh-z3-5Ab" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6b1-rS-eN4"/>
+                <constraint firstItem="x9B-AY-0GI" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="Big-vd-tRm"/>
+                <constraint firstItem="x9B-AY-0GI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="C2U-jT-C0n"/>
+                <constraint firstItem="x9B-AY-0GI" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" constant="-40" id="Qst-Ah-W2e"/>
+                <constraint firstItem="eUw-fR-1cK" firstAttribute="top" secondItem="JJh-z3-5Ab" secondAttribute="bottom" id="VuF-uV-z47"/>
+                <constraint firstAttribute="bottom" secondItem="JJh-z3-5Ab" secondAttribute="bottom" id="Zfx-If-T06"/>
+                <constraint firstAttribute="trailing" secondItem="eUw-fR-1cK" secondAttribute="trailing" id="aYU-jH-s8z"/>
+                <constraint firstAttribute="trailing" secondItem="x9B-AY-0GI" secondAttribute="trailing" constant="15" id="asp-De-lWM"/>
+                <constraint firstAttribute="trailing" secondItem="JJh-z3-5Ab" secondAttribute="trailing" id="b03-bz-kC7"/>
+                <constraint firstItem="eUw-fR-1cK" firstAttribute="top" secondItem="x9B-AY-0GI" secondAttribute="bottom" constant="10" id="dim-gi-Tax"/>
+                <constraint firstAttribute="bottom" secondItem="d2Q-ja-oOS" secondAttribute="bottom" id="r3x-n9-myr"/>
+                <constraint firstAttribute="trailing" secondItem="d2Q-ja-oOS" secondAttribute="trailing" id="z4V-zV-Qn2"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Qst-Ah-W2e"/>
+                    <exclude reference="VuF-uV-z47"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="iconImgv" destination="x9B-AY-0GI" id="RBe-yN-HKH"/>
+                <outlet property="lblIconTitle" destination="eUw-fR-1cK" id="Zj1-V2-1Ki"/>
+            </connections>
+            <point key="canvasLocation" x="290.5" y="355.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="publish-review" width="72" height="72"/>
+    </resources>
+</document>

@@ -37,8 +37,12 @@ class ASMineTBController: UITableViewController {
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCellWithIdentifier("downloadCell", forIndexPath: indexPath)
             return cell
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("topicCell", forIndexPath: indexPath)
+            return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("tagsCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("tagsCell", forIndexPath: indexPath) as! ASMineTagCell
+            cell.makeUIByData()
             return cell
         }
     }
@@ -48,7 +52,7 @@ class ASMineTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 44
+        return indexPath.section == 3 ? 300 : 44
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

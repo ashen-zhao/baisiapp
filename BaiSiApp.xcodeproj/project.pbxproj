@@ -19,6 +19,9 @@
 		8C5AFA0C1CC4E2B400A45A9A /* ASMainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */; };
 		8C8040EB1D6C24B600D15F8D /* ASMineTBController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */; };
 		8C8040ED1D6C255B00D15F8D /* ASMineLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */; };
+		8C8040EF1D6D4CBD00D15F8D /* ASMineTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040EE1D6D4CBD00D15F8D /* ASMineTagView.swift */; };
+		8C8040F11D6D4CCB00D15F8D /* ASMineTagView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8040F01D6D4CCB00D15F8D /* ASMineTagView.xib */; };
+		8C8040F31D6D4FA900D15F8D /* ASMineTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8040F21D6D4FA900D15F8D /* ASMineTagCell.swift */; };
 		8C9293C91D66DA0F00C59B85 /* ASWebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9293C71D66DA0F00C59B85 /* ASWebController.swift */; };
 		8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */; };
 		8CA2C8BC1CB4A1B90074EBCB /* ASCustomHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */; };
@@ -61,6 +64,9 @@
 		8C5AFA0B1CC4E2B300A45A9A /* ASMainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMainController.swift; sourceTree = "<group>"; };
 		8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTBController.swift; sourceTree = "<group>"; };
 		8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineLoginCell.swift; sourceTree = "<group>"; };
+		8C8040EE1D6D4CBD00D15F8D /* ASMineTagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTagView.swift; sourceTree = "<group>"; };
+		8C8040F01D6D4CCB00D15F8D /* ASMineTagView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ASMineTagView.xib; sourceTree = "<group>"; };
+		8C8040F21D6D4FA900D15F8D /* ASMineTagCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASMineTagCell.swift; sourceTree = "<group>"; };
 		8C9293C71D66DA0F00C59B85 /* ASWebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ASWebController.swift; path = BaiSiApp/ASWebController.swift; sourceTree = SOURCE_ROOT; };
 		8C97A2521D5C7249001DAFE0 /* ASLoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASLoginController.swift; sourceTree = "<group>"; };
 		8CA2C8BB1CB4A1B90074EBCB /* ASCustomHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ASCustomHelper.swift; sourceTree = "<group>"; };
@@ -104,6 +110,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C8040F41D6D4FC600D15F8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */,
+				8C8040EE1D6D4CBD00D15F8D /* ASMineTagView.swift */,
+				8C8040F01D6D4CCB00D15F8D /* ASMineTagView.xib */,
+				8C8040F21D6D4FA900D15F8D /* ASMineTagCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		8C8040F51D6D4FD300D15F8D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		8CB3569A1CA905BA0070BE40 = {
 			isa = PBXGroup;
 			children = (
@@ -182,8 +207,8 @@
 		8CB356C21CA91E5B0070BE40 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				8C8040EA1D6C24B600D15F8D /* ASMineTBController.swift */,
-				8C8040EC1D6C255B00D15F8D /* ASMineLoginCell.swift */,
+				8C8040F51D6D4FD300D15F8D /* Controllers */,
+				8C8040F41D6D4FC600D15F8D /* Views */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -338,6 +363,7 @@
 				8CB356AE1CA905BA0070BE40 /* Images.xcassets in Resources */,
 				8C5AF8721CBDFAD700A45A9A /* ASImageView.xib in Resources */,
 				8C4DD5BA1CB4F61400645380 /* ASVideoView.xib in Resources */,
+				8C8040F11D6D4CCB00D15F8D /* ASMineTagView.xib in Resources */,
 				8CE16AC21D26767A00D22023 /* ASImgBrowserController.xib in Resources */,
 				8CB356C51CA91E920070BE40 /* Plus.storyboard in Resources */,
 				8CB356AC1CA905BA0070BE40 /* Main.storyboard in Resources */,
@@ -402,6 +428,7 @@
 			files = (
 				8CED70941CAE192400A3155B /* ASListsModel.swift in Sources */,
 				8C4DD5B41CB4E2B600645380 /* ASGifModel.swift in Sources */,
+				8C8040F31D6D4FA900D15F8D /* ASMineTagCell.swift in Sources */,
 				8C4D030C1CAE653200C5E308 /* ASCustomLabel.swift in Sources */,
 				8CE16AC11D26767A00D22023 /* ASImgBrowserController.swift in Sources */,
 				8CB356D71CAA4ACF0070BE40 /* ASTBController.swift in Sources */,
@@ -416,6 +443,7 @@
 				8CED70981CAE1E4600A3155B /* ASUserModel.swift in Sources */,
 				8C97A2531D5C7249001DAFE0 /* ASLoginController.swift in Sources */,
 				8CD6044F1CABD5CC00A350C6 /* ASDataHelper.swift in Sources */,
+				8C8040EF1D6D4CBD00D15F8D /* ASMineTagView.swift in Sources */,
 				8C4DD5B81CB4F60500645380 /* ASVideoView.swift in Sources */,
 				8CED709E1CAE48AB00A3155B /* ASTopImagesModel.swift in Sources */,
 				8CD6044D1CABCFE000A350C6 /* ASNetWorkHepler.swift in Sources */,
