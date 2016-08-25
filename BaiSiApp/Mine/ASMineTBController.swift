@@ -65,7 +65,8 @@ class ASMineTBController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return indexPath.section == 3 ? 300 : 44
+        
+        return indexPath.section == 3 ? CGFloat((tagsModel.square_list.count / 4) + (tagsModel.square_list.count % 4 != 0 ? 1 : 0)) * (self.view.frame.size.width / 4 + 20) : 44
     }
     
     override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
