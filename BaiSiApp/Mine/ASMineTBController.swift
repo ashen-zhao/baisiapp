@@ -16,9 +16,7 @@ class ASMineTBController: UITableViewController {
         ASDataHelper.getMyLists({ (AnyObject) in
             self.tagsModel = AnyObject as! ASMineTagsModel
             self.tableView.reloadData()
-            }, fails: {
-                
-        })
+            }, fails: {_ in })
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(iconAction), name: "NOTIICONACTION", object: nil)
     }

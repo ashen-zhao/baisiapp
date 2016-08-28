@@ -52,7 +52,6 @@ class ASTBController: UITableViewController {
             cacheArr.addObject(path)
         }
         NSUserDefaults.standardUserDefaults().setObject(cacheArr, forKey: menuURL.componentsSeparatedByString("/topic/").last!)
-        
 
     }
     
