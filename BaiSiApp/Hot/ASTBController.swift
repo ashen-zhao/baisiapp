@@ -38,40 +38,6 @@ class ASTBController: UITableViewController {
     }
     
     
-    func archiver() {
-        let cacheArr = NSMutableArray()
-        for index in 0 ..< dataSource.count {
-            let model = dataSource[index] as! ASListsModel
-            let data = NSMutableData()
-            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-            archiver.encodeObject(model, forKey: menuURL.componentsSeparatedByString("/topic/").last! + "\(index)")
-            archiver.finishEncoding()
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/" + menuURL.componentsSeparatedByString("/topic/").last!.stringByReplacingOccurrencesOfString("/", withString: "") + "\(index)"
-            print(path)
-            data.writeToFile(path, atomically: true)
-            cacheArr.addObject(path)
-        }
-        NSUserDefaults.standardUserDefaults().setObject(cacheArr, forKey: menuURL.componentsSeparatedByString("/topic/").last!)
-
-    }
-    
-    func getArchiver() {
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) == nil {
-            return
-        }
-        
-        let cacheArr = NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) as! NSMutableArray
-        for index in 0..<cacheArr.count {
-            let path = cacheArr[index] as! String
-            let data = NSMutableData.init(contentsOfFile: path)
-            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
-            let model = unarchiver.decodeObjectForKey(menuURL.componentsSeparatedByString("/topic/").last! + "\(index)") as! ASListsModel
-            print(model.u.name)
-            unarchiver.finishDecoding()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .None
@@ -84,7 +50,6 @@ class ASTBController: UITableViewController {
         self.tableView.mj_header.beginRefreshing()
         // 上拉刷新
         footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -150,10 +115,7 @@ class ASTBController: UITableViewController {
             } else {
                 self.topImg.image = UIImage(named: "top_defauth.jpg")
             }
-            }, fails: {
-                
-        })
-
+            }, fails: {_ in})
         
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
@@ -182,4 +144,41 @@ class ASTBController: UITableViewController {
         
         self.tableView.mj_footer.endRefreshing()
     }
+    
+    //MARK: - 暂时不采用的Method
+    
+    func archiver() {
+        let cacheArr = NSMutableArray()
+        for index in 0 ..< dataSource.count {
+            let model = dataSource[index] as! ASListsModel
+            let data = NSMutableData()
+            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+            archiver.encodeObject(model, forKey: menuURL.componentsSeparatedByString("/topic/").last! + "\(index)")
+            archiver.finishEncoding()
+            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/" + menuURL.componentsSeparatedByString("/topic/").last!.stringByReplacingOccurrencesOfString("/", withString: "") + "\(index)"
+            print(path)
+            data.writeToFile(path, atomically: true)
+            cacheArr.addObject(path)
+        }
+        NSUserDefaults.standardUserDefaults().setObject(cacheArr, forKey: menuURL.componentsSeparatedByString("/topic/").last!)
+        
+    }
+    
+    func getArchiver() {
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) == nil {
+            return
+        }
+        
+        let cacheArr = NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) as! NSMutableArray
+        for index in 0..<cacheArr.count {
+            let path = cacheArr[index] as! String
+            let data = NSMutableData.init(contentsOfFile: path)
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
+            let model = unarchiver.decodeObjectForKey(menuURL.componentsSeparatedByString("/topic/").last! + "\(index)") as! ASListsModel
+            print(model.u.name)
+            unarchiver.finishDecoding()
+        }
+    }
+
 }
