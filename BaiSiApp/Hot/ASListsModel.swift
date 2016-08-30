@@ -141,7 +141,8 @@ class ASListsModel: NSObject, NSCoding {
         }
         
         isLongLongImage = false
-        if height > 3 * (ASMainHeight - 64) {
+        let num:CGFloat = type == .Video ? 1 : 3
+        if height > num * (ASMainHeight - 64) {
             width = (ASMainWidth - 20)
             height = width
             isLongLongImage = true

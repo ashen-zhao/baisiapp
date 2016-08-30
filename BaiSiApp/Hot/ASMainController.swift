@@ -60,11 +60,14 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         controller.view.frame = view.frame
         controller.view.frame.origin.x = scrollView.contentOffset.x
         contentScroll.addSubview(controller.view)
-        
         if currentMainTBV != nil && currentMainTBV!.currentCell != nil && !controller.isEqual(currentMainTBV) {
             currentMainTBV!.currentCell.video_View.player.pause()
         }
+        if let _ = currentMainTBV {
+            NSNotificationCenter.defaultCenter().removeObserver(currentMainTBV)
+        }
         currentMainTBV = controller
+        NSNotificationCenter.defaultCenter().addObserver(controller, selector: #selector(controller.autoScrollTop), name: "ScrollTop", object: nil)
         navView?.moveTitlesLine(currentPage)
     }
     

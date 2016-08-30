@@ -34,7 +34,6 @@ class ASTBController: UITableViewController {
             return
         }
         currentCell.video_View.player.pause()
-        
     }
     
     
@@ -50,6 +49,7 @@ class ASTBController: UITableViewController {
         self.tableView.mj_header.beginRefreshing()
         // 上拉刷新
         footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
+      
     }
     
     override func didReceiveMemoryWarning() {
@@ -117,8 +117,9 @@ class ASTBController: UITableViewController {
             }
             }, fails: {_ in})
         
-        ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
+        ASDataHelper.getListsWithMenuURL((menuURL), lagePage: "0", success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
+            self.dataSource.removeAllObjects()
             for listModel in dataArr {
                 self.dataSource.addObject(listModel as! ASListsModel)
             }
@@ -143,6 +144,12 @@ class ASTBController: UITableViewController {
         }
         
         self.tableView.mj_footer.endRefreshing()
+    }
+    
+    func autoScrollTop() {
+        UIView.animateWithDuration(0.3) { 
+            self.tableView.contentOffset.y = 0
+        }
     }
     
     //MARK: - 暂时不采用的Method

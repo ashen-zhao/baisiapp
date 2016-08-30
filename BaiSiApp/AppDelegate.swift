@@ -39,6 +39,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        super.touchesBegan(touches, withEvent: event)
+        let location = touches.first?.locationInView(self.window)
+        let rect = UIApplication.sharedApplication().statusBarFrame
+        if CGRectContainsPoint(rect, location!) {
+            NSNotificationCenter.defaultCenter().postNotificationName("ScrollTop", object: nil)
+        }
+    }
 
 
 }

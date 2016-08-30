@@ -47,8 +47,10 @@ class ASImageView: UIView {
                 bgkImageV.kf_setImageWithURL(NSURL(string:listModel.image.big.count > 0 ? listModel.image.big[0]: "")!, placeholderImage: nil, optionsInfo: nil, progressBlock: { (receivedSize, totalSize) in
                     self.imgLoadProgress.text = NSString(string: "\((Int(CGFloat(receivedSize)/CGFloat(totalSize) * 100)))%") as String;
                     }, completionHandler: { (image, error, cacheType, imageURL) in
-                        self.imgLoadProgress.hidden = true
-                        self.image = self.bgkImageV.image
+                        if (error == nil) {
+                            self.imgLoadProgress.hidden = true
+                            self.image = self.bgkImageV.image
+                        }
                 })
                 lookBigImg.hidden = !listModel.isLongLongImage
                 bgkImageV.contentMode = listModel.isLongLongImage == true ? .Top : .ScaleAspectFit;
@@ -57,8 +59,10 @@ class ASImageView: UIView {
                 bgkImageV.kf_setImageWithURL(NSURL(string:listModel.gif.images.count > 0 ? listModel.gif.images[0]: "")!, placeholderImage: nil, optionsInfo: nil, progressBlock: { (receivedSize, totalSize) in
                     self.imgLoadProgress.text = NSString(string: "\((Int(CGFloat(receivedSize)/CGFloat(totalSize) * 100)))%") as String;
                     }, completionHandler: { (image, error, cacheType, imageURL) in
-                        self.imgLoadProgress.hidden = true
-                        self.image = self.bgkImageV.image
+                        if (error == nil) {
+                            self.imgLoadProgress.hidden = true
+                            self.image = self.bgkImageV.image
+                        }
                 })
                 lookBigImg.hidden = !listModel.isLongLongImage
             }
