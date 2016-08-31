@@ -59,7 +59,6 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         for view in self.subviews {
             view.removeFromSuperview()
         }
-        
         scrollView = UIScrollView(frame: CGRect.init(x: 0, y: 0, width:self.frame.size.width - 35, height: self.frame.size.height))
         scrollView.showsHorizontalScrollIndicator = false
         scrollView.showsVerticalScrollIndicator = false
@@ -77,7 +76,8 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         
         randowBtn = UIButton(type: .Custom)
         randowBtn.frame = CGRectMake(CGRectGetMaxX(scrollView.frame), 0, 40, self.frame.size.height)
-        randowBtn.setImage(UIImage(named: "RandomAcross"), forState: .Normal)
+        let imgName = mType == "精华" ? "RandomAcross" : "MainTagSubIcon"
+        randowBtn.setImage(UIImage(named: imgName), forState: .Normal)
         self.addSubview(randowBtn)
         
         scrollView.contentSize = CGSize(width: CGFloat(titles.count * 50), height: self.frame.size.height)
