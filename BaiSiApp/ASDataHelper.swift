@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 class ASDataHelper: NSObject {
     
+    
     //获取类型
     class func getMenusType(type:String, successs:(AnyObject)->Void, fails:()->Void){
         
@@ -26,6 +27,7 @@ class ASDataHelper: NSObject {
             successs(ASMenusModel.getMenus(type, jsonArr: result["menus"].array!))
             let data = jsonToData(result.object)
             NSUserDefaults.standardUserDefaults().setObject(data, forKey: type)
+            NSUserDefaults.standardUserDefaults().synchronize()
         }) { (error) in
             print("标题请求失败")
         }
@@ -49,7 +51,7 @@ class ASDataHelper: NSObject {
             success(ASListsModel.getLists(result["list"].array!))
             lastPage(result["info"].dictionary!["np"]!.object)
             NSUserDefaults.standardUserDefaults().setObject(jsonToData(result.object), forKey: url)
-            
+            NSUserDefaults.standardUserDefaults().synchronize()
         }) { (error) in
             print("列表数据请求失败")
         }
@@ -67,6 +69,7 @@ class ASDataHelper: NSObject {
         ASNetWorkHepler.getResponseData("http://api.budejie.com/api/api_open.php?a=get_top_promotion&appname=baisi_xiaohao&asid=34FC34B8-5F29-473B-B771-6EE702C04384&c=topic&client=iphone&device=ios%20device&from=ios&jbk=1&mac=&market=&openudid=df051fdd9cd44aa5e2a8b1de8547ad7188a996b9&udid=&ver=4.1", parameters: nil, success: { (result) in
             success(ASTopImagesModel.getImages(result["result"].dictionary!["list"]! .arrayObject!))
             NSUserDefaults.standardUserDefaults().setObject(jsonToData(result["result"].dictionary!["list"]! .arrayObject!), forKey: "topImage")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }) { (error) in
             print("顶部图片请求失败")
         }
@@ -86,12 +89,19 @@ class ASDataHelper: NSObject {
             success(model)
             
             NSUserDefaults.standardUserDefaults().setObject(jsonToData(result.object), forKey: "tags")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }) { (error) in
             print("我的界面请求失败")
         }
     }
     
     // MARK: methods
+    
+    class func clearCache() {
+        let domain = NSBundle.mainBundle().bundleIdentifier
+        NSUserDefaults.standardUserDefaults().removePersistentDomainForName(domain!)
+    }
+    
     private class func jsonToData(jsonResponse: AnyObject) -> NSData? {
         
         do{

@@ -11,6 +11,7 @@ import UIKit
 class ASMineTBController: UITableViewController {
 
     var tagsModel:ASMineTagsModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ASDataHelper.getMyLists({ (AnyObject) in
