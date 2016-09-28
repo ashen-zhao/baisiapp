@@ -17,7 +17,7 @@ class ASMineTagView: UIView {
     var actionUrl = "http://www.devashen.com"
     
     class func mineTagView() -> ASMineTagView {
-        return NSBundle.mainBundle().loadNibNamed("ASMineTagView", owner: nil, options: nil)[0] as! ASMineTagView
+        return NSBundle.mainBundle().loadNibNamed("ASMineTagView", owner: nil, options: nil)![0] as! ASMineTagView
     }
     
     @IBAction func iconTapAction(sender: AnyObject) {

@@ -238,12 +238,12 @@ public enum ServerTrustPolicy {
     private func trustIsValid(trust: SecTrust) -> Bool {
         var isValid = false
 
-        var result = SecTrustResultType(kSecTrustResultInvalid)
-        let status = SecTrustEvaluate(trust, &result)
+        var result = SecTrustResultType(rawValue: 0)
+        let status = SecTrustEvaluate(trust, &result!)
 
         if status == errSecSuccess {
-            let unspecified = SecTrustResultType(kSecTrustResultUnspecified)
-            let proceed = SecTrustResultType(kSecTrustResultProceed)
+            let unspecified = SecTrustResultType(rawValue: 4)
+            let proceed = SecTrustResultType(rawValue: 1)
 
             isValid = result == unspecified || result == proceed
         }

@@ -24,7 +24,7 @@ class ASImageView: UIView {
     }
     
     class func imageView() -> ASImageView {
-        return NSBundle.mainBundle().loadNibNamed("ASImageView", owner: nil, options: nil)[0] as! ASImageView
+        return NSBundle.mainBundle().loadNibNamed("ASImageView", owner: nil, options: nil)![0] as! ASImageView
     }
     
     

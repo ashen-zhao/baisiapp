@@ -132,7 +132,7 @@ extension Image {
         let normalizedImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     
-        return normalizedImage
+        return normalizedImage!
     }
     
     static func kf_animatedImageWithImages(images: [Image], duration: NSTimeInterval) -> Image? {
@@ -287,10 +287,10 @@ extension Image {
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue
         
-        let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo)
+        let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef!), CGImageGetHeight(imageRef!), 8, 0, colorSpace, bitmapInfo)
         if let context = context {
-            let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef), height: CGImageGetHeight(imageRef))
-            CGContextDrawImage(context, rect, imageRef)
+            let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef!), height: CGImageGetHeight(imageRef!))
+            CGContextDrawImage(context, rect, imageRef!)
             let decompressedImageRef = CGBitmapContextCreateImage(context)
             return Image.kf_imageWithCGImage(decompressedImageRef!, scale: scale, refImage: self)
         } else {

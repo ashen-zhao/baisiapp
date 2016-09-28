@@ -57,7 +57,7 @@ class ASVideoView: UIView {
     
     
     class func videoView() -> ASVideoView {
-        return NSBundle.mainBundle().loadNibNamed("ASVideoView", owner: nil, options: nil)[0] as! ASVideoView
+        return NSBundle.mainBundle().loadNibNamed("ASVideoView", owner: nil, options: nil)![0] as! ASVideoView
     }
     
     // MARK: -
