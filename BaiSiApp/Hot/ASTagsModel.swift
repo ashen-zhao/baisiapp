@@ -19,12 +19,12 @@ class ASTagsModel: NSObject, NSCoding {
     var id = 0
     var name = ""
     
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: "tags")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "tags")
     }
     
     override init() {
@@ -32,7 +32,7 @@ class ASTagsModel: NSObject, NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.name = aDecoder.decodeObjectForKey("tags") as! String
+        self.name = aDecoder.decodeObject(forKey: "tags") as! String
     }
 
 }

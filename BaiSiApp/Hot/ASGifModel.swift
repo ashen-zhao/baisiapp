@@ -29,14 +29,14 @@ class ASGifModel: NSObject,NSCoding {
     var gif_thumbnail = [String]()
     var height = 0
     var width = 0
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(images, forKey: "images")
-        aCoder.encodeObject(gif_thumbnail, forKey: "gif_thumbnail")
-        aCoder.encodeObject(height, forKey: "height")
-        aCoder.encodeObject(width, forKey: "width")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(images, forKey: "images")
+        aCoder.encode(gif_thumbnail, forKey: "gif_thumbnail")
+        aCoder.encode(height, forKey: "height")
+        aCoder.encode(width, forKey: "width")
     }
     
     override init() {
@@ -44,10 +44,10 @@ class ASGifModel: NSObject,NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.images = aDecoder.decodeObjectForKey("images") as! [String]
-        self.gif_thumbnail = aDecoder.decodeObjectForKey("gif_thumbnail") as! [String]
-        self.height = aDecoder.decodeObjectForKey("height") as! Int
-        self.width = aDecoder.decodeObjectForKey("width") as! Int
+        self.images = aDecoder.decodeObject(forKey: "images") as! [String]
+        self.gif_thumbnail = aDecoder.decodeObject(forKey: "gif_thumbnail") as! [String]
+        self.height = aDecoder.decodeObject(forKey: "height") as! Int
+        self.width = aDecoder.decodeObject(forKey: "width") as! Int
     }
 }
 

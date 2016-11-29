@@ -48,23 +48,23 @@ class ASMainCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
-    func setupData(listModel:ASListsModel) {
+    func setupData(_ listModel:ASListsModel) {
         
-        imgVHeader.kf_setImageWithURL(NSURL(string: listModel.u.header.count > 0 ? listModel.u.header[0] : "")!, placeholderImage: UIImage(named: "defaultUserIcon"))
+        imgVHeader.kf.setImage(with: ImageResource(downloadURL: URL(string: listModel.u.header.count > 0 ? listModel.u.header[0] : "")!))
         lblText.text = listModel.text
         lblName.text = listModel.u.name
         lblTime.text = listModel.passtime
     
         for v in centerView.subviews {
-            if v.isKindOfClass(ASVideoView) {
+            if v.isKind(of: ASVideoView.self) {
                 (v as! ASVideoView).player.stop()
             }
-            NSNotificationCenter.defaultCenter().removeObserver(v)
+            NotificationCenter.default.removeObserver(v)
             v.removeFromSuperview()
         }
         
@@ -87,15 +87,15 @@ class ASMainCell: UITableViewCell {
             break
         }
         
-        lblTopCommentTip.hidden = listModel.top_comment.content.isEmpty
-        lblComment.hidden = listModel.top_comment.content.isEmpty
+        lblTopCommentTip.isHidden = listModel.top_comment.content.isEmpty
+        lblComment.isHidden = listModel.top_comment.content.isEmpty
         lblComment.text = listModel.top_comment.user.name + ": " + listModel.top_comment.content
         
-        btnDing.setTitle(" " + listModel.up, forState: .Normal)
-        btnBad.setTitle(" \(listModel.down!)", forState: .Normal)
+        btnDing.setTitle(" " + listModel.up, for: UIControlState())
+        btnBad.setTitle(" \(listModel.down!)", for: UIControlState())
         
-        btnShare.setTitle(" \(listModel.forward!)", forState: .Normal)
-        btnComment.setTitle(" \(listModel.comment!)", forState: .Normal)
+        btnShare.setTitle(" \(listModel.forward!)", for: UIControlState())
+        btnComment.setTitle(" \(listModel.comment!)", for: UIControlState())
         
         
         for item in scrollTag.subviews {
@@ -105,22 +105,22 @@ class ASMainCell: UITableViewCell {
         var tagContentWidth:CGFloat = 0.0
         for i in 0..<listModel.tags.count {
             
-            let tagBtn = UIButton(type: .Custom)
+            let tagBtn = UIButton(type: .custom)
             
-            let width = ASToolHelper.getSizeForText(listModel.tags[i].name, size: CGSizeMake(self.frame.width - 20, 30),font: 15).width
+            let width = ASToolHelper.getSizeForText(listModel.tags[i].name as NSString, size: CGSize(width: self.frame.width - 20, height: 30),font: 15).width
             
-            tagBtn.frame = CGRect.init(x: i == 0 ? 0 :CGRectGetMaxX(lastTagBtn.frame), y: 0, width: width + 10, height: 30)
-            tagBtn.setTitle(listModel.tags[i].name, forState: .Normal)
-            tagBtn.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-            tagBtn.titleLabel?.font = UIFont.systemFontOfSize(15)
+            tagBtn.frame = CGRect.init(x: i == 0 ? 0 :lastTagBtn.frame.maxX, y: 0, width: width + 10, height: 30)
+            tagBtn.setTitle(listModel.tags[i].name, for: UIControlState())
+            tagBtn.setTitleColor(UIColor.lightGray, for: UIControlState())
+            tagBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             scrollTag.addSubview(tagBtn)
             lastTagBtn = tagBtn
             tagContentWidth += (width + 10)
         }
-        scrollTag.contentSize = CGSizeMake(tagContentWidth, 30)
+        scrollTag.contentSize = CGSize(width: tagContentWidth, height: 30)
     }
     
-    class func getCellHeight(listModel:ASListsModel) -> CGFloat {
+    class func getCellHeight(_ listModel:ASListsModel) -> CGFloat {
       return listModel.cellHeight
     }
   

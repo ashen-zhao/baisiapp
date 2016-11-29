@@ -30,19 +30,19 @@ class ASTopImagesModel: NSObject {
     
     var image = ""
     var url = "http://www.devashen.com"
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     
     init(dict:NSDictionary) {
         super.init()
-        self.setValuesForKeysWithDictionary(dict as! [String : AnyObject])
+        self.setValuesForKeys(dict as! [String : AnyObject])
     }
     
-    class func getImages(jsonArr:NSArray)->NSMutableArray {
+    class func getImages(_ jsonArr:NSArray)->NSMutableArray {
         let tempArr = NSMutableArray()
         for dict in jsonArr {
-            tempArr.addObject(ASTopImagesModel.init(dict: dict as! NSDictionary))
+            tempArr.add(ASTopImagesModel.init(dict: dict as! NSDictionary))
         }
         return tempArr
     }

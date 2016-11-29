@@ -11,10 +11,10 @@ import UIKit
 class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var contentScroll: UIScrollView!
-    private var navView:ASCustomNav?
-    private var currentMainTBV:ASTBController!
-    private var topImg = UIImageView()
-    private var topImgUrl = "http://www.devashen.com"
+    fileprivate var navView:ASCustomNav?
+    fileprivate var currentMainTBV:ASTBController!
+    fileprivate var topImg = UIImageView()
+    fileprivate var topImgUrl = "http://www.devashen.com"
     // MARK: - life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,31 +30,31 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     // MARK: - ASCustomNavDelegate
 
-    func getTitlesCount(menuURLS: NSMutableArray, count: NSInteger) {
+    func getTitlesCount(_ menuURLS: NSMutableArray, count: NSInteger) {
         
         for vc in self.childViewControllers {
             vc.removeFromParentViewController()
         }
         for i in 0 ..< count {
-            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("sbTBView") as! ASTBController
+            let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbTBView") as! ASTBController
             vc.menuURL = menuURLS[i] as! String
             self.addChildViewController(vc)
         }
         self.contentScroll.delegate = self
-        self.contentScroll.contentSize = CGSizeMake(CGFloat(count) * self.contentScroll.frame.width, self.contentScroll.frame.height)
+        self.contentScroll.contentSize = CGSize(width: CGFloat(count) * self.contentScroll.frame.width, height: self.contentScroll.frame.height)
         self.scrollViewDidEndScrollingAnimation(self.contentScroll)
         
     }
     
-    func titleAction(index: NSInteger) {
-        UIView.animateWithDuration(0.3) { 
+    func titleAction(_ index: NSInteger) {
+        UIView.animate(withDuration: 0.3, animations: { 
             self.contentScroll.setContentOffset(CGPoint(x: CGFloat(index) * self.view.frame.size.width, y: 0), animated: true)
-        }
+        }) 
     }
     
     // MARK: UIScrollViewDelegate
 
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let currentPage = Int(scrollView.contentOffset.x / view.frame.size.width)
         let controller = childViewControllers[currentPage] as! ASTBController
         controller.view.frame = view.frame
@@ -64,14 +64,14 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
             currentMainTBV!.currentCell.video_View.player.pause()
         }
         if let _ = currentMainTBV {
-            NSNotificationCenter.defaultCenter().removeObserver(currentMainTBV)
+            NotificationCenter.default.removeObserver(currentMainTBV)
         }
         currentMainTBV = controller
-        NSNotificationCenter.defaultCenter().addObserver(controller, selector: #selector(controller.autoScrollTop), name: "ScrollTop", object: nil)
+        NotificationCenter.default.addObserver(controller, selector: #selector(controller.autoScrollTop), name: NSNotification.Name(rawValue: "ScrollTop"), object: nil)
         navView?.moveTitlesLine(currentPage)
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         scrollViewDidEndScrollingAnimation(scrollView)
     }
     

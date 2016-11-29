@@ -29,16 +29,16 @@ class ASCommentModel: NSObject, NSCoding {
     
     var content = ""
     var user = ASUserModel()
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         if key == "u" {
-            user.setValuesForKeysWithDictionary(value as! Dictionary)
+            user.setValuesForKeys(value as! Dictionary)
         }
     }
     
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(content, forKey: "content")
-        aCoder.encodeObject(user, forKey: "user")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(content, forKey: "content")
+        aCoder.encode(user, forKey: "user")
     }
     
     override init() {
@@ -46,7 +46,7 @@ class ASCommentModel: NSObject, NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.content = aDecoder.decodeObjectForKey("content") as! String
-        self.user = aDecoder.decodeObjectForKey("user") as! ASUserModel
+        self.content = aDecoder.decodeObject(forKey: "content") as! String
+        self.user = aDecoder.decodeObject(forKey: "user") as! ASUserModel
     }
 }

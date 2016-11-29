@@ -25,16 +25,16 @@ class ASUserModel: NSObject, NSCoding {
     var is_vip = false
     var name = ""
     
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(name, forKey: "name")
-        aCoder.encodeObject(header, forKey: "header")
-        aCoder.encodeObject(is_v, forKey: "is_v")
-        aCoder.encodeObject(uid, forKey: "uid")
-        aCoder.encodeObject(is_vip, forKey: "is_vip")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(header, forKey: "header")
+        aCoder.encode(is_v, forKey: "is_v")
+        aCoder.encode(uid, forKey: "uid")
+        aCoder.encode(is_vip, forKey: "is_vip")
     }
     
     override init() {
@@ -42,11 +42,11 @@ class ASUserModel: NSObject, NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.name = aDecoder.decodeObjectForKey("name") as! String
-        self.header = aDecoder.decodeObjectForKey("header") as! [String]
-        self.is_v = aDecoder.decodeObjectForKey("is_v") as! Bool
-        self.uid = aDecoder.decodeObjectForKey("uid")
-        self.is_vip = aDecoder.decodeObjectForKey("is_vip") as! Bool
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.header = aDecoder.decodeObject(forKey: "header") as! [String]
+        self.is_v = aDecoder.decodeObject(forKey: "is_v") as! Bool
+        self.uid = aDecoder.decodeObject(forKey: "uid") as AnyObject!
+        self.is_vip = aDecoder.decodeObject(forKey: "is_vip") as! Bool
     }
     
 }

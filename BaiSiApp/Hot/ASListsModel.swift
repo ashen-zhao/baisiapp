@@ -37,55 +37,55 @@ class ASListsModel: NSObject, NSCoding {
     init(dict:JSON) {
         super.init()
         id = dict["id"].string!
-        comment = dict["comment"].object
+        comment = dict["comment"].object as AnyObject?
         bookmark = dict["bookmark"].string!
         text = dict["text"].string!
         up = dict["up"].string!
-        down = dict["down"].object
-        forward = dict["forward"].object
+        down = dict["down"].object as AnyObject?
+        forward = dict["forward"].object as AnyObject?
         share_url = dict["share_url"].string!
         passtime = dict["passtime"].string!
         
         if !dict["tags"].isEmpty {
             for item in dict["tags"].array! {
                 let tag = ASTagsModel()
-                tag.setValuesForKeysWithDictionary(item.dictionaryObject!)
+                tag.setValuesForKeys(item.dictionaryObject!)
                 tags.append(tag)
             }
         }
         
         if !dict["u"].isEmpty {
             let tempu = ASUserModel()
-            tempu.setValuesForKeysWithDictionary(dict["u"].dictionaryObject!)
+            tempu.setValuesForKeys(dict["u"].dictionaryObject!)
             u = tempu;
         }
         
         
         if !dict["video"].isEmpty {
             let tempVideo = ASVideoModel()
-            tempVideo.setValuesForKeysWithDictionary(dict["video"].dictionaryObject!)
+            tempVideo.setValuesForKeys(dict["video"].dictionaryObject!)
             video = tempVideo
         }
         
         if !dict["image"].isEmpty {
             let tempImage = ASImageModel()
-            tempImage.setValuesForKeysWithDictionary(dict["image"].dictionaryObject!)
+            tempImage.setValuesForKeys(dict["image"].dictionaryObject!)
             image = tempImage
         }
         
         if !dict["gif"].isEmpty {
             let tempImage = ASGifModel()
-            tempImage.setValuesForKeysWithDictionary(dict["gif"].dictionaryObject!)
+            tempImage.setValuesForKeys(dict["gif"].dictionaryObject!)
             gif = tempImage
         }
         
         if !dict["top_comment"].isEmpty {
             let tempComment = ASCommentModel()
-            tempComment.setValuesForKeysWithDictionary(dict["top_comment"].dictionaryObject!)
+            tempComment.setValuesForKeys(dict["top_comment"].dictionaryObject!)
             top_comment = tempComment
         }
         
-        let txtSize = ASToolHelper.getSizeForText(text, size: CGSizeMake(ASMainWidth - 36, CGFloat.max), font: 17)
+        let txtSize = ASToolHelper.getSizeForText(text as NSString, size: CGSize(width: ASMainWidth - 36, height: CGFloat.greatestFiniteMagnitude), font: 17)
         typetemp = dict["type"].stringValue
         switch dict["type"].stringValue {
         case "video":
@@ -114,12 +114,12 @@ class ASListsModel: NSObject, NSCoding {
         }
     }
     
-    class func getLists(jsonArr:[JSON])->NSMutableArray {
+    class func getLists(_ jsonArr:[JSON])->NSMutableArray {
         let temArr = NSMutableArray()
         for dict in jsonArr {
             //暂时先处理视频
             if dict["type"] != "html"{
-                temArr.addObject(ASListsModel.init(dict: dict))
+                temArr.add(ASListsModel.init(dict: dict))
             }
         }
         return temArr
@@ -127,7 +127,7 @@ class ASListsModel: NSObject, NSCoding {
     
     
     
-    func cellHeight(w:CGFloat, h:CGFloat, txtHeight:CGFloat) {
+    func cellHeight(_ w:CGFloat, h:CGFloat, txtHeight:CGFloat) {
         var width = w
         var height = h
         if width > ASMainWidth - 20 {
@@ -148,7 +148,7 @@ class ASListsModel: NSObject, NSCoding {
             isLongLongImage = true
         }
         
-        frame = CGRectMake((ASMainWidth - width) / 2, 0, width, height)
+        frame = CGRect(x: (ASMainWidth - width) / 2, y: 0, width: width, height: height)
         
         cellHeight = height + txtHeight + ASSpaceHeight
         
@@ -156,54 +156,55 @@ class ASListsModel: NSObject, NSCoding {
     }
     func addCommentHeight() {
         if !top_comment.content.isEmpty {
-            cellHeight = cellHeight + ASToolHelper.getSizeForText(top_comment.content + top_comment.user.name + ": ", size: CGSizeMake(ASMainWidth - 24, CGFloat.max), font: 14).height + 15
+            
+            cellHeight = cellHeight + ASToolHelper.getSizeForText(String(format: "%@%@: ", top_comment.content, top_comment.user.name) as NSString, size: CGSize(width: ASMainWidth - 24, height: CGFloat.greatestFiniteMagnitude), font: 14).height + 15
         }
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(id, forKey: "id")
-        aCoder.encodeObject(typetemp, forKey: "typetemp")
-        aCoder.encodeObject(comment, forKey: "comment")
-        aCoder.encodeObject(bookmark, forKey: "bookmark")
-        aCoder.encodeObject(text, forKey: "text")
-        aCoder.encodeObject(up, forKey: "up")
-        aCoder.encodeObject(down, forKey: "down")
-        aCoder.encodeObject(forward, forKey: "forward")
-        aCoder.encodeObject(share_url, forKey: "share_url")
-        aCoder.encodeObject(passtime, forKey: "passtime")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(id, forKey: "id")
+        aCoder.encode(typetemp, forKey: "typetemp")
+        aCoder.encode(comment, forKey: "comment")
+        aCoder.encode(bookmark, forKey: "bookmark")
+        aCoder.encode(text, forKey: "text")
+        aCoder.encode(up, forKey: "up")
+        aCoder.encode(down, forKey: "down")
+        aCoder.encode(forward, forKey: "forward")
+        aCoder.encode(share_url, forKey: "share_url")
+        aCoder.encode(passtime, forKey: "passtime")
         
-        aCoder.encodeObject(tags, forKey: "tags")
-        aCoder.encodeObject(u, forKey: "user")
-        aCoder.encodeObject(video, forKey: "video")
-        aCoder.encodeObject(image, forKey: "image")
-        aCoder.encodeObject(gif, forKey: "gif")
-        aCoder.encodeObject(top_comment, forKey: "top_comment")
+        aCoder.encode(tags, forKey: "tags")
+        aCoder.encode(u, forKey: "user")
+        aCoder.encode(video, forKey: "video")
+        aCoder.encode(image, forKey: "image")
+        aCoder.encode(gif, forKey: "gif")
+        aCoder.encode(top_comment, forKey: "top_comment")
         
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.id = aDecoder.decodeObjectForKey("id") as! String
-        self.comment = aDecoder.decodeObjectForKey("comment")
-        self.bookmark = aDecoder.decodeObjectForKey("bookmark") as! String
-        self.text = aDecoder.decodeObjectForKey("text") as! String
-        self.up = aDecoder.decodeObjectForKey("up") as! String
-        self.down = aDecoder.decodeObjectForKey("down")
-        self.forward = aDecoder.decodeObjectForKey("forward")
-        self.share_url = aDecoder.decodeObjectForKey("share_url") as! String
-        self.passtime = aDecoder.decodeObjectForKey("passtime") as! String
+        self.id = aDecoder.decodeObject(forKey: "id") as! String
+        self.comment = aDecoder.decodeObject(forKey: "comment") as AnyObject?
+        self.bookmark = aDecoder.decodeObject(forKey: "bookmark") as! String
+        self.text = aDecoder.decodeObject(forKey: "text") as! String
+        self.up = aDecoder.decodeObject(forKey: "up") as! String
+        self.down = aDecoder.decodeObject(forKey: "down") as AnyObject?
+        self.forward = aDecoder.decodeObject(forKey: "forward") as AnyObject?
+        self.share_url = aDecoder.decodeObject(forKey: "share_url") as! String
+        self.passtime = aDecoder.decodeObject(forKey: "passtime") as! String
         
-        self.tags = aDecoder.decodeObjectForKey("tags") as! [ASTagsModel]
-        self.u = aDecoder.decodeObjectForKey("user") as! ASUserModel
-        self.video = aDecoder.decodeObjectForKey("video") as! ASVideoModel
-        self.image = aDecoder.decodeObjectForKey("image") as! ASImageModel
-        self.gif = aDecoder.decodeObjectForKey("gif") as! ASGifModel
-        self.top_comment = aDecoder.decodeObjectForKey("top_comment") as! ASCommentModel
+        self.tags = aDecoder.decodeObject(forKey: "tags") as! [ASTagsModel]
+        self.u = aDecoder.decodeObject(forKey: "user") as! ASUserModel
+        self.video = aDecoder.decodeObject(forKey: "video") as! ASVideoModel
+        self.image = aDecoder.decodeObject(forKey: "image") as! ASImageModel
+        self.gif = aDecoder.decodeObject(forKey: "gif") as! ASGifModel
+        self.top_comment = aDecoder.decodeObject(forKey: "top_comment") as! ASCommentModel
         
-        self.typetemp = aDecoder.decodeObjectForKey("typetemp") as! String
+        self.typetemp = aDecoder.decodeObject(forKey: "typetemp") as! String
         
-        let txtSize = ASToolHelper.getSizeForText(text, size: CGSizeMake(ASMainWidth - 36, CGFloat.max), font: 17)
+        let txtSize = ASToolHelper.getSizeForText(text as NSString, size: CGSize(width: ASMainWidth - 36, height: CGFloat.greatestFiniteMagnitude), font: 17)
         switch typetemp {
         case "video":
             type = ContentType.Video

@@ -37,19 +37,19 @@ class ASVideoModel: NSObject,NSCoding {
     var video = [String]()
     var thumbnail = [String]()
     var download = [String]()
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(playfcount, forKey: "playfcount")
-        aCoder.encodeObject(height, forKey: "height")
-        aCoder.encodeObject(width, forKey: "width")
-        aCoder.encodeObject(duration, forKey: "duration")
-        aCoder.encodeObject(playcount, forKey: "playcount")
-        aCoder.encodeObject(video, forKey: "video")
-        aCoder.encodeObject(thumbnail, forKey: "thumbnail")
-        aCoder.encodeObject(download, forKey: "download")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(playfcount, forKey: "playfcount")
+        aCoder.encode(height, forKey: "height")
+        aCoder.encode(width, forKey: "width")
+        aCoder.encode(duration, forKey: "duration")
+        aCoder.encode(playcount, forKey: "playcount")
+        aCoder.encode(video, forKey: "video")
+        aCoder.encode(thumbnail, forKey: "thumbnail")
+        aCoder.encode(download, forKey: "download")
     }
     
     override init() {
@@ -57,13 +57,13 @@ class ASVideoModel: NSObject,NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.playfcount = aDecoder.decodeObjectForKey("playfcount") as! Int
-        self.height = aDecoder.decodeObjectForKey("height") as! Int
-        self.width = aDecoder.decodeObjectForKey("width") as! Int
-        self.duration = aDecoder.decodeObjectForKey("duration") as! Int
-        self.playcount = aDecoder.decodeObjectForKey("playcount") as! Int
-        self.video = aDecoder.decodeObjectForKey("video") as! [String]
-        self.thumbnail = aDecoder.decodeObjectForKey("thumbnail") as! [String]
-        self.download = aDecoder.decodeObjectForKey("download") as! [String]
+        self.playfcount = aDecoder.decodeObject(forKey: "playfcount") as! Int
+        self.height = aDecoder.decodeObject(forKey: "height") as! Int
+        self.width = aDecoder.decodeObject(forKey: "width") as! Int
+        self.duration = aDecoder.decodeObject(forKey: "duration") as! Int
+        self.playcount = aDecoder.decodeObject(forKey: "playcount") as! Int
+        self.video = aDecoder.decodeObject(forKey: "video") as! [String]
+        self.thumbnail = aDecoder.decodeObject(forKey: "thumbnail") as! [String]
+        self.download = aDecoder.decodeObject(forKey: "download") as! [String]
     }
 }

@@ -21,7 +21,7 @@ class ASImgBrowserController: UIViewController {
     var isGIF:Bool!
     
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -38,7 +38,7 @@ class ASImgBrowserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.addSubview(imgV)
-        imgV.userInteractionEnabled = true
+        imgV.isUserInteractionEnabled = true
         imgV.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(disMissBrowserAction)))
         
         let w = ASMainWidth
@@ -48,14 +48,14 @@ class ASImgBrowserController: UIViewController {
         } else {
             h = ASMainWidth * CGFloat(listModel.image.height) / CGFloat(listModel.image.width)
         }
-        imgV.frame = CGRectMake(0, 0, w, h)
+        imgV.frame = CGRect(x: 0, y: 0, width: w, height: h)
         if h < ASMainHeight {
-            imgV.center = CGPointMake(imgV.center.x, ASMainHeight * 0.5)
+            imgV.center = CGPoint(x: imgV.center.x, y: ASMainHeight * 0.5)
         }
         imgV.image = image
         scrollView.contentSize = imgV.frame.size
-        shareBtn.setTitle(" \(listModel.forward!)", forState: .Normal)
-        commentBtn.setTitle(" \(listModel.comment!)", forState: .Normal)
+        shareBtn.setTitle(" \(listModel.forward!)", for: UIControlState())
+        commentBtn.setTitle(" \(listModel.comment!)", for: UIControlState())
 
     }
     
@@ -65,19 +65,19 @@ class ASImgBrowserController: UIViewController {
     }
     
     
-    @IBAction func disMissBrowserAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func disMissBrowserAction(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveImgAction(sender: AnyObject) {
+    @IBAction func saveImgAction(_ sender: AnyObject) {
         UIImageWriteToSavedPhotosAlbum(imgV.image!, self, #selector(saveimage), nil)
     }
     
-    func saveimage(image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
+    func saveimage(_ image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
         if didFinishSavingWithError != nil {
-            HUD.flash(.Error, delay: 1.0)
+            HUD.flash(.error, delay: 1.0)
         }else {
-            HUD.flash(.Success, delay: 1.0)
+            HUD.flash(.success, delay: 1.0)
         }
     }
     /*

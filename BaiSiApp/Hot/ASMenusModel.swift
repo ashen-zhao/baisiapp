@@ -25,13 +25,13 @@ class ASMenusModel: NSObject {
         entrytype = dic["entrytype"].string!
     }
     
-    class func getMenus(type:String, jsonArr:[JSON]) -> NSMutableArray {
+    class func getMenus(_ type:String, jsonArr:[JSON]) -> NSMutableArray {
         let tempArr = NSMutableArray()
         
         for itemDict in jsonArr {
             if type == itemDict["name"].string! {
                 for subDict in itemDict["submenus"].array! {
-                    tempArr.addObject(ASMenusModel.init(dic: subDict))
+                    tempArr.add(ASMenusModel.init(dic: subDict))
                 }
             }
 

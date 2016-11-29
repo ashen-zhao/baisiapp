@@ -32,9 +32,9 @@ import UIKit
 // }
 class ASMineTagsModel: NSObject {
     var tag_list:NSArray = []
-    var square_list:NSArray = []
+    var square_list = [AnyObject]()
     
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
 }

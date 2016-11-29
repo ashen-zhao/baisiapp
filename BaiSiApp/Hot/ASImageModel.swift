@@ -27,14 +27,14 @@ class ASImageModel: NSObject,NSCoding {
     var big = [String]()
     var height = 0
     var width = 0
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(big, forKey: "big")
-        aCoder.encodeObject(height, forKey: "height")
-        aCoder.encodeObject(width, forKey: "width")
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(big, forKey: "big")
+        aCoder.encode(height, forKey: "height")
+        aCoder.encode(width, forKey: "width")
     }
     
     override init() {
@@ -42,8 +42,8 @@ class ASImageModel: NSObject,NSCoding {
     }
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        self.big = aDecoder.decodeObjectForKey("big") as! [String]
-        self.height = aDecoder.decodeObjectForKey("height") as! Int
-        self.width = aDecoder.decodeObjectForKey("width") as! Int
+        self.big = aDecoder.decodeObject(forKey: "big") as! [String]
+        self.height = aDecoder.decodeObject(forKey: "height") as! Int
+        self.width = aDecoder.decodeObject(forKey: "width") as! Int
     }
 }

@@ -9,8 +9,8 @@
 import UIKit
 
 
-var ASMainWidth = UIScreen.mainScreen().bounds.width
-var ASMainHeight = UIScreen.mainScreen().bounds.height
+var ASMainWidth = UIScreen.main.bounds.width
+var ASMainHeight = UIScreen.main.bounds.height
 //上67， 下35， 标签30， 间隔上8，下5，中8
 var ASSpaceHeight = CGFloat(67 + 35 + 30 + 8 + 5 + 8)
 

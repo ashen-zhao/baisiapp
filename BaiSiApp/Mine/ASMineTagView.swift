@@ -17,10 +17,10 @@ class ASMineTagView: UIView {
     var actionUrl = "http://www.devashen.com"
     
     class func mineTagView() -> ASMineTagView {
-        return NSBundle.mainBundle().loadNibNamed("ASMineTagView", owner: nil, options: nil)![0] as! ASMineTagView
+        return Bundle.main.loadNibNamed("ASMineTagView", owner: nil, options: nil)![0] as! ASMineTagView
     }
     
-    @IBAction func iconTapAction(sender: AnyObject) {
-        NSNotificationCenter.defaultCenter().postNotificationName("NOTIICONACTION", object: actionUrl)
+    @IBAction func iconTapAction(_ sender: AnyObject) {
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "NOTIICONACTION"), object: actionUrl)
     }
 }

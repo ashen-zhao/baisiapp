@@ -17,12 +17,12 @@ class ASMineTagCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
-    func makeUIByData(tagsModel:ASMineTagsModel) {
+    func makeUIByData(_ tagsModel:ASMineTagsModel) {
         
         var x:CGFloat = 0
         var y:CGFloat = 0
@@ -37,10 +37,12 @@ class ASMineTagCell: UITableViewCell {
                     break
                 }
                 let tv = ASMineTagView.mineTagView()
-                tv.iconImgv.kf_setImageWithURL(NSURL(string: tagsModel.square_list[index - 1]["icon"] as! String)!)
+            
+                tv.iconImgv.kf.setImage(with: ImageResource.init(downloadURL:URL(string: tagsModel.square_list[index - 1]["icon"] as! String)!))
+                
                 tv.lblIconTitle.text = tagsModel.square_list[index - 1]["name"] as? String
                 tv.actionUrl = (tagsModel.square_list[index - 1]["url"] as? String)!
-                tv.frame = CGRectMake(x, y, width, width + 20)
+                tv.frame = CGRect(x: x, y: y, width: width, height: width + 20)
                 contentView.addSubview(tv)
                 x += width
             }

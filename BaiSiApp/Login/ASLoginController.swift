@@ -16,7 +16,7 @@ class ASLoginController: UIViewController {
         super.viewDidLoad()
         btnLogIn.layer.cornerRadius = 3
         btnLogIn.layer.masksToBounds = true
-        btnRegister.layer.borderColor = UIColor.redColor().CGColor
+        btnRegister.layer.borderColor = UIColor.red.cgColor
         btnRegister.layer.borderWidth = 0.6
         btnRegister.layer.cornerRadius = 3
         btnRegister.layer.masksToBounds = true
@@ -27,23 +27,23 @@ class ASLoginController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    @IBAction func adds(sender: AnyObject) {
-        HUD.show(HUDContentType.Label("去关注"))
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+    @IBAction func adds(_ sender: AnyObject) {
+        HUD.show(HUDContentType.label("去关注"))
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
             HUD.hide()
         }
     }
     
-    @IBAction func loginAction(sender: AnyObject) {
-        HUD.show(HUDContentType.Label("去登录"))
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+    @IBAction func loginAction(_ sender: AnyObject) {
+        HUD.show(HUDContentType.label("去登录"))
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
             HUD.hide()
         }
     }
     
-    @IBAction func registerAction(sender: AnyObject) {
-        HUD.show(HUDContentType.Label("去注册"))
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (Int64)(0.5 * Double(NSEC_PER_SEC))), dispatch_get_main_queue()) {
+    @IBAction func registerAction(_ sender: AnyObject) {
+        HUD.show(HUDContentType.label("去注册"))
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + Double((Int64)(0.5 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)) {
             HUD.hide()
         }
     }

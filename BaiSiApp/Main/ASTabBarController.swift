@@ -11,19 +11,19 @@ import UIKit
 class ASTabBarController: UITabBarController, UITabBarControllerDelegate {
 
     //MARK: - life Cycle
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //调整tabbar中间特殊的item
         let v:UIViewController = self.viewControllers![2]
-        v.tabBarItem.image = UIImage(named: "tabBar_publish_icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        v.tabBarItem.selectedImage = UIImage(named: "tabBar_publish_click_icon")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
+        v.tabBarItem.image = UIImage(named: "tabBar_publish_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
+        v.tabBarItem.selectedImage = UIImage(named: "tabBar_publish_click_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         v.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBar.tintColor = UIColor.grayColor()
+        self.tabBar.tintColor = UIColor.gray
         delegate = self
     }
 
@@ -32,12 +32,12 @@ class ASTabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 
     //MARK: - UITabBarControllerDelegate
-    func tabBarController(tabBarController: UITabBarController, shouldSelectViewController viewController: UIViewController) -> Bool {
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == tabBarController.viewControllers![2] {
             
-            let vc = UIStoryboard(name: "Plus", bundle: nil).instantiateViewControllerWithIdentifier("Plus") as! ASPlusController
+            let vc = UIStoryboard(name: "Plus", bundle: nil).instantiateViewController(withIdentifier: "Plus") as! ASPlusController
             
-             UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(vc, animated: false, completion: nil)
+             UIApplication.shared.keyWindow?.rootViewController?.present(vc, animated: false, completion: nil)
             
             return false
         }

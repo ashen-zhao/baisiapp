@@ -28,7 +28,7 @@ class ASTBController: UITableViewController {
     
     // MARK: - life Cycle
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if currentCell == nil {
             return
@@ -39,8 +39,8 @@ class ASTBController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .None
-        topImg.userInteractionEnabled = true
+        tableView.separatorStyle = .none
+        topImg.isUserInteractionEnabled = true
         topImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(gotoWeb)))
         
         // 下拉刷新
@@ -60,12 +60,12 @@ class ASTBController: UITableViewController {
     
     // MARK: - Table view data source
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dataSource.count ?? 0
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("mainCell") as! ASMainCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell") as! ASMainCell
         cell.setupData(dataSource[indexPath.row] as! ASListsModel)
         
         cell.blc_currentCell = {(currentCell)->() in
@@ -77,21 +77,21 @@ class ASTBController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         topImg.frame = CGRect.init(x: 0, y: 0, width: self.view.frame.size.width, height:60)
         return topImg
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 60
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return ASMainCell.getCellHeight(dataSource[indexPath.row] as! ASListsModel);
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
    
     }
     
@@ -111,7 +111,7 @@ class ASTBController: UITableViewController {
             if topAry.count > 0 {
                 let model = topAry.firstObject as! ASTopImagesModel
                 self.topImgURL = model.url
-                self.topImg.kf_setImageWithURL(NSURL(string:model.image)!, placeholderImage:UIImage(named: "top_defauth.jpg"))
+                self.topImg.kf.setImage(with: ImageResource.init(downloadURL:URL(string:model.image)!))
             } else {
                 self.topImg.image = UIImage(named: "top_defauth.jpg")
             }
@@ -121,7 +121,7 @@ class ASTBController: UITableViewController {
             let dataArr = AnyObject as! NSMutableArray
             self.dataSource.removeAllObjects()
             for listModel in dataArr {
-                self.dataSource.addObject(listModel as! ASListsModel)
+                self.dataSource.add(listModel as! ASListsModel)
             }
             self.tableView.reloadData()
             self.tableView.mj_footer = self.footer
@@ -136,7 +136,7 @@ class ASTBController: UITableViewController {
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
-                self.dataSource.addObject(listModel as! ASListsModel)
+                self.dataSource.add(listModel as! ASListsModel)
             }
             self.tableView.reloadData()
         }) { (AnyObject) in
@@ -147,9 +147,9 @@ class ASTBController: UITableViewController {
     }
     
     func autoScrollTop() {
-        UIView.animateWithDuration(0.3) { 
+        UIView.animate(withDuration: 0.3, animations: { 
             self.tableView.contentOffset.y = 0
-        }
+        }) 
     }
     
     //MARK: - 暂时不采用的Method
@@ -159,30 +159,30 @@ class ASTBController: UITableViewController {
         for index in 0 ..< dataSource.count {
             let model = dataSource[index] as! ASListsModel
             let data = NSMutableData()
-            let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
-            archiver.encodeObject(model, forKey: menuURL.componentsSeparatedByString("/topic/").last! + "\(index)")
+            let archiver = NSKeyedArchiver(forWritingWith: data)
+            archiver.encode(model, forKey: menuURL.components(separatedBy: "/topic/").last! + "\(index)")
             archiver.finishEncoding()
-            let path = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last! + "/" + menuURL.componentsSeparatedByString("/topic/").last!.stringByReplacingOccurrencesOfString("/", withString: "") + "\(index)"
+            let path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! + "/" + menuURL.components(separatedBy: "/topic/").last!.replacingOccurrences(of: "/", with: "") + "\(index)"
             print(path)
-            data.writeToFile(path, atomically: true)
-            cacheArr.addObject(path)
+            data.write(toFile: path, atomically: true)
+            cacheArr.add(path)
         }
-        NSUserDefaults.standardUserDefaults().setObject(cacheArr, forKey: menuURL.componentsSeparatedByString("/topic/").last!)
+        UserDefaults.standard.set(cacheArr, forKey: menuURL.components(separatedBy: "/topic/").last!)
         
     }
     
     func getArchiver() {
         
-        if NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) == nil {
+        if UserDefaults.standard.object(forKey: menuURL.components(separatedBy: "/topic/").last!) == nil {
             return
         }
         
-        let cacheArr = NSUserDefaults.standardUserDefaults().objectForKey(menuURL.componentsSeparatedByString("/topic/").last!) as! NSMutableArray
+        let cacheArr = UserDefaults.standard.object(forKey: menuURL.components(separatedBy: "/topic/").last!) as! NSMutableArray
         for index in 0..<cacheArr.count {
             let path = cacheArr[index] as! String
             let data = NSMutableData.init(contentsOfFile: path)
-            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data!)
-            let model = unarchiver.decodeObjectForKey(menuURL.componentsSeparatedByString("/topic/").last! + "\(index)") as! ASListsModel
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data! as Data)
+            let model = unarchiver.decodeObject(forKey: menuURL.components(separatedBy: "/topic/").last! + "\(index)") as! ASListsModel
             print(model.u.name)
             unarchiver.finishDecoding()
         }

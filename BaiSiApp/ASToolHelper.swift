@@ -10,7 +10,7 @@ import UIKit
 
 class ASToolHelper: NSObject {
 
-    class func getSizeForText(text:NSString, size:CGSize, font:CGFloat)->CGSize {
-      return text.boundingRectWithSize(size, options: .UsesLineFragmentOrigin, attributes:[NSFontAttributeName : UIFont.systemFontOfSize(font)], context: nil).size
+    class func getSizeForText(_ text:NSString, size:CGSize, font:CGFloat)->CGSize {
+      return text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes:[NSFontAttributeName : UIFont.systemFont(ofSize: font)], context: nil).size
     }
 }
