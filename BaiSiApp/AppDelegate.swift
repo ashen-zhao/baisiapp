@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import JSPatchPlatform
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        //本地测试
+        //JSPatch.testScriptInBundle()
+        
+        JSPatch.start(withAppKey: "391f43c69bd71e43")
+        JSPatch.sync()
         return true
     }
 

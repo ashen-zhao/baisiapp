@@ -10,30 +10,6 @@ import UIKit
 import WebKit
 import FDFullscreenPopGesture
 import PKHUD
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
-}
-
 
 class ASWebController: UIViewController,WKNavigationDelegate {
 
@@ -65,7 +41,7 @@ class ASWebController: UIViewController,WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
-        if webView.title?.characters.count <= 0 {
+        if (webView.title?.characters.count)! <= 0 {
             return
         }
         self.navigationItem.title = webView.title!

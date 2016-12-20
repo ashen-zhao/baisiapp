@@ -7,4 +7,5 @@ target ‘BaiSiApp’ do
     pod 'Kingfisher','~> 3.2.1'
     pod 'PKHUD', '~> 4.0'
     pod 'FDFullscreenPopGesture', '1.1'
+    pod 'JSPatchPlatform'
 end 
