@@ -170,8 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				8CB566191E0901E300D5FC90 /* main.js */,
-				8CB566181E08FF7100D5FC90 /* BaiSiApp.entitlements */,
 				8CB356A61CA905BA0070BE40 /* AppDelegate.swift */,
+				8CB566181E08FF7100D5FC90 /* BaiSiApp.entitlements */,
 				8CD6044B1CABCF8500A350C6 /* Helper */,
 				8CB356BE1CA91CB40070BE40 /* General */,
 				8CB356C11CA91E5B0070BE40 /* Login */,

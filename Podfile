@@ -1,3 +1,4 @@
+source 'https://github.com/CocoaPods/Specs.git'
 platform :ios, '8.0'
 use_frameworks!
 target ‘BaiSiApp’ do
@@ -8,4 +9,6 @@ target ‘BaiSiApp’ do
     pod 'PKHUD', '~> 4.0'
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'JSPatchPlatform'
+    pod 'WeexSDK', '0.6.1'
+
 end 

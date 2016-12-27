@@ -18,7 +18,6 @@ class ASTabBarController: UITabBarController, UITabBarControllerDelegate {
         v.tabBarItem.image = UIImage(named: "tabBar_publish_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         v.tabBarItem.selectedImage = UIImage(named: "tabBar_publish_click_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
         v.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0)
-        
     }
     
     override func viewDidLoad() {

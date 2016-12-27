@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //本地测试
-        //JSPatch.testScriptInBundle()
+//      JSPatch.testScriptInBundle()
         
         JSPatch.start(withAppKey: "391f43c69bd71e43")
         JSPatch.sync()
