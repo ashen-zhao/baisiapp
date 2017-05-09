@@ -10,5 +10,5 @@ target ‘BaiSiApp’ do
     pod 'FDFullscreenPopGesture', '1.1'
     pod 'JSPatchPlatform'
     pod 'WeexSDK', '0.6.1'
-
+    pod 'Zhugeio'
 end 

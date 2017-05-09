@@ -11,6 +11,9 @@ PODS:
   - SwiftyJSON (3.1.3)
   - WeexSDK (0.6.1):
     - SocketRocket
+  - Zhugeio (2.1.2):
+    - Zhugeio/Zhugeio (= 2.1.2)
+  - Zhugeio/Zhugeio (2.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
@@ -21,6 +24,7 @@ DEPENDENCIES:
   - PKHUD (~> 4.0)
   - SwiftyJSON (~> 3.1.3)
   - WeexSDK (= 0.6.1)
+  - Zhugeio
 
 SPEC CHECKSUMS:
   Alamofire: e266cf991b933498df791e645e0d8ac294492153
@@ -32,7 +36,8 @@ SPEC CHECKSUMS:
   SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
   SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
   WeexSDK: bdcd2087d6f0ce3d5327536cc237fb1219c865dd
+  Zhugeio: 0cbf34536b167368acbad1e3583062be3b47cce2
 
-PODFILE CHECKSUM: ff38759be273b4490df941a86a64c27cf3f5619c
+PODFILE CHECKSUM: 41d0b1ad5e93ae39d5fd67a93d65e72a3976de8f
 
 COCOAPODS: 1.1.1

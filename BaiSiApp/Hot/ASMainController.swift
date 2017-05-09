@@ -21,7 +21,18 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         navView = ASCustomNav.init(frame: (navigationController?.navigationBar.frame)!,menuType: contentScroll.tag == 0 ? "精华" : "最新", delegate: self)
         navigationItem.titleView = navView
         automaticallyAdjustsScrollViewInsets = false
+        self.sayHi()
     }
+    
+    
+    dynamic func sayHi() {
+        print("Hi")
+    }
+    
+    dynamic func printMe(_ a:String, b rb:String) {
+        print(a + rb)
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -30,7 +41,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     // MARK: - ASCustomNavDelegate
 
-    func getTitlesCount(_ menuURLS: NSMutableArray, count: NSInteger) {
+    dynamic func getTitlesCount(_ menuURLS: NSMutableArray, count: NSInteger) {
         
         for vc in self.childViewControllers {
             vc.removeFromParentViewController()
@@ -46,7 +57,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         
     }
     
-    func titleAction(_ index: NSInteger) {
+    dynamic func titleAction(_ index: NSInteger) {
         UIView.animate(withDuration: 0.3, animations: { 
             self.contentScroll.setContentOffset(CGPoint(x: CGFloat(index) * self.view.frame.size.width, y: 0), animated: true)
         }) 
@@ -54,7 +65,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     // MARK: UIScrollViewDelegate
 
-    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+   dynamic func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let currentPage = Int(scrollView.contentOffset.x / view.frame.size.width)
         let controller = childViewControllers[currentPage] as! ASTBController
         controller.view.frame = view.frame

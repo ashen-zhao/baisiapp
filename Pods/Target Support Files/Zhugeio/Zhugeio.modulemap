@@ -1,0 +1,6 @@
+framework module Zhugeio {
+  umbrella header "Zhugeio-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -49,9 +49,9 @@ class ASTBController: UITableViewController {
         self.tableView.mj_header.beginRefreshing()
         // 上拉刷新
         footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
-      
+
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -95,17 +95,15 @@ class ASTBController: UITableViewController {
    
     }
     
-    
     // MARK: - Actions 
-    func gotoWeb() {
+    dynamic func gotoWeb() {
         let wk = ASWebController()
         wk.urlString = topImgURL
         self.navigationController?.pushViewController(wk, animated: true)
     }
     
-    
     // MARK: - Refresh
-    func headerRefresh() {
+    dynamic func headerRefresh() {
         ASDataHelper.getTopImages({ (AnyObject) in
             let topAry = (AnyObject as! NSMutableArray);
             if topAry.count > 0 {
@@ -132,7 +130,7 @@ class ASTBController: UITableViewController {
         self.tableView.mj_header.endRefreshing()
     }
     
-    func footerRefresh() {
+    dynamic func footerRefresh() {
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
@@ -146,7 +144,7 @@ class ASTBController: UITableViewController {
         self.tableView.mj_footer.endRefreshing()
     }
     
-    func autoScrollTop() {
+    dynamic func autoScrollTop() {
         UIView.animate(withDuration: 0.3, animations: { 
             self.tableView.contentOffset.y = 0
         }) 
@@ -154,7 +152,7 @@ class ASTBController: UITableViewController {
     
     //MARK: - 暂时不采用的Method
     
-    func archiver() {
+    dynamic func archiver() {
         let cacheArr = NSMutableArray()
         for index in 0 ..< dataSource.count {
             let model = dataSource[index] as! ASListsModel
@@ -171,7 +169,7 @@ class ASTBController: UITableViewController {
         
     }
     
-    func getArchiver() {
+    dynamic func getArchiver() {
         
         if UserDefaults.standard.object(forKey: menuURL.components(separatedBy: "/topic/").last!) == nil {
             return

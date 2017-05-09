@@ -44,7 +44,6 @@ class ASImageView: UIView {
         didSet {
             if listModel.type == .Image {
                 isGifImg.isHidden = true
-                
                 bgkImageV.kf.setImage(with: ImageResource.init(downloadURL: URL(string:listModel.image.big.count > 0 ? listModel.image.big[0]: "")!), placeholder: nil, options: nil, progressBlock:{ (receivedSize, totalSize) in
                     self.imgLoadProgress.text = NSString(string: "\((Int(CGFloat(receivedSize)/CGFloat(totalSize) * 100)))%") as String;
                 }, completionHandler: { (image, error, cache, url) in
