@@ -178,7 +178,6 @@
 				8CB356C21CA91E5B0070BE40 /* Mine */,
 				8CB356C31CA91E5B0070BE40 /* Plus */,
 				8CB356BD1CA91CB40070BE40 /* Main */,
-				8CB356C01CA91CB40070BE40 /* Vendors */,
 				8CD604471CABBCA300A350C6 /* Sources */,
 			);
 			path = BaiSiApp;
@@ -208,13 +207,6 @@
 			);
 			name = General;
 			path = Main;
-			sourceTree = "<group>";
-		};
-		8CB356C01CA91CB40070BE40 /* Vendors */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Vendors;
 			sourceTree = "<group>";
 		};
 		8CB356C11CA91E5B0070BE40 /* Login */ = {
@@ -613,7 +605,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = BaiSiApp/BaiSiApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 353VG9J352;
@@ -632,7 +623,6 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = BaiSiApp/BaiSiApp.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 353VG9J352;

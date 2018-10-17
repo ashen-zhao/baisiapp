@@ -80,10 +80,11 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         randowBtn.setImage(UIImage(named: imgName), for: UIControlState())
         self.addSubview(randowBtn)
         
-        scrollView.contentSize = CGSize(width: CGFloat(titles.count * 50), height: self.frame.size.height)
+        let menuBtnWidth = (self.frame.size.width - 35) / CGFloat(titles.count)
+        scrollView.contentSize = CGSize(width: CGFloat(titles.count) * menuBtnWidth, height: self.frame.size.height)
         for i in 0..<titles.count {
             let title = UIButton(type: .custom)
-            title.frame = CGRect(x: CGFloat(i * 50), y: 0, width: 50, height: self.frame.size.height)
+            title.frame = CGRect(x: CGFloat(i) * menuBtnWidth, y: 0, width: CGFloat(menuBtnWidth), height: self.frame.size.height)
             title.setTitle(titles[i] as? String, for: UIControlState())
             title.tag = i;
             if i == 0 {
@@ -98,7 +99,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
             scrollView.addSubview(title)
         }
         
-        lineView = UIView(frame: CGRect(x: 9, y: scrollView.frame.maxY - 3, width: 30, height: 2))
+        lineView = UIView(frame: CGRect(x: 9, y: scrollView.frame.maxY - 3, width: 35, height: 2))
         lineView.backgroundColor = UIColor.red
         scrollView.addSubview(lineView)
     }
@@ -129,16 +130,16 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     }
     
     func moveTitlesLine(_ index:NSInteger) {
-    
+        let menuBtnWidth = (self.frame.size.width - 35) / CGFloat(tempArr.count)
         var frame = lineView.frame
-        frame.origin.x = CGFloat(index * 50) + 9
+        frame.origin.x = CGFloat(index) * menuBtnWidth + 18
         
-        var dict:[Int:CGFloat] = [0:0.0, 1:0.0, 2:0.0, 3:50.0, 4:100.0, 5:150.0, 6:160.0, 7:180.0, 8:180.0]
+//        var dict:[Int:CGFloat] = [0:0.0, 1:0.0, 2:0.0, 3:50.0, 4:100.0, 5:150.0, 6:160.0, 7:180.0, 8:180.0]
         
         delegate?.titleAction(index)
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.scrollView.contentOffset.x = dict[index]!
+            self.scrollView.contentOffset.x = 0
             self.lineView.frame = frame
         }) 
         leftImg.isHidden = scrollView.contentOffset.x <= 0 ? true : false

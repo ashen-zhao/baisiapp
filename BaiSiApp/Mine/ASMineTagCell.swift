@@ -37,14 +37,16 @@ class ASMineTagCell: UITableViewCell {
                     break
                 }
                 let tv = ASMineTagView.mineTagView()
-            
-                tv.iconImgv.kf.setImage(with: ImageResource.init(downloadURL:URL(string: tagsModel.square_list[index - 1]["icon"] as! String)!))
-                
-                tv.lblIconTitle.text = tagsModel.square_list[index - 1]["name"] as? String
-                tv.actionUrl = (tagsModel.square_list[index - 1]["url"] as? String)!
-                tv.frame = CGRect(x: x, y: y, width: width, height: width + 20)
-                contentView.addSubview(tv)
-                x += width
+                let imgURL = tagsModel.square_list[index - 1]
+                if imgURL is NSDictionary {
+                    tv.iconImgv.kf.setImage(with: ImageResource.init(downloadURL:URL(string: tagsModel.square_list[index - 1]["icon"] as! String)!))
+                    
+                    tv.lblIconTitle.text = tagsModel.square_list[index - 1]["name"] as? String
+                    tv.actionUrl = (tagsModel.square_list[index - 1]["url"] as? String)!
+                    tv.frame = CGRect(x: x, y: y, width: width, height: width + 20)
+                    contentView.addSubview(tv)
+                    x += width
+                }
             }
             x = 0
             y += (width + 20)

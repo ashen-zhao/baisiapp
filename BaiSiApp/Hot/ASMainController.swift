@@ -21,19 +21,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         navView = ASCustomNav.init(frame: (navigationController?.navigationBar.frame)!,menuType: contentScroll.tag == 0 ? "精华" : "最新", delegate: self)
         navigationItem.titleView = navView
         automaticallyAdjustsScrollViewInsets = false
-        self.sayHi()
     }
-    
-    
-    dynamic func sayHi() {
-        print("Hi")
-    }
-    
-    dynamic func printMe(_ a:String, b rb:String) {
-        print(a + rb)
-    }
-
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
