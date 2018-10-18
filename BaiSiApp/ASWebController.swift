@@ -41,7 +41,7 @@ class ASWebController: UIViewController,WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         
-        if (webView.title?.characters.count)! <= 0 {
+        if (webView.title?.count)! <= 0 {
             return
         }
         self.navigationItem.title = webView.title!

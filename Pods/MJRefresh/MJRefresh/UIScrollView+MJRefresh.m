@@ -38,10 +38,8 @@ static const char MJRefreshHeaderKey = '\0';
         [self insertSubview:mj_header atIndex:0];
         
         // 存储新的
-        [self willChangeValueForKey:@"mj_header"]; // KVO
         objc_setAssociatedObject(self, &MJRefreshHeaderKey,
-                                 mj_header, OBJC_ASSOCIATION_ASSIGN);
-        [self didChangeValueForKey:@"mj_header"]; // KVO
+                                 mj_header, OBJC_ASSOCIATION_RETAIN);
     }
 }
 
@@ -57,13 +55,11 @@ static const char MJRefreshFooterKey = '\0';
     if (mj_footer != self.mj_footer) {
         // 删除旧的，添加新的
         [self.mj_footer removeFromSuperview];
-        [self addSubview:mj_footer];
+        [self insertSubview:mj_footer atIndex:0];
         
         // 存储新的
-        [self willChangeValueForKey:@"mj_footer"]; // KVO
         objc_setAssociatedObject(self, &MJRefreshFooterKey,
-                                 mj_footer, OBJC_ASSOCIATION_ASSIGN);
-        [self didChangeValueForKey:@"mj_footer"]; // KVO
+                                 mj_footer, OBJC_ASSOCIATION_RETAIN);
     }
 }
 

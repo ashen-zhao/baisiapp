@@ -15,7 +15,7 @@ class ASMineTBController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ASDataHelper.getMyLists({ (AnyObject) in
-            self.tagsModel = AnyObject as! ASMineTagsModel
+            self.tagsModel = (AnyObject as! ASMineTagsModel)
             self.tableView.reloadData()
             }, fails: {_ in })
         
@@ -78,7 +78,7 @@ class ASMineTBController: UITableViewController {
     
     
     //MARK: -Actions 
-    func iconAction(_ noti:Notification) {
+    @objc func iconAction(_ noti:Notification) {
         let url = noti.object as! String
         let wk = ASWebController()
         wk.urlString = url

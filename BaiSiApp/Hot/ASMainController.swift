@@ -29,15 +29,15 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
     
     // MARK: - ASCustomNavDelegate
 
-    dynamic func getTitlesCount(_ menuURLS: NSMutableArray, count: NSInteger) {
+    @objc dynamic func getTitlesCount(_ menuURLS: NSMutableArray, count: NSInteger) {
         
-        for vc in self.childViewControllers {
-            vc.removeFromParentViewController()
+        for vc in self.children {
+            vc.removeFromParent()
         }
         for i in 0 ..< count {
             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "sbTBView") as! ASTBController
-            vc.menuURL = menuURLS[i] as! String
-            self.addChildViewController(vc)
+            vc.menuURL = menuURLS[i] as? String
+            self.addChild(vc)
         }
         self.contentScroll.delegate = self
         self.contentScroll.contentSize = CGSize(width: CGFloat(count) * self.contentScroll.frame.width, height: self.contentScroll.frame.height)
@@ -45,7 +45,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
         
     }
     
-    dynamic func titleAction(_ index: NSInteger) {
+    @objc dynamic func titleAction(_ index: NSInteger) {
         UIView.animate(withDuration: 0.3, animations: { 
             self.contentScroll.setContentOffset(CGPoint(x: CGFloat(index) * self.view.frame.size.width, y: 0), animated: true)
         }) 
@@ -55,7 +55,7 @@ class ASMainController: UIViewController, ASCustomNavDelegate, UIScrollViewDeleg
 
    dynamic func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         let currentPage = Int(scrollView.contentOffset.x / view.frame.size.width)
-        let controller = childViewControllers[currentPage] as! ASTBController
+    let controller = children[currentPage] as! ASTBController
         controller.view.frame = view.frame
         controller.view.frame.origin.x = scrollView.contentOffset.x
         contentScroll.addSubview(controller.view)

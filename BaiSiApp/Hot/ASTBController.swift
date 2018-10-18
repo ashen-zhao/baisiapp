@@ -22,12 +22,10 @@ class ASTBController: UITableViewController {
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     // 底部刷新
-    let footer = MJRefreshAutoNormalFooter()
-    
+    let footer = MJRefreshBackNormalFooter()
     
     
     // MARK: - life Cycle
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if currentCell == nil {
@@ -44,11 +42,12 @@ class ASTBController: UITableViewController {
         topImg.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(gotoWeb)))
         
         // 下拉刷新
-        header.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(headerRefresh))
         self.tableView.mj_header = header
         self.tableView.mj_header.beginRefreshing()
+        self.tableView.estimatedRowHeight = 200
         // 上拉刷新
-        footer.setRefreshingTarget(self, refreshingAction: #selector(ASTBController.footerRefresh))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(footerRefresh))
 
     }
 
@@ -96,14 +95,14 @@ class ASTBController: UITableViewController {
     }
     
     // MARK: - Actions 
-    dynamic func gotoWeb() {
+    @objc dynamic func gotoWeb() {
         let wk = ASWebController()
         wk.urlString = topImgURL
         self.navigationController?.pushViewController(wk, animated: true)
     }
     
     // MARK: - Refresh
-    dynamic func headerRefresh() {
+    @objc dynamic func headerRefresh() {
         ASDataHelper.getTopImages({ (AnyObject) in
             let topAry = (AnyObject as! NSMutableArray);
             if topAry.count > 0 {
@@ -113,7 +112,7 @@ class ASTBController: UITableViewController {
             } else {
                 self.topImg.image = UIImage(named: "top_defauth.jpg")
             }
-            }, fails: {_ in})
+        }, fails: {})
         
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: "0", success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
@@ -121,16 +120,16 @@ class ASTBController: UITableViewController {
             for listModel in dataArr {
                 self.dataSource.add(listModel as! ASListsModel)
             }
-            self.tableView.reloadData()
+            self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer = self.footer
-            
+            self.tableView.reloadData()
         }) { (AnyObject) in
             self.lagePage = "\(AnyObject)"
+            self.tableView.mj_header.endRefreshing()
         }
-        self.tableView.mj_header.endRefreshing()
     }
     
-    dynamic func footerRefresh() {
+    @objc dynamic func footerRefresh() {
         ASDataHelper.getListsWithMenuURL((menuURL), lagePage: lagePage, success: { (AnyObject) in
             let dataArr = AnyObject as! NSMutableArray
             for listModel in dataArr {
@@ -144,7 +143,7 @@ class ASTBController: UITableViewController {
         self.tableView.mj_footer.endRefreshing()
     }
     
-    dynamic func autoScrollTop() {
+    @objc dynamic func autoScrollTop() {
         UIView.animate(withDuration: 0.3, animations: { 
             self.tableView.contentOffset.y = 0
         }) 
@@ -152,7 +151,7 @@ class ASTBController: UITableViewController {
     
     //MARK: - 暂时不采用的Method
     
-    dynamic func archiver() {
+    @objc dynamic func archiver() {
         let cacheArr = NSMutableArray()
         for index in 0 ..< dataSource.count {
             let model = dataSource[index] as! ASListsModel
@@ -169,7 +168,7 @@ class ASTBController: UITableViewController {
         
     }
     
-    dynamic func getArchiver() {
+    @objc dynamic func getArchiver() {
         
         if UserDefaults.standard.object(forKey: menuURL.components(separatedBy: "/topic/").last!) == nil {
             return

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@objcMembers
 
 class ASCommentModel: NSObject, NSCoding {
 //    "top_comment": {

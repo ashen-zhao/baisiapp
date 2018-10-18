@@ -16,8 +16,8 @@ class ASTagsModel: NSObject, NSCoding {
     //    }
     
     
-    var id = 0
-    var name = ""
+    @objc var id = 0
+    @objc var name = ""
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         

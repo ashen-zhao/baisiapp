@@ -7,19 +7,13 @@
 //
 
 import UIKit
-import JSPatchPlatform
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        //本地测试
-      JSPatch.testScriptInBundle()
-        
-//        JSPatch.start(withAppKey: "391f43c69bd71e43")
-//        JSPatch.sync()
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         return true
     }
 

@@ -1,43 +1,36 @@
 PODS:
-  - Alamofire (4.1.0)
+  - Alamofire (4.7.3)
   - FDFullscreenPopGesture (1.1)
-  - JSPatchPlatform (1.6.3):
-    - JSPatchPlatform/Core (= 1.6.3)
-  - JSPatchPlatform/Core (1.6.3)
-  - Kingfisher (3.2.1)
-  - MJRefresh (3.1.0)
-  - PKHUD (4.0.0)
-  - SocketRocket (0.5.1)
-  - SwiftyJSON (3.1.3)
-  - WeexSDK (0.6.1):
-    - SocketRocket
-  - Zhugeio (2.1.2):
-    - Zhugeio/Zhugeio (= 2.1.2)
-  - Zhugeio/Zhugeio (2.1.2)
+  - Kingfisher (4.10.0)
+  - MJRefresh (3.1.15.7)
+  - PKHUD (5.2.0)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - FDFullscreenPopGesture (= 1.1)
-  - JSPatchPlatform
-  - Kingfisher (~> 3.2.1)
+  - Kingfisher (~> 4.0)
   - MJRefresh
-  - PKHUD (~> 4.0)
+  - PKHUD (~> 5.0)
   - SwiftyJSON (~> 3.1.3)
-  - WeexSDK (= 0.6.1)
-  - Zhugeio
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - FDFullscreenPopGesture
+    - Kingfisher
+    - MJRefresh
+    - PKHUD
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
-  Alamofire: e266cf991b933498df791e645e0d8ac294492153
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
-  JSPatchPlatform: a1e6f6e7903fd6e26ceddc6a2aeb0c051cc98100
-  Kingfisher: 64ef28c6d3d6f344e3ae2d7f5c9da80439505d99
-  MJRefresh: 743e6404967d1c2c688472ea3ecfde247d872db4
-  PKHUD: 2bb45c936bb8afa39f3cd33ec14e8cc89f624255
-  SocketRocket: d57c7159b83c3c6655745cd15302aa24b6bae531
-  SwiftyJSON: 38a8ea2006779c0fc4c310cb2ee8195327740faf
-  WeexSDK: bdcd2087d6f0ce3d5327536cc237fb1219c865dd
-  Zhugeio: 0cbf34536b167368acbad1e3583062be3b47cce2
+  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
+  PKHUD: dd5357ac65f26115c35c4a68e9b328053326c5fe
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 41d0b1ad5e93ae39d5fd67a93d65e72a3976de8f
+PODFILE CHECKSUM: 31e1dcf17b637a6aed2c36263458b4464031a665
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.3

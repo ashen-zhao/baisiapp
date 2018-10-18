@@ -19,11 +19,11 @@ class ASUserModel: NSObject, NSCoding {
     //    "name": "爬上高墙等红杏888"
     //    },
     
-    var header = [String]()
-    var is_v = false
-    var uid:AnyObject!
-    var is_vip = false
-    var name = ""
+    @objc var header = [String]()
+    @objc var is_v = false
+    @objc var uid:AnyObject!
+    @objc var is_vip = false
+    @objc var name = ""
     
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
@@ -45,7 +45,7 @@ class ASUserModel: NSObject, NSCoding {
         self.name = aDecoder.decodeObject(forKey: "name") as! String
         self.header = aDecoder.decodeObject(forKey: "header") as! [String]
         self.is_v = aDecoder.decodeObject(forKey: "is_v") as! Bool
-        self.uid = aDecoder.decodeObject(forKey: "uid") as AnyObject!
+        self.uid = aDecoder.decodeObject(forKey: "uid") as AnyObject
         self.is_vip = aDecoder.decodeObject(forKey: "is_vip") as! Bool
     }
     

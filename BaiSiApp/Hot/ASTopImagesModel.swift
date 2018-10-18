@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@objcMembers
 class ASTopImagesModel: NSObject {
 //    {
 //    "code": 0,

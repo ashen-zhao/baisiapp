@@ -15,9 +15,9 @@ class ASTabBarController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         //调整tabbar中间特殊的item
         let v:UIViewController = self.viewControllers![2]
-        v.tabBarItem.image = UIImage(named: "tabBar_publish_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        v.tabBarItem.selectedImage = UIImage(named: "tabBar_publish_click_icon")?.withRenderingMode(UIImageRenderingMode.alwaysOriginal)
-        v.tabBarItem.imageInsets = UIEdgeInsetsMake(7, 0, -7, 0)
+        v.tabBarItem.image = UIImage(named: "tabBar_publish_icon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        v.tabBarItem.selectedImage = UIImage(named: "tabBar_publish_click_icon")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        v.tabBarItem.imageInsets = UIEdgeInsets(top: 7, left: 0, bottom: -7, right: 0)
     }
     
     override func viewDidLoad() {

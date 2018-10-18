@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftyJSON
+@objcMembers
 
 class ASListsModel: NSObject, NSCoding {
     

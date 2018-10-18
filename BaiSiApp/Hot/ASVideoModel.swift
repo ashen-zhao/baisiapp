@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+@objcMembers
 class ASVideoModel: NSObject,NSCoding {
     
     //    "video": {

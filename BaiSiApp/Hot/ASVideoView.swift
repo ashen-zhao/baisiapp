@@ -49,7 +49,7 @@ class ASVideoView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        autoresizingMask = UIViewAutoresizing()
+        autoresizingMask = UIView.AutoresizingMask()
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self, selector: #selector(stateChanged), name: NSNotification.Name.MPMoviePlayerPlaybackStateDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(finished), name: NSNotification.Name.MPMoviePlayerPlaybackDidFinish, object: nil)
@@ -78,7 +78,7 @@ class ASVideoView: UIView {
             lblTotalTime.text = getNormalTimeStyle(String(videoModel.duration))
             
             lblCurrentTime.text = "00:00"
-            slider.setThumbImage(UIImage(named: "voice-play-progress-icon"), for: UIControlState())
+            slider.setThumbImage(UIImage(named: "voice-play-progress-icon"), for: UIControl.State())
             slider.value = 0.0
             
             isFirstTouch = false
@@ -88,7 +88,7 @@ class ASVideoView: UIView {
             lblPlayTime.isHidden = false
             lblPlayCount.isHidden = false
             controlsHidden = true
-            controlStart.setImage(UIImage(named: "playButtonPause"), for: UIControlState())
+            controlStart.setImage(UIImage(named: "playButtonPause"), for: UIControl.State())
         }
     }
     
@@ -128,10 +128,10 @@ class ASVideoView: UIView {
     
     @IBAction func btnStartAction(_ sender: AnyObject) {
         if player.playbackState == .playing {
-            (sender as! UIButton).setImage(UIImage(named: "voice-play-start"), for: UIControlState())
+            (sender as! UIButton).setImage(UIImage(named: "voice-play-start"), for: UIControl.State())
             player.pause()
         } else {
-            (sender as! UIButton).setImage(UIImage(named: "playButtonPause"), for: UIControlState())
+            (sender as! UIButton).setImage(UIImage(named: "playButtonPause"), for: UIControl.State())
             player.play()
             if timer != nil {
                 timer.invalidate()
@@ -173,7 +173,7 @@ class ASVideoView: UIView {
     
     func pauseState() {
         
-        controlStart.setImage(UIImage(named: "voice-play-start"), for: UIControlState())
+        controlStart.setImage(UIImage(named: "voice-play-start"), for: UIControl.State())
         
         if controlsHidden {
             var frame = controlsVIew.frame
@@ -205,7 +205,7 @@ class ASVideoView: UIView {
         }
     }
     
-    func autoHiddenControls() {
+    @objc func autoHiddenControls() {
         if controlsHidden || player.playbackState == .paused {
             return
         }
@@ -220,13 +220,13 @@ class ASVideoView: UIView {
         }
     }
     
-    func changeCurrentTimeLbl() {
+    @objc func changeCurrentTimeLbl() {
         if player.currentPlaybackTime.isNaN  {
             return
         }
         lblCurrentTime.text = getNormalTimeStyle(String(Int(player.currentPlaybackTime)))
         slider.setValue((Float)(player.currentPlaybackTime / player.duration), animated: true)
-        slider.setMinimumTrackImage(UIImage(named: "voice-play-progress"), for: UIControlState())
+        slider.setMinimumTrackImage(UIImage(named: "voice-play-progress"), for: UIControl.State())
         indicator.isHidden = true
         bgkImageView.isHidden = true
         lblPlayTime.isHidden = true

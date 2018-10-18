@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@objcMembers
 
 class ASGifModel: NSObject,NSCoding {
 //    "gif": {

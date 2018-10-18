@@ -5,10 +5,7 @@ target ‘BaiSiApp’ do
     pod 'SwiftyJSON', '~> 3.1.3'
     pod 'Alamofire', '~> 4.0'
     pod 'MJRefresh'
-    pod 'Kingfisher','~> 3.2.1'
-    pod 'PKHUD', '~> 4.0'
+    pod 'Kingfisher','~> 4.0'
+    pod 'PKHUD', '~> 5.0'
     pod 'FDFullscreenPopGesture', '1.1'
-    pod 'JSPatchPlatform'
-    pod 'WeexSDK', '0.6.1'
-    pod 'Zhugeio'
-end 
+end

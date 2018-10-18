@@ -54,8 +54,8 @@ class ASImgBrowserController: UIViewController {
         }
         imgV.image = image
         scrollView.contentSize = imgV.frame.size
-        shareBtn.setTitle(" \(listModel.forward!)", for: UIControlState())
-        commentBtn.setTitle(" \(listModel.comment!)", for: UIControlState())
+        shareBtn.setTitle(" \(listModel.forward!)", for: UIControl.State())
+        commentBtn.setTitle(" \(listModel.comment!)", for: UIControl.State())
 
     }
     
@@ -73,7 +73,7 @@ class ASImgBrowserController: UIViewController {
         UIImageWriteToSavedPhotosAlbum(imgV.image!, self, #selector(saveimage), nil)
     }
     
-    func saveimage(_ image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
+    @objc func saveimage(_ image: UIImage, didFinishSavingWithError: NSError?, contextInfo: AnyObject) {
         if didFinishSavingWithError != nil {
             HUD.flash(.error, delay: 1.0)
         }else {

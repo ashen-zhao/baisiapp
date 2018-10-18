@@ -7,6 +7,7 @@
 //
 
 import UIKit
+@objcMembers
 
 class ASImageModel: NSObject,NSCoding {
 //    "image": {
@@ -22,7 +23,6 @@ class ASImageModel: NSObject,NSCoding {
 //    "width": 600,
 //    "small": [ ]
 //    },
-    
     
     var big = [String]()
     var height = 0

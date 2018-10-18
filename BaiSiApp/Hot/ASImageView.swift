@@ -20,7 +20,7 @@ class ASImageView: UIView {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        autoresizingMask = UIViewAutoresizing()
+        autoresizingMask = UIView.AutoresizingMask()
     }
     
     class func imageView() -> ASImageView {

@@ -44,7 +44,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
             self.makeUI(self.tempArr)
             self.delegate?.getTitlesCount(self.urlsArr, count: array.count)
 
-            }, fails: {_ in})
+        }, fails: {})
     }
     
     
@@ -77,7 +77,7 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         randowBtn = UIButton(type: .custom)
         randowBtn.frame = CGRect(x: scrollView.frame.maxX, y: 0, width: 40, height: self.frame.size.height)
         let imgName = mType == "精华" ? "RandomAcross" : "MainTagSubIcon"
-        randowBtn.setImage(UIImage(named: imgName), for: UIControlState())
+        randowBtn.setImage(UIImage(named: imgName), for: UIControl.State())
         self.addSubview(randowBtn)
         
         let menuBtnWidth = (self.frame.size.width - 35) / CGFloat(titles.count)
@@ -85,14 +85,14 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         for i in 0..<titles.count {
             let title = UIButton(type: .custom)
             title.frame = CGRect(x: CGFloat(i) * menuBtnWidth, y: 0, width: CGFloat(menuBtnWidth), height: self.frame.size.height)
-            title.setTitle(titles[i] as? String, for: UIControlState())
+            title.setTitle(titles[i] as? String, for: UIControl.State())
             title.tag = i;
             if i == 0 {
                 lastBtn = title
-                title.setTitleColor(UIColor.red, for: UIControlState())
+                title.setTitleColor(UIColor.red, for: UIControl.State())
                 title.titleLabel?.font = UIFont.systemFont(ofSize: 15.5)
             } else {
-                title.setTitleColor(UIColor.lightGray, for: UIControlState())
+                title.setTitleColor(UIColor.lightGray, for: UIControl.State())
                 title.titleLabel?.font = UIFont.systemFont(ofSize: 15)
             }
             title.addTarget(self, action: #selector(ASCustomNav.titlesChangeAction(_:)), for: .touchUpInside)
@@ -112,16 +112,16 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
     }
     
     // MARK: - actons
-    func titlesChangeAction(_ btn:UIButton) {
+    @objc func titlesChangeAction(_ btn:UIButton) {
         
         if lastBtn?.tag == btn.tag {
             return
         }
         
-        lastBtn?.setTitleColor(UIColor.lightGray, for: UIControlState())
+        lastBtn?.setTitleColor(UIColor.lightGray, for: UIControl.State())
         lastBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
-        btn.setTitleColor(UIColor.red, for: UIControlState())
+        btn.setTitleColor(UIColor.red, for: UIControl.State())
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.5)
         
         lastBtn = btn
@@ -146,10 +146,10 @@ class ASCustomNav: UIView, UIScrollViewDelegate {
         
         let btn = scrollView.subviews[index] as! UIButton
         
-        lastBtn?.setTitleColor(UIColor.lightGray, for: UIControlState())
+        lastBtn?.setTitleColor(UIColor.lightGray, for: UIControl.State())
         lastBtn?.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
-        btn.setTitleColor(UIColor.red, for: UIControlState())
+        btn.setTitleColor(UIColor.red, for: UIControl.State())
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.5)
         
         lastBtn = btn

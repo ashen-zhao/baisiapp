@@ -9,7 +9,7 @@
 
 import UIKit
 import SwiftyJSON
-
+@objcMembers
 class ASMenusModel: NSObject {
     
     // MARK: - 属性
