@@ -39,9 +39,9 @@ class ASListsModel: NSObject, NSCoding {
         super.init()
         id = dict["id"].string!
         comment = dict["comment"].object as AnyObject?
-        bookmark = dict["bookmark"].string!
-        text = dict["text"].string!
-        up = dict["up"].string!
+        bookmark = dict["bookmark"].string ?? ""
+        text = dict["text"].string ?? ""
+        up = dict["up"].string ?? ""
         down = dict["down"].object as AnyObject?
         forward = dict["forward"].object as AnyObject?
         share_url = dict["share_url"].string!
